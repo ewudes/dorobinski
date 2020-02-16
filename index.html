@@ -128,11 +128,35 @@
       <section>
         <h2>Личный кабинет</h2>
         <p>Введите свой логин и пароль.</p>
-        <!-- Здесь будет форма -->
+        <form action="https://echo.htmlacademy.ru" method="post">
+          <p>
+            <label for="user-login">Логин</label>
+            <input id="user-login" type="email" name="login" placeholder="email@example.com">
+          </p>
+          <p>
+            <label for="user-password">Пароль</label>
+            <input id="user-password" type="password" name="password" placeholder="••••••••">
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" name="remember">
+              Запомните меня
+            </label>
+            <a href="#">Я забыл пароль!</a>
+          </p>
+          <button type="submit">
+            Войти
+          </button>
+        </form>
         <button type="button">Закрыть</button>
       </section>
       <section>
-        <h2>Как до нас добраться</h2>
+        <h2>
+          Как до нас добраться
+        </h2>
+        <p>
+          <img src="img/map.jpg" width="780" height="560" alt="Офис компании по адресу ул. Большая Конюшенная 19/8, Санкт-Петербург">
+        </p>
         <button type="button">Закрыть</button>
       </section>
     </main>
