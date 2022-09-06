@@ -1,5 +1,6 @@
 # Borodinski
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1c2bfc8f-b78b-4b37-8cfd-5807c1eaeadc/deploy-status)](https://app.netlify.com/sites/borodinski/deploys)
+[![image](https://img.shields.io/badge/click_to_demo-blue)](https://borodinski.netlify.app/)
 
 Description coming soon
 
