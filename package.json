@@ -1,0 +1,49 @@
+{
+  "name": "borodinski",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node ./app.js",
+    "dev": "parcel --port 3000",
+    "build": "parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewudes/borodinski.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ewudes/borodinski/issues"
+  },
+  "homepage": "https://github.com/ewudes/borodinski#readme",
+  "dependencies": {
+    "handlebars": "4.7.7"
+  },
+  "devDependencies": {
+    "@anikin/parcel-transformer-handlebars": "1.0.9",
+    "@parcel/transformer-sass": "2.7.0",
+    "@trivago/prettier-plugin-sort-imports": "3.3.0",
+    "@tsconfig/recommended": "1.0.1",
+    "@typescript-eslint/eslint-plugin": "5.36.2",
+    "@typescript-eslint/parser": "5.36.2",
+    "eslint": "8.23.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-config-prettier": "8.5.0",
+    "express": "4.18.1",
+    "nanoid": "4.0.0",
+    "parcel": "2.7.0",
+    "parcel-transformer-hbs": "1.0.4",
+    "prettier": "2.7.1",
+    "sass": "1.54.8",
+    "stylelint": "14.11.0",
+    "stylelint-config-prettier": "9.0.3",
+    "stylelint-config-standard": "28.0.0",
+    "stylelint-config-standard-scss": "5.0.0",
+    "stylelint-scss": "4.3.0",
+    "typescript": "4.8.2"
+  }
+}

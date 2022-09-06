@@ -1,0 +1,16 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "color-hex-case": "lower",
+    "max-empty-lines": 4,
+    "string-quotes": "double",
+    "color-hex-length": "long",
+    "declaration-colon-newline-after": null,
+    "font-family-name-quotes": null,
+    "number-leading-zero": "always",
+    "value-list-comma-newline-after": null,
+    "max-nesting-depth": 2
+  },
+  "ignoreFiles": ["dist/*"]
+}

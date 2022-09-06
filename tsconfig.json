@@ -1,0 +1,29 @@
+{
+  "include": ["src/**/*"],
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "commonjs",
+    "target": "es2017",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "types": ["handlebars"],
+    "lib": ["ES2017", "dom"]
+  },
+  "exclude": ["node_modules", "dist", ".parcel-cache"]
+}
