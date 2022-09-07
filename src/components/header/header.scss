@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .header {
   margin-bottom: 75px;
 
@@ -7,7 +9,6 @@
     align-items: center;
     font-size: 16px;
     line-height: 20px;
-    color: #ffffff;
     background-color: transparent;
   }
 
@@ -24,7 +25,7 @@
   &__nav-wrapper {
     width: 100%;
     margin-bottom: 60px;
-    background-color: #000000;
+    background-color: $header-bg-color;
 
     & .container {
       display: flex;
@@ -57,14 +58,14 @@
 
   &__link,
   &__login {
-    color: #ffffff;
+    color: $main-font-color;
   }
 
   &__link:hover,
   &__link:focus,
   &__login:hover,
   &__login:focus {
-    background-color: #242424;
+    background-color: $hover-link-color;
   }
 
   &__login {
