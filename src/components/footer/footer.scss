@@ -1,0 +1,73 @@
+.footer {
+  margin-top: 65px;
+  padding: 40px 0;
+
+  color: #ffffff;
+
+  background-color: #212121;
+  // background-image: url("../static/img/pattern-dark.jpg");
+  background-position: 0 0;
+  background-repeat: repeat;
+
+  & .container {
+    display: flex;
+  }
+
+  &__contacts {
+    width: 320px;
+    margin: 0;
+    margin-right: 70px;
+
+    a {
+      color: #ffffff;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    width: 145px;
+    text-align: center;
+
+    ul {
+      list-style: none;
+    }
+  }
+
+  &__social-button {
+    color: #ffffff;
+  }
+
+  &__copyright {
+    width: 180px;
+    margin: 0;
+    margin-left: auto;
+
+    & strong:first-child {
+      color: #bd0808;
+    }
+
+    & .button:hover,
+    & .button:focus {
+      color: #000000;
+      background-color: #ffffff;
+    }
+  }
+}
+
+.button__copyright {
+   background-color: #000000;
+   color: #ffffff;
+   padding: 2px 12px;
+   margin-left: 4px;
+}
+
+// .inner-page .main-footer {
+//   margin-top: 45px;
+// }

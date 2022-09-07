@@ -1,38 +1,14 @@
-.button {
-  font: inherit;
-  text-align: center;
-  color: #ffffff;
-  vertical-align: middle;
-  text-transform: uppercase;
-  background-color: #000000;
-  border: none;
-}
+.index-columns {
+  box-sizing: border-box;
+  position: relative;
 
-.button:hover,
-.button:focus,
-.button:active {
-  background-color: #663d15;
-}
-
-.features {
-  margin-bottom: 80px;
-}
-
-.features-list {
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-}
-
-.feature-item {
-  width: 300px;
-  text-align: center;
-}
-
-.feature-item h3 {
-  font-size: 30px;
-  line-height: 42px;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 278px;
+    background-image: url("../../../static/img/separ.png");
+    background-repeat: no-repeat;
+    transform: translateX(390px);
+  }
 }
