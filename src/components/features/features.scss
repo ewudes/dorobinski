@@ -1,0 +1,32 @@
+.features {
+  margin-bottom: 60px;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    width: 300px;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 42px;
+    margin-bottom: 20px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 15px;
+      background-color: #ffffff;
+      margin: 10px auto 0;
+      transform: rotate(45deg);
+    }
+  }
+}
