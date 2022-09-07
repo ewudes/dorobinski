@@ -1,0 +1,20 @@
+.news {
+  width: 380px;
+
+  &__title {
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__description {
+    margin-bottom: 5px;
+  }
+
+  &__time {
+    text-transform: none;
+  }
+}
