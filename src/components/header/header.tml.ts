@@ -1,22 +1,30 @@
 import Handlebars from "handlebars";
 
 const header = Handlebars.compile(
-  `<header class="main-header">
-    <nav class="main-navigation">
-      <a class="main-header-logo">
-        <img src="img/index-logo.svg" width="368" height="153" alt="Логотип барбершопа «Бородинский»">
-      </a>
-      <div class="main-navigation-wrapper">
+  `<header class="header">
+    <nav class="header__nav">
+      <a class="header__logo">Барбершоп «Бородинский»</a>
+      <div class="header__nav-wrapper">
         <div class="container">
-          <ul class="site-navigation">
-            <li><a href="info.html">Информация</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="price.html">Прайс-лист</a></li>
-            <li><a href="catalog.html">Магазин</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
+          <ul class="header__items">
+            <li class="header__item">
+              <a href="info.html" class="header__link">Информация</a>
+            </li>
+            <li class="header__item">
+              <a href="news.html" class="header__link">Новости</a>
+            </li>
+            <li class="header__item">
+              <a href="price.html" class="header__link">Прайс-лист</a>
+            </li>
+            <li class="header__item">
+              <a href="catalog.html" class="header__link">Магазин</a>
+            </li>
+            <li class="header__item">
+              <a href="contacts.html" class="header__link">Контакты</a>
+            </li>
           </ul>
-          <ul class="user-navigation">
-            <li><a class="login-link" href="login.html">Вход</a></li>
+          <ul class="header__btns">
+            <li><a class="header__login" href="login.html">Вход</a></li>
           </ul>
         </div>
       </div>

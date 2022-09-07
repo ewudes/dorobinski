@@ -1,0 +1,84 @@
+.header {
+  margin-bottom: 75px;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    background-color: transparent;
+  }
+
+  &__logo {
+    order: 2;
+    width: 368px;
+    height: 153px;
+    font-size: 0;
+    background-image: url("../../../static/img/index-logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__nav-wrapper {
+    width: 100%;
+    margin-bottom: 60px;
+    background-color: #000000;
+
+    & .container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__items,
+  &__btns {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__items {
+    display: flex;
+  }
+
+  &__item {
+    min-width: 100px;
+    padding: 30px 0;
+    text-align: center;
+  }
+
+  &__btns {
+    width: 100px;
+    padding: 30px 0;
+    text-align: center;
+  }
+
+  &__link,
+  &__login {
+    color: #ffffff;
+  }
+
+  &__link:hover,
+  &__link:focus,
+  &__login:hover,
+  &__login:focus {
+    background-color: #242424;
+  }
+
+  &__login {
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: 15px;
+      width: 14px;
+      height: 14px;
+      background-image: url("../../../static/img/login.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0 1px;
+      opacity: .5;
+    }
+  }
+}
