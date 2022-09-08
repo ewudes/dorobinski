@@ -113,12 +113,39 @@
   list-style: none;
 }
 
+.footer__social-links {
+  margin: 15px 0;
+  padding: 0;
+  display: flex;
+}
+
 .footer__social-button {
   color: #fff;
+  width: 43px;
+  height: 43px;
+  background-color: #000;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 5px;
+  font-size: 0;
+  display: block;
+}
+
+.footer__social-button--vk {
+  background-image: url("vk.7d3102cd.svg");
+}
+
+.footer__social-button--fb {
+  background-image: url("facebook.8c641f0d.svg");
+}
+
+.footer__social-button--inst {
+  background-image: url("instagram.64b3dba5.svg");
 }
 
 .footer__copyright {
   width: 180px;
+  text-align: right;
   margin: 0 0 0 auto;
 }
 
@@ -213,8 +240,16 @@
   width: 380px;
 }
 
+.contacts__title {
+  margin: 0;
+}
+
 .appointment {
   width: 300px;
+}
+
+.appointment__title {
+  margin: 0;
 }
 
 .appointment__form {

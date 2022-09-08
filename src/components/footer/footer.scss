@@ -40,14 +40,41 @@
     }
   }
 
+  &__social-links {
+    display: flex;
+    margin: 15px 0;
+    padding: 0;
+  }
+
   &__social-button {
+    display: block;
     color: #ffffff;
+    font-size: 0;
+    width: 43px;
+    height: 43px;
+    background-color: #000000;
+    margin: 0 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--vk {
+      background-image: url("../../../static/img/vk.svg");
+    }
+
+    &--fb {
+      background-image: url("../../../static/img/facebook.svg");
+    }
+
+    &--inst {
+      background-image: url("../../../static/img/instagram.svg");
+    }
   }
 
   &__copyright {
     width: 180px;
     margin: 0;
     margin-left: auto;
+    text-align: right;
 
     & strong:first-child {
       color: #bd0808;

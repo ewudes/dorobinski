@@ -1,6 +1,10 @@
 .appointment {
   width: 300px;
 
+  &__title {
+    margin: 0;
+  }
+
   &__form {
     display: flex;
     flex-wrap: wrap;

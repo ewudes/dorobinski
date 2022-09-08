@@ -10,11 +10,11 @@ const footer = Handlebars.compile(
         Телефон: +7 (812) 666-02-66
       </p>
       <div class="footer__social">
-        <b>Давайте дружить!</b>
-        <ul>
-          <li><a class="footer__social-button" href="#">Вконтакте</a></li>
-          <li><a class="footer__social-button" href="#">Фейсбук</a></li>
-          <li><a class="footer__social-button" href="#">Инстаграм</a></li>
+        <div>Давайте дружить!</div>
+        <ul class="footer__social-links">
+          <li class="footer__social-link"><a class="footer__social-button footer__social-button--vk" href="#">Вконтакте</a></li>
+          <li class="footer__social-link"><a class="footer__social-button footer__social-button--fb" href="#">Фейсбук</a></li>
+          <li class="footer__social-link"><a class="footer__social-button footer__social-button--inst" href="#">Инстаграм</a></li>
         </ul>
       </div>
       <p class="footer__copyright">

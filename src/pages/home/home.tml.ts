@@ -16,7 +16,7 @@ const home = Handlebars.compile(
       </div>
     </main>
     {{{footer}}}
-  <div>`
+  </div>`
 );
 
 export default home;

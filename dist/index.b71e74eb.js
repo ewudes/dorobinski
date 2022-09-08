@@ -612,12 +612,12 @@ var _homeScss = require("./home.scss");
 class Home extends (0, _blockDefault.default) {
     constructor(props = {}){
         const header = new (0, _headerDefault.default)();
-        const footer = new (0, _footerDefault.default)();
         const features = new (0, _featuresDefault.default)();
         const news = new (0, _newsDefault.default)();
         const gallery = new (0, _galleryDefault.default)();
         const contacts = new (0, _contactsDefault.default)();
         const appointment = new (0, _appointmentDefault.default)();
+        const footer = new (0, _footerDefault.default)();
         super("div", {
             header,
             features,
@@ -12265,11 +12265,11 @@ const footer = (0, _handlebarsDefault.default).compile(`<footer class="footer">
         Телефон: +7 (812) 666-02-66
       </p>
       <div class="footer__social">
-        <b>Давайте дружить!</b>
-        <ul>
-          <li><a class="footer__social-button" href="#">Вконтакте</a></li>
-          <li><a class="footer__social-button" href="#">Фейсбук</a></li>
-          <li><a class="footer__social-button" href="#">Инстаграм</a></li>
+        <div>Давайте дружить!</div>
+        <ul class="footer__social-links">
+          <li class="footer__social-link"><a class="footer__social-button footer__social-button--vk" href="#">Вконтакте</a></li>
+          <li class="footer__social-link"><a class="footer__social-button footer__social-button--fb" href="#">Фейсбук</a></li>
+          <li class="footer__social-link"><a class="footer__social-button footer__social-button--inst" href="#">Инстаграм</a></li>
         </ul>
       </div>
       <p class="footer__copyright">
@@ -12417,7 +12417,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const contacts = (0, _handlebarsDefault.default).compile(`<section class="contacts">
-    <h2>Контактная информация</h2>
+    <h2 class="contacts__title">Контактная информация</h2>
     <p>
       Барбершоп «Бородинский»<br>
       Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
@@ -12509,7 +12509,7 @@ const home = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
       </div>
     </main>
     {{{footer}}}
-  <div>`);
+  </div>`);
 exports.default = home;
 
 },{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7qQX1":[function() {},{}],"lJZlQ":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0cac")

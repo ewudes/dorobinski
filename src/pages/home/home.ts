@@ -13,12 +13,12 @@ import "./home.scss";
 class Home extends Block {
   constructor(props: Record<string, any> = {}) {
     const header = new Header();
-    const footer = new Footer();
     const features = new Features();
     const news = new News();
     const gallery = new Gallery();
     const contacts = new Contacts();
     const appointment = new Appointment();
+    const footer = new Footer();
 
     super("div", { header, features, news, gallery, contacts, appointment, footer, ...props });
   }

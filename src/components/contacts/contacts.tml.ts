@@ -2,7 +2,7 @@ import Handlebars from "handlebars";
 
 const contacts = Handlebars.compile(
   `<section class="contacts">
-    <h2>Контактная информация</h2>
+    <h2 class="contacts__title">Контактная информация</h2>
     <p>
       Барбершоп «Бородинский»<br>
       Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
