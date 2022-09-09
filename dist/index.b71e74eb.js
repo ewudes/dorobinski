@@ -537,17 +537,22 @@ var _render = require("./utils/render");
 var _renderDefault = parcelHelpers.interopDefault(_render);
 var _home = require("./pages/home/home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
+var _catalog = require("./pages/catalog/catalog");
+var _catalogDefault = parcelHelpers.interopDefault(_catalog);
 var _indexScss = require("./index.scss");
 const currentPath = window.location.pathname;
 switch(currentPath){
     case "/":
         (0, _renderDefault.default)("#app", new (0, _homeDefault.default)());
         break;
+    case "/catalog":
+        (0, _renderDefault.default)("#app", new (0, _catalogDefault.default)());
+        break;
     default:
         (0, _renderDefault.default)("#app", new (0, _homeDefault.default)());
 }
 
-},{"./utils/render":"duBlU","./pages/home/home":"gkmfh","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"duBlU":[function(require,module,exports) {
+},{"./utils/render":"duBlU","./pages/home/home":"gkmfh","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./pages/catalog/catalog":"2nlPD"}],"duBlU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function render(query, block) {
@@ -12512,6 +12517,208 @@ const home = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = home;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7qQX1":[function() {},{}],"lJZlQ":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0cac")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7qQX1":[function() {},{}],"lJZlQ":[function() {},{}],"2nlPD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../utils/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _header = require("../../components/header/header");
+var _headerDefault = parcelHelpers.interopDefault(_header);
+var _catalogTml = require("./catalog.tml");
+var _catalogTmlDefault = parcelHelpers.interopDefault(_catalogTml);
+var _catalogScss = require("./catalog.scss");
+class Catalog extends (0, _blockDefault.default) {
+    constructor(props = {}){
+        const header = new (0, _headerDefault.default)();
+        super("div", {
+            header,
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _catalogTmlDefault.default), this.props);
+    }
+}
+exports.default = Catalog;
+
+},{"../../utils/block":"7D3jB","../../components/header/header":"4f7AX","./catalog.tml":"8xLrV","./catalog.scss":"dkORu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8xLrV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const catalog = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
+    {{{header}}}
+    <main class="container">
+      <h1 class="page-title">Cредства для ухода</h1>
+      <ul class="breadcrumbs">
+        <li>
+          <a href="index.html">Главная</a>
+        </li>
+        <li>
+          <a href="catalog.html">Магазин</a>
+        </li>
+        <li class="breadcrumbs-current">Средства для ухода</li>
+      </ul>
+
+      <div class="catalog-columns">
+        <section class="filters">
+          <h2 class="visually-hidden">Фильтр товаров</h2>
+          <form class="filter" method="get" action="https://echo.htmlacademy.ru">
+            <fieldset>
+              <legend>Производители:</legend>
+              <ul>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-checkbox" type="checkbox" name="baxter-of-california" id="filter-baxter-of-california" checked>
+                  <label for="filter-baxter-of-california">Baxter of California</label>
+                </li>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-checkbox" type="checkbox" name="mr-natty" id="filter-mr-natty">
+                  <label for="filter-mr-natty">Mr Natty</label>
+                </li>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-checkbox" type="checkbox" name="suavecito" id="filter-suavecito" checked>
+                  <label for="filter-suavecito">Suavecito</label>
+                </li>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-checkbox" type="checkbox" name="malin-goetz" id="filter-malin-goetz">
+                  <label for="filter-malin-goetz">Malin+Goetz</label>
+                </li>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-checkbox" type="checkbox" name="murrays" id="filter-murrays">
+                  <label for="filter-murrays">Murray’s</label>
+                </li>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-checkbox" type="checkbox" name="american-crew" id="filter-american-crew" checked>
+                  <label for="filter-american-crew">American Crew</label>
+                </li>
+              </ul>
+            </fieldset>
+            <fieldset>
+              <legend>Группы товаров:</legend>
+              <ul>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-radio" type="radio" name="product-group" value="shaving" id="filter-shave">
+                  <label for="filter-shave">Бритвенные принадлежности</label>
+                </li>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-radio" type="radio" name="product-group" value="hair-care" id="filter-care" checked>
+                  <label for="filter-care">Средства для ухода</label>
+                </li>
+                <li class="filter-option">
+                  <input class="visually-hidden filter-input filter-input-radio" type="radio" name="product-group" value="accessories" id="filter-accessories">
+                  <label for="filter-accessories">Аксессуары</label>
+                </li>
+              </ul>
+            </fieldset>
+            <button type="submit" class="filter-button button">Показать</button>
+          </form>
+        </section>
+        <section class="catalog">
+          <h2 class="visually-hidden">Список средств для ухода</h2>
+          <ul class="catalog-list">
+            <li class="catalog-item">
+              <a href="catalog-item.html">
+                <h3>
+                  <span class="catalog-category">Набор для путешествий</span>
+                  <span class="catalog-item-title">«Baxter of California»</span>
+                </h3>
+                <p class="catalog-item-image">
+                  <img src="img/product-1.jpg" width="220" height="165" alt="Набор для путешествий «Baxter of California»">
+                </p>
+              </a>
+              <p class="catalog-item-price">
+                <b>2 900 ₽</b>
+                <a class="button" href="#">Купить</a>
+              </p>
+            </li>
+            <li class="catalog-item">
+              <a href="catalog-item.html">
+                <h3>
+                  <span class="catalog-category">Увлажняющий кондиционер</span>
+                  <span class="catalog-item-title">«Baxter of California»</span>
+                </h3>
+                <p class="catalog-item-image">
+                  <img src="img/product-2.jpg" width="220" height="165" alt="Увлажняющий кондиционер «Baxter of California»">
+                </p>
+              </a>
+              <p class="catalog-item-price">
+                <b>750 ₽</b>
+                <a class="button" href="#">Купить</a>
+              </p>
+            </li>
+            <li class="catalog-item">
+              <a href="catalog-item.html">
+                <h3>
+                  <span class="catalog-category">Гель для волос</span>
+                  <span class="catalog-item-title">«Suavecito»</span>
+                </h3>
+                <p class="catalog-item-image">
+                  <img src="img/product-3.jpg" width="220" height="165" alt="Гель для волос «Suavecito»">
+                </p>
+              </a>
+              <p class="catalog-item-price">
+                <b>290 ₽</b>
+                <a class="button" href="#">Купить</a>
+              </p>
+            </li>
+            <li class="catalog-item">
+              <a href="catalog-item.html">
+                <h3>
+                  <span class="catalog-category">Глина для укладки волос</span>
+                  <span class="catalog-item-title">«American crew»</span>
+                </h3>
+                <p class="catalog-item-image">
+                  <img src="img/product-4.jpg" width="220" height="165" alt="Глина для укладки волос «American crew»">
+                </p>
+              </a>
+              <p class="catalog-item-price">
+                <b>500 ₽</b>
+                <a class="button" href="#">Купить</a>
+              </p>
+            </li>
+            <li class="catalog-item">
+              <a href="catalog-item.html">
+                <h3>
+                  <span class="catalog-category">Гель для волос</span>
+                  <span class="catalog-item-title">«American crew»</span>
+                </h3>
+                <p class="catalog-item-image">
+                  <img src="img/product-5.jpg" width="220" height="165" alt="Гель для волос «American crew»">
+                </p>
+              </a>
+              <p class="catalog-item-price">
+                <b>300 ₽</b>
+                <a class="button" href="#">Купить</a>
+              </p>
+            </li>
+            <li class="catalog-item">
+              <a href="catalog-item.html">
+                <h3>
+                  <span class="catalog-category">Набор для бритья</span>
+                  <span class="catalog-item-title">«Baxter of California»</span>
+                </h3>
+                <p class="catalog-item-image">
+                  <img src="img/product-6.jpg" width="220" height="165" alt="Набор для бритья «Baxter of California»">
+                </p>
+              </a>
+              <p class="catalog-item-price">
+                <b>3 900 ₽</b>
+                <a class="button" href="#">Купить</a>
+              </p>
+            </li>
+          </ul>
+          <ul class="pagination-list">
+            <li class="pagination-item"><a href="#">1</a></li>
+            <li class="pagination-item pagination-item-current"><a>2</a></li>
+            <li class="pagination-item"><a href="#">3</a></li>
+            <li class="pagination-item"><a href="#">4</a></li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>`);
+exports.default = catalog;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dkORu":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0cac")
 
 //# sourceMappingURL=index.b71e74eb.js.map
