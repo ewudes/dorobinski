@@ -1,8 +1,9 @@
 import Handlebars from "handlebars";
 
 const home = Handlebars.compile(
-  `<div class="wrapper">
+  `<div class="wrapper wrapper--home">
     {{{header}}}
+    <a class="home__logo">Барбершоп «Бородинский»</a>
     <main class="container">
       <h1 class="visually-hidden">Барбершоп «Бородинский»</h1>
       {{{features}}}

@@ -12,7 +12,6 @@ const catalog = Handlebars.compile(
         <li>
           <a href="catalog.html">Магазин</a>
         </li>
-        <li class="breadcrumbs-current">Средства для ухода</li>
       </ul>
 
       <div class="catalog-columns">

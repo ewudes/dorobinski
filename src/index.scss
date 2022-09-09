@@ -9,10 +9,17 @@ body {
   font-weight: 700;
   color: $main-font-color;
   text-transform: uppercase;
-  background-color: $main-bg-color;
-  background-image: url("../static/img/bg.jpg");
-  background-position: top center;
-  background-repeat: no-repeat;
+
+}
+
+.wrapper {
+  background-color: #f4f1ee;
+
+  &--home {
+    background-image: url("../static/img/bg.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
 }
 
 a {
@@ -136,10 +143,10 @@ a {
 
 
 .page-title {
-  margin: 0;
-  margin-bottom: 15px;
+  margin-top: 60px;
+  margin-bottom: 28px;
   padding: 0;
-
+  color: #000000;
   font-size: 30px;
   line-height: 42px;
 }

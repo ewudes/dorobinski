@@ -1,3 +1,16 @@
+.home {
+  &__logo {
+    display: block;
+    width: 368px;
+    height: 153px;
+    margin: 60px auto;
+    font-size: 0;
+    background-image: url("../../../static/img/index-logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
 .index-columns {
   box-sizing: border-box;
   position: relative;

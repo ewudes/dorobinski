@@ -3,7 +3,6 @@ import Handlebars from "handlebars";
 const header = Handlebars.compile(
   `<header class="header">
     <nav class="header__nav">
-      <a class="header__logo">Барбершоп «Бородинский»</a>
       <div class="header__nav-wrapper">
         <div class="container">
           <ul class="header__items">

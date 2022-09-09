@@ -1,7 +1,6 @@
 @import "../../variables.scss";
 
 .header {
-  margin-bottom: 75px;
 
   &__nav {
     display: flex;
@@ -12,19 +11,8 @@
     background-color: transparent;
   }
 
-  &__logo {
-    order: 2;
-    width: 368px;
-    height: 153px;
-    font-size: 0;
-    background-image: url("../../../static/img/index-logo.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
   &__nav-wrapper {
     width: 100%;
-    margin-bottom: 60px;
     background-color: $header-bg-color;
 
     & .container {
