@@ -552,7 +552,7 @@ switch(currentPath){
         (0, _renderDefault.default)("#app", new (0, _homeDefault.default)());
 }
 
-},{"./utils/render":"duBlU","./pages/home/home":"gkmfh","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./pages/catalog/catalog":"2nlPD"}],"duBlU":[function(require,module,exports) {
+},{"./utils/render":"duBlU","./pages/home/home":"gkmfh","./pages/catalog/catalog":"2nlPD","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"duBlU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function render(query, block) {
@@ -891,7 +891,6 @@ var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const header = (0, _handlebarsDefault.default).compile(`<header class="header">
     <nav class="header__nav">
-      <a class="header__logo">Барбершоп «Бородинский»</a>
       <div class="header__nav-wrapper">
         <div class="container">
           <ul class="header__items">
@@ -12499,8 +12498,9 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const home = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
+const home = (0, _handlebarsDefault.default).compile(`<div class="wrapper wrapper--home">
     {{{header}}}
+    <a class="home__logo">Барбершоп «Бородинский»</a>
     <main class="container">
       <h1 class="visually-hidden">Барбершоп «Бородинский»</h1>
       {{{features}}}
@@ -12517,7 +12517,7 @@ const home = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = home;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7qQX1":[function() {},{}],"lJZlQ":[function() {},{}],"2nlPD":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7qQX1":[function() {},{}],"2nlPD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
@@ -12557,7 +12557,6 @@ const catalog = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
         <li>
           <a href="catalog.html">Магазин</a>
         </li>
-        <li class="breadcrumbs-current">Средства для ухода</li>
       </ul>
 
       <div class="catalog-columns">
@@ -12719,6 +12718,6 @@ const catalog = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = catalog;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dkORu":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0cac")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dkORu":[function() {},{}],"lJZlQ":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0cac")
 
 //# sourceMappingURL=index.b71e74eb.js.map
