@@ -1,21 +1,23 @@
 import Block from "../../utils/block";
 import Header from "../../components/header/header";
 import Breadcrumbs from "../../components/breadcrumbs/breadcrumbs";
+import Filters from "../../components/filters/filters";
 
-import catalog from "./catalog.tml";
-import "./catalog.scss";
+import store from "./store.tml";
+import "./store.scss";
 
-class Catalog extends Block {
+class Store extends Block {
   constructor(props: Record<string, any> = {}) {
     const header = new Header();
     const breadcrumbs = new Breadcrumbs();
+    const filters = new Filters();
 
-    super("div", { header, breadcrumbs, ...props });
+    super("div", { header, breadcrumbs, filters, ...props });
   }
 
   render() {
-    return this.setTemplate(catalog, this.props);
+    return this.setTemplate(store, this.props);
   }
 }
 
-export default Catalog;
+export default Store;

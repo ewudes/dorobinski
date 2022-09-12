@@ -1,7 +1,7 @@
 import render from "./utils/render";
 
 import Home from './pages/home/home';
-import Catalog from "./pages/catalog/catalog";
+import Shop from "./pages/store/store";
 import './index.scss';
 
 const currentPath: string = window.location.pathname;
@@ -11,7 +11,7 @@ switch(currentPath) {
     render("#app", new Home());
     break;
   case '/catalog':
-    render("#app", new Catalog());
+    render("#app", new Shop());
     break;
   default:
     render("#app", new Home());
