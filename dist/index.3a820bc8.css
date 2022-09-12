@@ -292,8 +292,6 @@
   transform: translateX(390px);
 }
 
-
-
 body {
   color: #fff;
   text-transform: uppercase;
@@ -582,5 +580,15 @@ a {
 .product-info ul {
   list-style: none;
 }
+
+
+
+.filters {
+  color: #000;
+}
+
+
+
+
 
 /*# sourceMappingURL=index.3a820bc8.css.map */
