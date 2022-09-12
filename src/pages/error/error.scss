@@ -1,0 +1,13 @@
+.error {
+  &__title,
+  &__description {
+    font-size: 58px;
+    color: #000000;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  &__description {
+    font-size: 32px;
+  }
+}

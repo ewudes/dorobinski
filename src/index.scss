@@ -1,5 +1,10 @@
 @import "./variables.scss";
 
+html,
+body {
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -9,16 +14,22 @@ body {
   font-weight: 700;
   color: $main-font-color;
   text-transform: uppercase;
-
 }
 
 .wrapper {
   background-color: #f4f1ee;
+  min-height: 100%;
 
   &--home {
     background-image: url("../static/img/bg.jpg");
     background-position: top center;
     background-repeat: no-repeat;
+  }
+
+  &--error {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
   }
 }
 
@@ -43,6 +54,13 @@ a {
   width: 940px;
   margin: 0 auto;
   padding: 0 10px;
+
+  &--error {
+    display: flex;
+    flex-grow: 3;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .button {
