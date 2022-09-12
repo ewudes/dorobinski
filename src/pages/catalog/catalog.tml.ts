@@ -5,14 +5,7 @@ const catalog = Handlebars.compile(
     {{{header}}}
     <main class="container">
       <h1 class="page-title">Cредства для ухода</h1>
-      <ul class="breadcrumbs">
-        <li>
-          <a href="index.html">Главная</a>
-        </li>
-        <li>
-          <a href="catalog.html">Магазин</a>
-        </li>
-      </ul>
+      {{{breadcrumbs}}}
 
       <div class="catalog-columns">
         <section class="filters">
