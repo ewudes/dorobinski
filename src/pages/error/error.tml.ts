@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 
-const item = Handlebars.compile(
+const error = Handlebars.compile(
   `<div class="wrapper wrapper--error">
     {{{header}}}
       <main class="container container--error">
@@ -13,4 +13,4 @@ const item = Handlebars.compile(
   </div>`
 );
 
-export default item;
+export default error;
