@@ -12296,7 +12296,7 @@ const footer = (0, _handlebarsDefault.default).compile(`<footer class="footer">
       <p class="footer__copyright">
         <strong>Не является копированием проекта HTML Academy</strong>
         <strong>Ознакомиться с кодом можно тут:</strong>
-        <a class="button__copyright" href="https://github.com/ewudes/borodinski">GitHub</a>
+        <a class="button__copyright" href="https://github.com/ewudes/dorobinski">GitHub</a>
       </p>
     </div>
   </footer>`);
@@ -12724,7 +12724,7 @@ const catalog = (0, _handlebarsDefault.default).compile(`<section class="catalog
             <span class="catalog-item-title">«Baxter of California»</span>
           </h3>
           <p class="catalog-item-image">
-            <img src="static/img/cross.svg" width="220" height="165" alt="Набор для путешествий «Baxter of California»">
+            <img src="img/product-1.jpg" width="220" height="165" alt="Набор для путешествий «Baxter of California»">
           </p>
         </a>
         <p class="catalog-item-price">
@@ -13007,6 +13007,6 @@ const contacts = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = contacts;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8UA4":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0cac")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8UA4":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
 
 //# sourceMappingURL=index.b71e74eb.js.map
