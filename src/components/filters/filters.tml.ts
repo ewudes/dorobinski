@@ -37,8 +37,8 @@ const breadcrumbs = Handlebars.compile(
         <legend>Группы товаров:</legend>
         <ul class="filters__option-list">
         <li class="filters__option">
-          <input class="visually-hidden filters__input filters__input-radio" type="radio" name="product-group" value="shaving" id="filter-shave">
-          <label class="filters__input-label" for="filter-shave">Все</label>
+          <input class="visually-hidden filters__input filters__input-radio" type="radio" name="product-group" value="all" id="filter-all">
+          <label class="filters__input-label" for="filter-all">Все</label>
         </li>
           <li class="filters__option">
             <input class="visually-hidden filters__input filters__input-radio" type="radio" name="product-group" value="shaving" id="filter-shave">
