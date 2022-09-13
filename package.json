@@ -1,5 +1,5 @@
 {
-  "name": "borodinski",
+  "name": "dorobinski",
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ewudes/borodinski.git"
+    "url": "git+https://github.com/ewudes/dorobinski.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ewudes/borodinski/issues"
+    "url": "https://github.com/ewudes/dorobinski/issues"
   },
-  "homepage": "https://github.com/ewudes/borodinski#readme",
+  "homepage": "https://github.com/ewudes/dorobinski#readme",
   "dependencies": {
     "handlebars": "4.7.7",
     "nanoid": "4.0.0"

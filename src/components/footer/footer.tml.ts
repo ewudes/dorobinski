@@ -20,7 +20,7 @@ const footer = Handlebars.compile(
       <p class="footer__copyright">
         <strong>Не является копированием проекта HTML Academy</strong>
         <strong>Ознакомиться с кодом можно тут:</strong>
-        <a class="button__copyright" href="https://github.com/ewudes/borodinski">GitHub</a>
+        <a class="button__copyright" href="https://github.com/ewudes/dorobinski">GitHub</a>
       </p>
     </div>
   </footer>`
