@@ -1,0 +1,36 @@
+.pagination {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+
+
+  &__item a {
+    color: #ffffff;
+    padding: 10px 15px;
+    background-color: #000000;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #663d15;
+    }
+  }
+
+  &__item {
+    margin: 0 5px;
+
+    &--current a {
+      color: #000000;
+      background-color: #ffffff;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: #000000;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
