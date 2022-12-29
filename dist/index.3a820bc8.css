@@ -477,17 +477,6 @@
 
 
 
-.error__title, .error__description {
-  color: #000;
-  text-align: center;
-  font-size: 58px;
-  line-height: 1.2;
-}
-
-.error__description {
-  font-size: 32px;
-}
-
 html, body {
   min-height: 100vh;
 }

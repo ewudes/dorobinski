@@ -533,83 +533,23 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"h7u1C":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _render = require("./utils/render");
-var _renderDefault = parcelHelpers.interopDefault(_render);
 var _home = require("./pages/home/home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
 var _store = require("./pages/store/store");
 var _storeDefault = parcelHelpers.interopDefault(_store);
-var _error = require("./pages/error/error");
-var _errorDefault = parcelHelpers.interopDefault(_error);
+// import Error from "./pages/error/error";
 var _news = require("./pages/news/news");
 var _newsDefault = parcelHelpers.interopDefault(_news);
 var _price = require("./pages/price/price");
 var _priceDefault = parcelHelpers.interopDefault(_price);
 var _contacts = require("./pages/contacts/contacts");
 var _contactsDefault = parcelHelpers.interopDefault(_contacts);
+var _router = require("./utils/router");
+var _routerDefault = parcelHelpers.interopDefault(_router);
 var _indexScss = require("./index.scss");
-const currentPath = window.location.pathname;
-switch(currentPath){
-    case "/":
-        (0, _renderDefault.default)("#app", new (0, _homeDefault.default)());
-        break;
-    case "/news":
-        (0, _renderDefault.default)("#app", new (0, _newsDefault.default)());
-        break;
-    case "/store":
-        (0, _renderDefault.default)("#app", new (0, _storeDefault.default)());
-        break;
-    case "/price":
-        (0, _renderDefault.default)("#app", new (0, _priceDefault.default)());
-        break;
-    case "/contacts":
-        (0, _renderDefault.default)("#app", new (0, _contactsDefault.default)());
-        break;
-    default:
-        (0, _renderDefault.default)("#app", new (0, _errorDefault.default)());
-}
+(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).start();
 
-},{"./utils/render":"duBlU","./pages/home/home":"gkmfh","./pages/store/store":"852ID","./pages/error/error":"kZohv","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./pages/news/news":"fTEv5","./pages/price/price":"henjG","./pages/contacts/contacts":"vkH32"}],"duBlU":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function render(query, block) {
-    const root = document.querySelector(query);
-    root.appendChild(block.getElement());
-    block.dispatchMountComponent();
-}
-exports.default = render;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"gkmfh":[function(require,module,exports) {
+},{"./pages/home/home":"gkmfh","./pages/store/store":"852ID","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./pages/news/news":"fTEv5","./pages/price/price":"henjG","./pages/contacts/contacts":"vkH32","./utils/router":"eQMoo"}],"gkmfh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
@@ -861,7 +801,37 @@ let nanoid = (size = 21)=>crypto.getRandomValues(new Uint8Array(size)).reduce((i
         return id;
     }, "");
 
-},{"./url-alphabet/index.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8YfCy":[function(require,module,exports) {
+},{"./url-alphabet/index.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"8YfCy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class EventBus {
@@ -12824,52 +12794,7 @@ const store = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = store;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ieCK1":[function() {},{}],"kZohv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../utils/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _header = require("../../components/header/header");
-var _headerDefault = parcelHelpers.interopDefault(_header);
-var _footer = require("../../components/footer/footer");
-var _footerDefault = parcelHelpers.interopDefault(_footer);
-var _errorTml = require("./error.tml");
-var _errorTmlDefault = parcelHelpers.interopDefault(_errorTml);
-var _errorScss = require("./error.scss");
-class Error extends (0, _blockDefault.default) {
-    constructor(props = {}){
-        const header = new (0, _headerDefault.default)();
-        const footer = new (0, _footerDefault.default)();
-        super("div", {
-            header,
-            footer,
-            ...props
-        });
-    }
-    render() {
-        return this.setTemplate((0, _errorTmlDefault.default), this.props);
-    }
-}
-exports.default = Error;
-
-},{"../../utils/block":"7D3jB","../../components/header/header":"4f7AX","../../components/footer/footer":"jMkhk","./error.tml":"j6Fmf","./error.scss":"OszSi","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j6Fmf":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const error = (0, _handlebarsDefault.default).compile(`<div class="wrapper wrapper--error">
-    {{{header}}}
-      <main class="container container--error">
-        <span lass="error">
-          <div class="error__title">404</div>
-          <span class="error__description">Здесь ничего нет</span>
-        </span>
-      </main>
-    {{{footer}}}
-  </div>`);
-exports.default = error;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"OszSi":[function() {},{}],"lJZlQ":[function() {},{}],"fTEv5":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ieCK1":[function() {},{}],"lJZlQ":[function() {},{}],"fTEv5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
@@ -12995,6 +12920,85 @@ const contacts = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = contacts;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8UA4":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8UA4":[function() {},{}],"eQMoo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _route = require("./route");
+var _routeDefault = parcelHelpers.interopDefault(_route);
+class Router {
+    constructor(){
+        this.routes = [];
+        this.history = window.history;
+        this.currentRoute = null;
+    }
+    use(pathname, block, props = {}) {
+        const route = new (0, _routeDefault.default)(pathname, block, props);
+        this.routes.push(route);
+        return this;
+    }
+    start() {
+        window.addEventListener("popstate", (event)=>{
+            this.onRoute(event.currentTarget.location.pathname);
+        });
+        this.onRoute(window.location.pathname);
+    }
+    go(pathname) {
+        this.history.pushState({}, "", pathname);
+        this.onRoute(pathname);
+    }
+    back() {
+        this.history.back();
+    }
+    forward() {
+        this.history.forward();
+    }
+    onRoute(pathname) {
+        let route = this.getRoute(pathname);
+        if (this.currentRoute && this.currentRoute !== route) this.currentRoute.leave();
+        this.currentRoute = route;
+        route.render();
+    }
+    getRoute(pathname) {
+        return this.routes.find((route)=>route.match(pathname)) || this.getRoute("/404");
+    }
+}
+exports.default = new Router();
+
+},{"./route":"igkfJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"igkfJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _render = require("./render");
+var _renderDefault = parcelHelpers.interopDefault(_render);
+class Route {
+    constructor(pathname, view, props){
+        this.pathname = pathname;
+        this.blockClass = view;
+        this.props = props;
+    }
+    match(pathname) {
+        return pathname === this.pathname;
+    }
+    leave() {
+        if (this.block) this.block.deleteElement();
+    }
+    render() {
+        this.block = new this.blockClass(this.props);
+        (0, _renderDefault.default)("#app", this.block);
+        return;
+    }
+}
+exports.default = Route;
+
+},{"./render":"duBlU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"duBlU":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function render(query, block) {
+    const root = document.querySelector(query);
+    root.appendChild(block.getElement());
+    block.dispatchMountComponent();
+}
+exports.default = render;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
 
 //# sourceMappingURL=index.b71e74eb.js.map
