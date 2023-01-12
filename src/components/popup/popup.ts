@@ -10,11 +10,11 @@ interface IPopup {
 class Popup extends Block {
   constructor(props?: IPopup) {
     setTimeout(() => {
-      const wrapperForm = document.querySelector(".popup__wrap");
-      const popupForm = document.querySelector(".popup__form") as HTMLDivElement;
+      const wrapperForm = document.querySelector(".popup__back");
+      const popupWrap = document.querySelector(".popup__wrap") as HTMLDivElement;
 
-      popupForm?.addEventListener('mousedown', function(e) {
-        var coords = getCoords(popupForm);
+      const popupMove = (e: any) => {
+        var coords = getCoords(popupWrap);
 
         var shiftX = e.pageX - coords.left;
         var shiftY = e.pageY - coords.top;
@@ -22,10 +22,10 @@ class Popup extends Block {
         moveAt(e)
 
         function moveAt(e : any) {
-          if (popupForm !== null) {
-            popupForm.style.left = e.pageX - shiftX + 'px';
-            popupForm.style.top = e.pageY - shiftY + 'px';
-            popupForm.style.transform = "translate(0, 0)"
+          if (popupWrap !== null) {
+            popupWrap.style.left = e.pageX - shiftX + 'px';
+            popupWrap.style.top = e.pageY - shiftY + 'px';
+            popupWrap.style.transform = "translate(0, 0)"
           }
         }
 
@@ -33,12 +33,12 @@ class Popup extends Block {
           moveAt(e);
         }
 
-        popupForm.onmouseup = function() {
+        popupWrap.onmouseup = function() {
           document.onmousemove = null;
-          popupForm.onmouseup = null;
+          popupWrap.onmouseup = null;
         }
 
-        popupForm.ondragstart = function() {
+        popupWrap.ondragstart = function() {
           return false;
         };
 
@@ -49,7 +49,16 @@ class Popup extends Block {
             left: box.left + pageXOffset
           };
         }
-      });
+      }
+
+      document.onmouseover = function(e : any) {
+        if (e.target.className === "popup__wrap") {
+          popupWrap.style.cursor = "move";
+          popupWrap.addEventListener('mousedown', popupMove);
+        } else {
+          popupWrap.removeEventListener('mousedown', popupMove)
+        }
+      }
 
       wrapperForm?.addEventListener('click', function() {
         closeForm()
