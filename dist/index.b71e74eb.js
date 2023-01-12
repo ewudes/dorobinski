@@ -12434,28 +12434,28 @@ var _popupScss = require("./popup.scss");
 class Popup extends (0, _blockDefault.default) {
     constructor(props){
         setTimeout(()=>{
-            const wrapperForm = document.querySelector(".popup__wrap");
-            const popupForm = document.querySelector(".popup__form");
-            popupForm?.addEventListener("mousedown", function(e) {
-                var coords = getCoords(popupForm);
+            const wrapperForm = document.querySelector(".popup__back");
+            const popupWrap = document.querySelector(".popup__wrap");
+            const popupMove = (e)=>{
+                var coords = getCoords(popupWrap);
                 var shiftX = e.pageX - coords.left;
                 var shiftY = e.pageY - coords.top;
                 moveAt(e);
                 function moveAt(e) {
-                    if (popupForm !== null) {
-                        popupForm.style.left = e.pageX - shiftX + "px";
-                        popupForm.style.top = e.pageY - shiftY + "px";
-                        popupForm.style.transform = "translate(0, 0)";
+                    if (popupWrap !== null) {
+                        popupWrap.style.left = e.pageX - shiftX + "px";
+                        popupWrap.style.top = e.pageY - shiftY + "px";
+                        popupWrap.style.transform = "translate(0, 0)";
                     }
                 }
                 document.onmousemove = function(e) {
                     moveAt(e);
                 };
-                popupForm.onmouseup = function() {
+                popupWrap.onmouseup = function() {
                     document.onmousemove = null;
-                    popupForm.onmouseup = null;
+                    popupWrap.onmouseup = null;
                 };
-                popupForm.ondragstart = function() {
+                popupWrap.ondragstart = function() {
                     return false;
                 };
                 function getCoords(elem) {
@@ -12465,7 +12465,13 @@ class Popup extends (0, _blockDefault.default) {
                         left: box.left + pageXOffset
                     };
                 }
-            });
+            };
+            document.onmouseover = function(e) {
+                if (e.target.className === "popup__wrap") {
+                    popupWrap.style.cursor = "move";
+                    popupWrap.addEventListener("mousedown", popupMove);
+                } else popupWrap.removeEventListener("mousedown", popupMove);
+            };
             wrapperForm?.addEventListener("click", function() {
                 closeForm();
             });
@@ -12499,21 +12505,23 @@ parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const popup = (0, _handlebarsDefault.default).compile(`<div class="popup">
-    <div class="popup__wrap"></div>
-    <form class="popup__form">
-      <h4 class="popup__title">Вход в личный кабинет</h4>
-      <p class="popup__text">Введите логин и пароль для входа в ваш кабинет пользователя:</p>
-      <input class="popup__field popup__field--login" placeholder="Введите логин" required/>
-      <input class="popup__field popup__field--pass" placeholder="Введите пароль" required/>
-      <label class="popup__remember">
-        <input type="checkbox" />
-        Запомнить меня
-      </label>
-      <a class="popup__forgot" href="#">Я забыл пароль</a>
-      <button class="popup__submit" type="submit">Войти</button>
-      <button class="popup__signup" type="button">Зарегистрироваться</button>
-      {{{close}}}
-    </form>
+    <div class="popup__back"></div>
+    <div class="popup__wrap">
+      <form class="popup__form">
+        <h4 class="popup__title">Вход в личный кабинет</h4>
+        <p class="popup__text">Введите логин и пароль для входа в ваш кабинет пользователя:</p>
+        <input class="popup__field popup__field--login" placeholder="Введите логин" required/>
+        <input class="popup__field popup__field--pass" placeholder="Введите пароль" required/>
+        <label class="popup__remember">
+          <input type="checkbox" />
+          Запомнить меня
+        </label>
+        <a class="popup__forgot" href="#">Я забыл пароль</a>
+        <button class="popup__submit" type="submit">Войти</button>
+        <button class="popup__signup" type="button">Зарегистрироваться</button>
+        {{{close}}}
+      </form>
+    </div>
   </div>`);
 exports.default = popup;
 
