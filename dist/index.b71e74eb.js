@@ -568,13 +568,12 @@ var _contacts = require("../../components/contacts/contacts");
 var _contactsDefault = parcelHelpers.interopDefault(_contacts);
 var _appointment = require("../../components/appointment/appointment");
 var _appointmentDefault = parcelHelpers.interopDefault(_appointment);
+// import Popup from "../../components/popup/popup";
 var _homeTml = require("./home.tml");
 var _homeTmlDefault = parcelHelpers.interopDefault(_homeTml);
 var _homeScss = require("./home.scss");
-var _router = require("../../utils/router");
-var _routerDefault = parcelHelpers.interopDefault(_router);
-var _link = require("../../components/link/link");
-var _linkDefault = parcelHelpers.interopDefault(_link);
+// import router from "../../utils/router";
+// import Link from "../../components/link/link";
 class Home extends (0, _blockDefault.default) {
     constructor(props = {}){
         const header = new (0, _headerDefault.default)();
@@ -584,13 +583,7 @@ class Home extends (0, _blockDefault.default) {
         const contacts = new (0, _contactsDefault.default)();
         const appointment = new (0, _appointmentDefault.default)();
         const footer = new (0, _footerDefault.default)();
-        const infoLink = new (0, _linkDefault.default)({
-            name: "Информация",
-            className: "header__link",
-            events: {
-                click: ()=>(0, _routerDefault.default).go("/home")
-            }
-        });
+        // const popup = new Popup();
         super("div", {
             header,
             features,
@@ -608,7 +601,7 @@ class Home extends (0, _blockDefault.default) {
 }
 exports.default = Home;
 
-},{"../../utils/block":"7D3jB","../../components/header/header":"4f7AX","../../components/footer/footer":"jMkhk","../../components/features/features":"4vLug","../../components/news/news":"1hBo2","../../components/gallery/gallery":"27EMi","../../components/contacts/contacts":"YnyaQ","../../components/appointment/appointment":"4Q4TY","./home.tml":"7Yt1H","./home.scss":"7qQX1","../../utils/router":"eQMoo","../../components/link/link":"9UCyh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7D3jB":[function(require,module,exports) {
+},{"../../utils/block":"7D3jB","../../components/header/header":"4f7AX","../../components/footer/footer":"jMkhk","../../components/features/features":"4vLug","../../components/news/news":"1hBo2","../../components/gallery/gallery":"27EMi","../../components/contacts/contacts":"YnyaQ","../../components/appointment/appointment":"4Q4TY","./home.tml":"7Yt1H","./home.scss":"7qQX1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7D3jB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _nanoid = require("nanoid");
@@ -871,6 +864,10 @@ var _block = require("../../utils/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
 var _link = require("../link/link");
 var _linkDefault = parcelHelpers.interopDefault(_link);
+var _button = require("../button/button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _popup = require("../popup/popup");
+var _popupDefault = parcelHelpers.interopDefault(_popup);
 var _headerTml = require("./header.tml");
 var _headerTmlDefault = parcelHelpers.interopDefault(_headerTml);
 var _headerScss = require("./header.scss");
@@ -913,11 +910,24 @@ class Header extends (0, _blockDefault.default) {
                 click: ()=>(0, _routerDefault.default).go("/contacts")
             }
         });
+        const showLoginForm = ()=>{
+            const wrapper = document.querySelector(".wrapper");
+            const popup = new (0, _popupDefault.default)().getElement();
+            wrapper.appendChild(popup);
+        };
+        const login = new (0, _buttonDefault.default)({
+            className: "header__login",
+            text: "Вход",
+            events: {
+                click: ()=>showLoginForm()
+            }
+        });
         super("div", {
             infoLink,
             newsLink,
             priceLink,
             storeLink,
+            login,
             contactsLink,
             ...props
         });
@@ -928,7 +938,7 @@ class Header extends (0, _blockDefault.default) {
 }
 exports.default = Header;
 
-},{"../../utils/block":"7D3jB","../link/link":"9UCyh","./header.tml":"2JVLn","./header.scss":"9Xa35","../../utils/router":"eQMoo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9UCyh":[function(require,module,exports) {
+},{"../../utils/block":"7D3jB","../link/link":"9UCyh","./header.tml":"2JVLn","./header.scss":"9Xa35","../../utils/router":"eQMoo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../button/button":"9lSjy","../popup/popup":"akUTQ"}],"9UCyh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
@@ -12282,6 +12292,7 @@ const header = (0, _handlebarsDefault.default).compile(`<header class="header">
         <div class="container">
           <ul class="header__items">
             <li class="header__item">
+              {{{count}}}
               {{{infoLink}}}
             </li>
             <li class="header__item">
@@ -12298,7 +12309,7 @@ const header = (0, _handlebarsDefault.default).compile(`<header class="header">
             </li>
           </ul>
           <ul class="header__btns">
-            <li><a class="header__login" href="login.html">Вход</a></li>
+            <li>{{{login}}}</li>
           </ul>
         </div>
       </div>
@@ -12385,7 +12396,128 @@ function render(query, block) {
 }
 exports.default = render;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jMkhk":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9lSjy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../utils/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _buttonTml = require("./button.tml");
+var _buttonTmlDefault = parcelHelpers.interopDefault(_buttonTml);
+class Button extends (0, _blockDefault.default) {
+    constructor(props){
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _buttonTmlDefault.default), this.props);
+    }
+}
+exports.default = Button;
+
+},{"../../utils/block":"7D3jB","./button.tml":"d2faE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d2faE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const button = (0, _handlebarsDefault.default).compile(`<button class="{{className}}">{{text}}</button>`);
+exports.default = button;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"akUTQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../utils/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _button = require("../button/button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _popupTml = require("./popup.tml");
+var _popupTmlDefault = parcelHelpers.interopDefault(_popupTml);
+var _popupScss = require("./popup.scss");
+class Popup extends (0, _blockDefault.default) {
+    constructor(props){
+        setTimeout(()=>{
+            const wrapperForm = document.querySelector(".popup__wrap");
+            const popupForm = document.querySelector(".popup__form");
+            popupForm?.addEventListener("mousedown", function(e) {
+                var coords = getCoords(popupForm);
+                var shiftX = e.pageX - coords.left;
+                var shiftY = e.pageY - coords.top;
+                moveAt(e);
+                function moveAt(e) {
+                    if (popupForm !== null) {
+                        popupForm.style.left = e.pageX - shiftX + "px";
+                        popupForm.style.top = e.pageY - shiftY + "px";
+                        popupForm.style.transform = "translate(0, 0)";
+                    }
+                }
+                document.onmousemove = function(e) {
+                    moveAt(e);
+                };
+                popupForm.onmouseup = function() {
+                    document.onmousemove = null;
+                    popupForm.onmouseup = null;
+                };
+                popupForm.ondragstart = function() {
+                    return false;
+                };
+                function getCoords(elem) {
+                    var box = elem.getBoundingClientRect();
+                    return {
+                        top: box.top + pageYOffset,
+                        left: box.left + pageXOffset
+                    };
+                }
+            });
+            wrapperForm?.addEventListener("click", function() {
+                closeForm();
+            });
+        });
+        const closeForm = ()=>{
+            const wrapper = document.querySelector(".wrapper");
+            const popup = document.querySelector(".popup");
+            wrapper.removeChild(popup);
+        };
+        const close = new (0, _buttonDefault.default)({
+            className: "popup__close",
+            text: "Закрыть",
+            events: {
+                click: ()=>closeForm()
+            }
+        });
+        super("div", {
+            close,
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _popupTmlDefault.default), this.props);
+    }
+}
+exports.default = Popup;
+
+},{"../../utils/block":"7D3jB","./popup.tml":"5Kvfr","./popup.scss":"kQGEX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../button/button":"9lSjy"}],"5Kvfr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const popup = (0, _handlebarsDefault.default).compile(`<div class="popup">
+    <div class="popup__wrap"></div>
+    <form class="popup__form">
+      <h4 class="popup__title">Вход в личный кабинет</h4>
+      <p class="popup__text">Введите логин и пароль для входа в ваш кабинет пользователя:</p>
+      <input class="popup__field popup__field--login" placeholder="Введите логин" required/>
+      <input class="popup__field popup__field--pass" placeholder="Введите пароль" required/>
+      <label class="popup__remember">
+        <input type="checkbox" />
+        Запомнить меня
+      </label>
+      <a class="popup__forgot" href="#">Я забыл пароль</a>
+      <button class="popup__submit" type="submit">Войти</button>
+      <button class="popup__signup" type="button">Зарегистрироваться</button>
+      {{{close}}}
+    </form>
+  </div>`);
+exports.default = popup;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kQGEX":[function() {},{}],"jMkhk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
