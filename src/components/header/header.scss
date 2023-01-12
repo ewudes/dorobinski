@@ -49,6 +49,10 @@
     color: $main-font-color;
   }
 
+  &__link {
+    cursor: pointer;
+  }
+
   &__link:hover,
   &__link:focus,
   &__login:hover,

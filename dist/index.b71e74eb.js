@@ -549,7 +549,7 @@ var _routerDefault = parcelHelpers.interopDefault(_router);
 var _indexScss = require("./index.scss");
 (0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).start();
 
-},{"./pages/home/home":"gkmfh","./pages/store/store":"852ID","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./pages/news/news":"fTEv5","./pages/price/price":"henjG","./pages/contacts/contacts":"vkH32","./utils/router":"eQMoo"}],"gkmfh":[function(require,module,exports) {
+},{"./pages/home/home":"gkmfh","./pages/store/store":"852ID","./pages/news/news":"fTEv5","./pages/price/price":"henjG","./pages/contacts/contacts":"vkH32","./utils/router":"eQMoo","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkmfh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
@@ -571,6 +571,10 @@ var _appointmentDefault = parcelHelpers.interopDefault(_appointment);
 var _homeTml = require("./home.tml");
 var _homeTmlDefault = parcelHelpers.interopDefault(_homeTml);
 var _homeScss = require("./home.scss");
+var _router = require("../../utils/router");
+var _routerDefault = parcelHelpers.interopDefault(_router);
+var _link = require("../../components/link/link");
+var _linkDefault = parcelHelpers.interopDefault(_link);
 class Home extends (0, _blockDefault.default) {
     constructor(props = {}){
         const header = new (0, _headerDefault.default)();
@@ -580,6 +584,13 @@ class Home extends (0, _blockDefault.default) {
         const contacts = new (0, _contactsDefault.default)();
         const appointment = new (0, _appointmentDefault.default)();
         const footer = new (0, _footerDefault.default)();
+        const infoLink = new (0, _linkDefault.default)({
+            name: "Информация",
+            className: "header__link",
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/home")
+            }
+        });
         super("div", {
             header,
             features,
@@ -597,7 +608,7 @@ class Home extends (0, _blockDefault.default) {
 }
 exports.default = Home;
 
-},{"../../utils/block":"7D3jB","../../components/header/header":"4f7AX","../../components/footer/footer":"jMkhk","../../components/features/features":"4vLug","../../components/news/news":"1hBo2","../../components/gallery/gallery":"27EMi","../../components/contacts/contacts":"YnyaQ","../../components/appointment/appointment":"4Q4TY","./home.tml":"7Yt1H","./home.scss":"7qQX1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7D3jB":[function(require,module,exports) {
+},{"../../utils/block":"7D3jB","../../components/header/header":"4f7AX","../../components/footer/footer":"jMkhk","../../components/features/features":"4vLug","../../components/news/news":"1hBo2","../../components/gallery/gallery":"27EMi","../../components/contacts/contacts":"YnyaQ","../../components/appointment/appointment":"4Q4TY","./home.tml":"7Yt1H","./home.scss":"7qQX1","../../utils/router":"eQMoo","../../components/link/link":"9UCyh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7D3jB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _nanoid = require("nanoid");
@@ -858,12 +869,58 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
+var _link = require("../link/link");
+var _linkDefault = parcelHelpers.interopDefault(_link);
 var _headerTml = require("./header.tml");
 var _headerTmlDefault = parcelHelpers.interopDefault(_headerTml);
 var _headerScss = require("./header.scss");
+var _router = require("../../utils/router");
+var _routerDefault = parcelHelpers.interopDefault(_router);
 class Header extends (0, _blockDefault.default) {
     constructor(props){
-        super("div", props);
+        const infoLink = new (0, _linkDefault.default)({
+            name: "Информация",
+            className: "header__link",
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/")
+            }
+        });
+        const newsLink = new (0, _linkDefault.default)({
+            name: "Новости",
+            className: "header__link",
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/news")
+            }
+        });
+        const priceLink = new (0, _linkDefault.default)({
+            name: "Прайс-лист",
+            className: "header__link",
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/price")
+            }
+        });
+        const storeLink = new (0, _linkDefault.default)({
+            name: "Магазин",
+            className: "header__link",
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/store")
+            }
+        });
+        const contactsLink = new (0, _linkDefault.default)({
+            name: "Контакты",
+            className: "header__link",
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/contacts")
+            }
+        });
+        super("div", {
+            infoLink,
+            newsLink,
+            priceLink,
+            storeLink,
+            contactsLink,
+            ...props
+        });
     }
     render() {
         return this.setTemplate((0, _headerTmlDefault.default), this.props);
@@ -871,40 +928,30 @@ class Header extends (0, _blockDefault.default) {
 }
 exports.default = Header;
 
-},{"../../utils/block":"7D3jB","./header.tml":"2JVLn","./header.scss":"9Xa35","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2JVLn":[function(require,module,exports) {
+},{"../../utils/block":"7D3jB","../link/link":"9UCyh","./header.tml":"2JVLn","./header.scss":"9Xa35","../../utils/router":"eQMoo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9UCyh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../utils/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _linkTml = require("./link.tml");
+var _linkTmlDefault = parcelHelpers.interopDefault(_linkTml);
+class Link extends (0, _blockDefault.default) {
+    constructor(props){
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _linkTmlDefault.default), this.props);
+    }
+}
+exports.default = Link;
+
+},{"../../utils/block":"7D3jB","./link.tml":"5hF8c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5hF8c":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const header = (0, _handlebarsDefault.default).compile(`<header class="header">
-    <nav class="header__nav">
-      <div class="header__nav-wrapper">
-        <div class="container">
-          <ul class="header__items">
-            <li class="header__item">
-              <a href="info.html" class="header__link">Информация</a>
-            </li>
-            <li class="header__item">
-              <a href="news.html" class="header__link">Новости</a>
-            </li>
-            <li class="header__item">
-              <a href="price.html" class="header__link">Прайс-лист</a>
-            </li>
-            <li class="header__item">
-              <a href="catalog.html" class="header__link">Магазин</a>
-            </li>
-            <li class="header__item">
-              <a href="contacts.html" class="header__link">Контакты</a>
-            </li>
-          </ul>
-          <ul class="header__btns">
-            <li><a class="header__login" href="login.html">Вход</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>`);
-exports.default = header;
+const link = (0, _handlebarsDefault.default).compile(`<a data-value="{{dataset}}" class="{{className}}">{{{name}}}</a>`);
+exports.default = link;
 
 },{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0QfX":[function(require,module,exports) {
 // USAGE:
@@ -12224,7 +12271,121 @@ PrintVisitor.prototype.HashPair = function(pair) {
 },{"./visitor":"fk5sS"}],"jhUEF":[function(require,module,exports) {
 "use strict";
 
-},{}],"9Xa35":[function() {},{}],"jMkhk":[function(require,module,exports) {
+},{}],"2JVLn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const header = (0, _handlebarsDefault.default).compile(`<header class="header">
+    <nav class="header__nav">
+      <div class="header__nav-wrapper">
+        <div class="container">
+          <ul class="header__items">
+            <li class="header__item">
+              {{{infoLink}}}
+            </li>
+            <li class="header__item">
+              {{{newsLink}}}
+            </li>
+            <li class="header__item">
+              {{{priceLink}}}
+            </li>
+            <li class="header__item">
+              {{{storeLink}}}
+            </li>
+            <li class="header__item">
+              {{{contactsLink}}}
+            </li>
+          </ul>
+          <ul class="header__btns">
+            <li><a class="header__login" href="login.html">Вход</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>`);
+exports.default = header;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Xa35":[function() {},{}],"eQMoo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _route = require("./route");
+var _routeDefault = parcelHelpers.interopDefault(_route);
+class Router {
+    constructor(){
+        this.routes = [];
+        this.history = window.history;
+        this.currentRoute = null;
+    }
+    use(pathname, block, props = {}) {
+        const route = new (0, _routeDefault.default)(pathname, block, props);
+        this.routes.push(route);
+        return this;
+    }
+    start() {
+        window.addEventListener("popstate", (event)=>{
+            this.onRoute(event.currentTarget.location.pathname);
+        });
+        this.onRoute(window.location.pathname);
+    }
+    go(pathname) {
+        this.history.pushState({}, "", pathname);
+        this.onRoute(pathname);
+    }
+    back() {
+        this.history.back();
+    }
+    forward() {
+        this.history.forward();
+    }
+    onRoute(pathname) {
+        let route = this.getRoute(pathname);
+        if (this.currentRoute && this.currentRoute !== route) this.currentRoute.leave();
+        this.currentRoute = route;
+        route.render();
+    }
+    getRoute(pathname) {
+        return this.routes.find((route)=>route.match(pathname)) || this.getRoute("/404");
+    }
+}
+exports.default = new Router();
+
+},{"./route":"igkfJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"igkfJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _render = require("./render");
+var _renderDefault = parcelHelpers.interopDefault(_render);
+class Route {
+    constructor(pathname, view, props){
+        this.pathname = pathname;
+        this.blockClass = view;
+        this.props = props;
+    }
+    match(pathname) {
+        return pathname === this.pathname;
+    }
+    leave() {
+        if (this.block) this.block.deleteElement();
+    }
+    render() {
+        this.block = new this.blockClass(this.props);
+        (0, _renderDefault.default)("#app", this.block);
+        return;
+    }
+}
+exports.default = Route;
+
+},{"./render":"duBlU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"duBlU":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function render(query, block) {
+    const root = document.querySelector(query);
+    root.appendChild(block.getElement());
+    block.dispatchMountComponent();
+}
+exports.default = render;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jMkhk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
@@ -12689,21 +12850,7 @@ class Catalog extends (0, _blockDefault.default) {
 }
 exports.default = Catalog;
 
-},{"../../utils/block":"7D3jB","./catalog.tml":"2Bdcw","./catalog.scss":"daGJN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./item/item":"7fMN5","../pagination/pagination":"gIpdv"}],"2Bdcw":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const catalog = (0, _handlebarsDefault.default).compile(`<section class="catalog">
-    <h2 class="visually-hidden">Список средств для ухода</h2>
-    <ul class="catalog__list">
-      {{{item}}}
-    </ul>
-    {{{pagination}}}
-  </section>`);
-exports.default = catalog;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"daGJN":[function() {},{}],"7fMN5":[function(require,module,exports) {
+},{"../../utils/block":"7D3jB","./item/item":"7fMN5","../pagination/pagination":"gIpdv","./catalog.tml":"2Bdcw","./catalog.scss":"daGJN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7fMN5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../utils/block");
@@ -12775,7 +12922,21 @@ const pagination = (0, _handlebarsDefault.default).compile(`<ul class="paginatio
     </ul>`);
 exports.default = pagination;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2TTFV":[function() {},{}],"cukV8":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2TTFV":[function() {},{}],"2Bdcw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const catalog = (0, _handlebarsDefault.default).compile(`<section class="catalog">
+    <h2 class="visually-hidden">Список средств для ухода</h2>
+    <ul class="catalog__list">
+      {{{item}}}
+    </ul>
+    {{{pagination}}}
+  </section>`);
+exports.default = catalog;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"daGJN":[function() {},{}],"cukV8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -12794,7 +12955,7 @@ const store = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = store;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ieCK1":[function() {},{}],"lJZlQ":[function() {},{}],"fTEv5":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ieCK1":[function() {},{}],"fTEv5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
@@ -12920,85 +13081,6 @@ const contacts = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = contacts;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8UA4":[function() {},{}],"eQMoo":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _route = require("./route");
-var _routeDefault = parcelHelpers.interopDefault(_route);
-class Router {
-    constructor(){
-        this.routes = [];
-        this.history = window.history;
-        this.currentRoute = null;
-    }
-    use(pathname, block, props = {}) {
-        const route = new (0, _routeDefault.default)(pathname, block, props);
-        this.routes.push(route);
-        return this;
-    }
-    start() {
-        window.addEventListener("popstate", (event)=>{
-            this.onRoute(event.currentTarget.location.pathname);
-        });
-        this.onRoute(window.location.pathname);
-    }
-    go(pathname) {
-        this.history.pushState({}, "", pathname);
-        this.onRoute(pathname);
-    }
-    back() {
-        this.history.back();
-    }
-    forward() {
-        this.history.forward();
-    }
-    onRoute(pathname) {
-        let route = this.getRoute(pathname);
-        if (this.currentRoute && this.currentRoute !== route) this.currentRoute.leave();
-        this.currentRoute = route;
-        route.render();
-    }
-    getRoute(pathname) {
-        return this.routes.find((route)=>route.match(pathname)) || this.getRoute("/404");
-    }
-}
-exports.default = new Router();
-
-},{"./route":"igkfJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"igkfJ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _render = require("./render");
-var _renderDefault = parcelHelpers.interopDefault(_render);
-class Route {
-    constructor(pathname, view, props){
-        this.pathname = pathname;
-        this.blockClass = view;
-        this.props = props;
-    }
-    match(pathname) {
-        return pathname === this.pathname;
-    }
-    leave() {
-        if (this.block) this.block.deleteElement();
-    }
-    render() {
-        this.block = new this.blockClass(this.props);
-        (0, _renderDefault.default)("#app", this.block);
-        return;
-    }
-}
-exports.default = Route;
-
-},{"./render":"duBlU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"duBlU":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function render(query, block) {
-    const root = document.querySelector(query);
-    root.appendChild(block.getElement());
-    block.dispatchMountComponent();
-}
-exports.default = render;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8UA4":[function() {},{}],"lJZlQ":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
 
 //# sourceMappingURL=index.b71e74eb.js.map

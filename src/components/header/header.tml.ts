@@ -7,19 +7,19 @@ const header = Handlebars.compile(
         <div class="container">
           <ul class="header__items">
             <li class="header__item">
-              <a href="info.html" class="header__link">Информация</a>
+              {{{infoLink}}}
             </li>
             <li class="header__item">
-              <a href="news.html" class="header__link">Новости</a>
+              {{{newsLink}}}
             </li>
             <li class="header__item">
-              <a href="price.html" class="header__link">Прайс-лист</a>
+              {{{priceLink}}}
             </li>
             <li class="header__item">
-              <a href="catalog.html" class="header__link">Магазин</a>
+              {{{storeLink}}}
             </li>
             <li class="header__item">
-              <a href="contacts.html" class="header__link">Контакты</a>
+              {{{contactsLink}}}
             </li>
           </ul>
           <ul class="header__btns">

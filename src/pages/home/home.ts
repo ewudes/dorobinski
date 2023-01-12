@@ -9,6 +9,8 @@ import Appointment from "../../components/appointment/appointment";
 
 import home from "./home.tml";
 import "./home.scss";
+import router from "../../utils/router";
+import Link from "../../components/link/link";
 
 class Home extends Block {
   constructor(props: Record<string, any> = {}) {
@@ -19,6 +21,14 @@ class Home extends Block {
     const contacts = new Contacts();
     const appointment = new Appointment();
     const footer = new Footer();
+
+    const infoLink = new Link({
+      name: "Информация",
+      className: "header__link",
+      events: {
+        click: () => router.go("/home")
+      }
+    });
 
     super("div", { header, features, news, gallery, contacts, appointment, footer, ...props });
   }
