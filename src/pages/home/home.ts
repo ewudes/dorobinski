@@ -6,11 +6,12 @@ import News from "../../components/news/news";
 import Gallery from "../../components/gallery/gallery";
 import Contacts from "../../components/contacts/contacts";
 import Appointment from "../../components/appointment/appointment";
+// import Popup from "../../components/popup/popup";
 
 import home from "./home.tml";
 import "./home.scss";
-import router from "../../utils/router";
-import Link from "../../components/link/link";
+// import router from "../../utils/router";
+// import Link from "../../components/link/link";
 
 class Home extends Block {
   constructor(props: Record<string, any> = {}) {
@@ -21,16 +22,18 @@ class Home extends Block {
     const contacts = new Contacts();
     const appointment = new Appointment();
     const footer = new Footer();
+    // const popup = new Popup();
 
-    const infoLink = new Link({
-      name: "Информация",
-      className: "header__link",
-      events: {
-        click: () => router.go("/home")
-      }
+    super("div", {
+      header,
+      features,
+      news,
+      gallery,
+      contacts,
+      appointment,
+      footer,
+      ...props
     });
-
-    super("div", { header, features, news, gallery, contacts, appointment, footer, ...props });
   }
 
   render() {

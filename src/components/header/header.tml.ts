@@ -7,6 +7,7 @@ const header = Handlebars.compile(
         <div class="container">
           <ul class="header__items">
             <li class="header__item">
+              {{{count}}}
               {{{infoLink}}}
             </li>
             <li class="header__item">
@@ -23,7 +24,7 @@ const header = Handlebars.compile(
             </li>
           </ul>
           <ul class="header__btns">
-            <li><a class="header__login" href="login.html">Вход</a></li>
+            <li>{{{login}}}</li>
           </ul>
         </div>
       </div>

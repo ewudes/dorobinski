@@ -1,5 +1,7 @@
 import Block from "../../utils/block";
 import Link from "../link/link";
+import Button from "../button/button";
+import Popup from "../popup/popup";
 
 import header from "./header.tml";
 import './header.scss'
@@ -51,11 +53,26 @@ class Header extends Block {
       }
     });
 
+    const showLoginForm = () => {
+      const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
+      const popup = new Popup().getElement()
+      wrapper.appendChild(popup)
+    }
+
+    const login = new Button({
+      className: "header__login",
+      text: "Вход",
+      events: {
+        click: () => showLoginForm()
+      }
+    });
+
     super("div", {
       infoLink,
       newsLink,
       priceLink,
       storeLink,
+      login,
       contactsLink,
       ...props
     });

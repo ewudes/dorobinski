@@ -47,9 +47,6 @@
   &__link,
   &__login {
     color: $main-font-color;
-  }
-
-  &__link {
     cursor: pointer;
   }
 
@@ -61,6 +58,9 @@
   }
 
   &__login {
+    background-color: transparent;
+    border: none;
+
     &::before {
       content: "";
       display: inline-block;
