@@ -193,7 +193,7 @@
   background-color: #212121;
   background-position: 0 0;
   background-repeat: repeat;
-  margin-top: 65px;
+  margin-top: auto;
   padding: 40px 0;
 }
 
@@ -620,7 +620,9 @@
   background-color: #d5d5d5a3;
 }
 
-
+.catalog-columns {
+  margin-bottom: 45px;
+}
 
 .news {
   color: #000;
@@ -650,8 +652,10 @@ body {
 }
 
 .wrapper {
-  min-height: 100%;
+  min-height: 100vh;
   background-color: #f4f1ee;
+  flex-direction: column;
+  display: flex;
 }
 
 .wrapper--home {
