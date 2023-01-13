@@ -12391,6 +12391,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function render(query, block) {
     const root = document.querySelector(query);
+    const wrapper = root.querySelector(".wrapper");
+    if (!!wrapper) root.firstChild?.remove();
     root.appendChild(block.getElement());
     block.dispatchMountComponent();
 }
