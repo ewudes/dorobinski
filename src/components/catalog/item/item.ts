@@ -4,6 +4,9 @@ import item from "./item.tml";
 import './item.scss'
 
 interface IItem {
+  img: string;
+  description: string;
+  price: number;
 }
 
 class Item extends Block {

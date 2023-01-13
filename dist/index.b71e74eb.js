@@ -12434,7 +12434,7 @@ var _popupScss = require("./popup.scss");
 class Popup extends (0, _blockDefault.default) {
     constructor(props){
         setTimeout(()=>{
-            const wrapperForm = document.querySelector(".popup__back");
+            const popupBack = document.querySelector(".popup__back");
             const popupWrap = document.querySelector(".popup__wrap");
             const popupMove = (e)=>{
                 var coords = getCoords(popupWrap);
@@ -12472,7 +12472,7 @@ class Popup extends (0, _blockDefault.default) {
                     popupWrap.addEventListener("mousedown", popupMove);
                 } else popupWrap.removeEventListener("mousedown", popupMove);
             };
-            wrapperForm?.addEventListener("click", function() {
+            popupBack?.addEventListener("click", function() {
                 closeForm();
             });
         });
@@ -12976,10 +12976,53 @@ var _catalogTmlDefault = parcelHelpers.interopDefault(_catalogTml);
 var _catalogScss = require("./catalog.scss");
 class Catalog extends (0, _blockDefault.default) {
     constructor(props){
-        const item = new (0, _itemDefault.default)();
+        const catalog = [
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-1.jpg",
+                    description: "Набор для путешествий  \xabBaxter of California\xbb",
+                    price: 2990
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-2.jpg",
+                    description: "Увлажняющий кондиционер  \xabBaxter of California\xbb",
+                    price: 1550
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-3.jpg",
+                    description: "Гель для волос \xabSUAVECITO\xbb",
+                    price: 490
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-4.jpg",
+                    description: "Глина для укладки волос  \xabAmerican crew\xbb",
+                    price: 990
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-5.jpg",
+                    description: "Гель для волос \xabAMERICAN CREW\xbb",
+                    price: 3790
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-6.jpg",
+                    description: "Набор для бритья \xabBaxter of California\xbb",
+                    price: 4830
+                })
+            }
+        ];
         const pagination = new (0, _paginationDefault.default)();
         super("div", {
-            item,
+            catalog,
             pagination,
             ...props
         });
@@ -12990,48 +13033,7 @@ class Catalog extends (0, _blockDefault.default) {
 }
 exports.default = Catalog;
 
-},{"../../utils/block":"7D3jB","./item/item":"7fMN5","../pagination/pagination":"gIpdv","./catalog.tml":"2Bdcw","./catalog.scss":"daGJN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7fMN5":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../utils/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _itemTml = require("./item.tml");
-var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
-var _itemScss = require("./item.scss");
-class Item extends (0, _blockDefault.default) {
-    constructor(props){
-        super("div", props);
-    }
-    render() {
-        return this.setTemplate((0, _itemTmlDefault.default), this.props);
-    }
-}
-exports.default = Item;
-
-},{"../../../utils/block":"7D3jB","./item.tml":"kFrIa","./item.scss":"9hboX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kFrIa":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const item = (0, _handlebarsDefault.default).compile(`<li class="catalog-item">
-    <a href="catalog-item.html">
-      <p class="catalog-item__image">
-        <img src="img/product-1.jpg" width="220" height="165" alt="Набор для путешествий «Baxter of California»">
-      </p>
-      <h3>
-        <span class="catalog-item__category">Набор для путешествий</span>
-        <span class="catalog-item__title">«Baxter of California»</span>
-      </h3>
-
-    </a>
-    <p class="catalog-item__price">
-      <b>2 900 ₽</b>
-      <a class="button" href="#">Купить</a>
-    </p>
-  </li>`);
-exports.default = item;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hboX":[function() {},{}],"gIpdv":[function(require,module,exports) {
+},{"../../utils/block":"7D3jB","../pagination/pagination":"gIpdv","./catalog.tml":"2Bdcw","./catalog.scss":"daGJN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./item/item":"7fMN5"}],"gIpdv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../utils/block");
@@ -13070,13 +13072,54 @@ var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const catalog = (0, _handlebarsDefault.default).compile(`<section class="catalog">
     <h2 class="visually-hidden">Список средств для ухода</h2>
     <ul class="catalog__list">
-      {{{item}}}
+      {{#each catalog}}
+        {{{item}}}
+      {{/each}}
     </ul>
     {{{pagination}}}
   </section>`);
 exports.default = catalog;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"daGJN":[function() {},{}],"cukV8":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"daGJN":[function() {},{}],"7fMN5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../utils/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _itemTml = require("./item.tml");
+var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
+var _itemScss = require("./item.scss");
+class Item extends (0, _blockDefault.default) {
+    constructor(props){
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _itemTmlDefault.default), this.props);
+    }
+}
+exports.default = Item;
+
+},{"../../../utils/block":"7D3jB","./item.tml":"kFrIa","./item.scss":"9hboX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kFrIa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const item = (0, _handlebarsDefault.default).compile(`<li class="catalog-item">
+    <a href="catalog-item.html">
+      <p class="catalog-item__image">
+        <img src="{{img}}" width="188" height="160" alt="{{description}}">
+      </p>
+      <h3>
+        <span class="catalog-item__category">{{description}}</span>
+      </h3>
+    </a>
+    <p class="catalog-item__price">
+      <b class="catalog-item__tag">{{price}} ₽</b>
+      <a class="catalog-item__buy" href="#">Купить</a>
+    </p>
+  </li>`);
+exports.default = item;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hboX":[function() {},{}],"cukV8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");

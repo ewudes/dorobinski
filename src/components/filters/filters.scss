@@ -19,6 +19,7 @@
     display: block;
     position: relative;
     padding-left: 40px;
+    cursor: pointer;
   }
 
   &__input-checkbox+label::before {
@@ -32,7 +33,7 @@
     border: 2px solid #000000;
     margin-right: 20px;
     background-repeat: no-repeat;
-    background-size: 80%;
+    background-size: contain;
     background-position: center;
     transform: translateY(-50%);
   }

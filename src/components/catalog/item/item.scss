@@ -1,5 +1,7 @@
 .catalog-item {
-  width: 220px;
+  display: flex;
+  flex-direction: column;
+  width: 188px;
   margin-bottom: 20px;
   margin-right: 20px;
   padding: 16px;
@@ -14,8 +16,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
-  & a {
-    color: #000000;
+  &__price {
+    margin-top: auto;
   }
 
   & h3 {
@@ -25,23 +27,37 @@
 
   &__category {
     text-transform: none;
+    color: #000000;
   }
 
-  &__price b {
+  &__tag {
+    display: inline-block;
     font-size: 14px;
     line-height: 20px;
     text-align: center;
     padding: 10px 17px;
     background-color: #e5e5e5;
+    width: 58%;
+    box-sizing: border-box;
+    color: #000000;
   }
 
-  &__price .button {
+  &__buy {
+    display: inline-block;
     line-height: 20px;
+    background-color: #000000;
+    padding: 10px 0;
+    width: 40%;
     color: #ffffff;
+    text-align: center;
+
+    &:hover {
+      background-color: #663d15;
+    }
   }
 
   &__image {
     background-color: #d5d5d5a3;
-    height: 165px;
+    height: 160px;
   }
 }

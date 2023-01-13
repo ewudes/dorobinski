@@ -10,7 +10,7 @@ interface IPopup {
 class Popup extends Block {
   constructor(props?: IPopup) {
     setTimeout(() => {
-      const wrapperForm = document.querySelector(".popup__back");
+      const popupBack = document.querySelector(".popup__back");
       const popupWrap = document.querySelector(".popup__wrap") as HTMLDivElement;
 
       const popupMove = (e: any) => {
@@ -60,7 +60,7 @@ class Popup extends Block {
         }
       }
 
-      wrapperForm?.addEventListener('click', function() {
+      popupBack?.addEventListener('click', function() {
         closeForm()
       });
     });
