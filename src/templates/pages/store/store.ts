@@ -1,6 +1,6 @@
 import Block from "../../../core/block";
 import Header from "../../blocks/header/header";
-import Breadcrumbs from "../../blocks/breadcrumbs/breadcrumbs";
+import Breadcrumbs from "../../../components/breadcrumbs/breadcrumbs";
 import Filters from "../../blocks/filters/filters";
 import Catalog from "../../blocks/catalog/catalog";
 import Footer from "../../blocks/footer/footer";

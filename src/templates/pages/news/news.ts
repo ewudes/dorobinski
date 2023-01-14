@@ -1,6 +1,6 @@
 import Block from "../../../core/block";
 import Header from "../../blocks/header/header";
-import Breadcrumbs from "../../blocks/breadcrumbs/breadcrumbs";
+import Breadcrumbs from "../../../components/breadcrumbs/breadcrumbs";
 import Footer from "../../blocks/footer/footer";
 
 import news from "./news.tml";
