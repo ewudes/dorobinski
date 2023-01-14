@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import EventBus from "./eventBus"
+import EventBus from "./eventBus";
 
 abstract class Block {
   private EVENTS: Record<string, string> = {
@@ -34,9 +34,7 @@ abstract class Block {
   }
 
   public setProps(newProps: Record<string, any>): void {
-    if (!newProps) {
-      return
-    };
+    if (!newProps) return;
 
     Object.assign(this.props, newProps);
   }
@@ -47,6 +45,14 @@ abstract class Block {
 
   public deleteElement(): void {
     this.eventBus.emit(this.EVENTS.FLOW_CWU);
+  }
+
+  public show() {
+    this.getElement().style.display = "block";
+  }
+
+  public hide() {
+    this.getElement().style.display = "none";
   }
 
   public dispatchMountComponent(): void {
@@ -77,17 +83,10 @@ abstract class Block {
     });
   }
 
-  private updateComponent(
-    oldProps: Record<string, any>,
-    newProps: Record<string, any>
-  ): void {
-    const isUpdate = oldProps != newProps ? true : false;
-
-    if (isUpdate) {
-      this.removeEvents();
-      this.eventBus.emit(this.EVENTS.FLOW_RENDER);
-      this.componentDidUpdate();
-    }
+  private updateComponent(): void {
+    this.removeEvents();
+    this.eventBus.emit(this.EVENTS.FLOW_RENDER);
+    this.componentDidUpdate();
   }
 
   private unmountComponent(): void {
@@ -183,7 +182,10 @@ abstract class Block {
     const props: Record<string, any> = {};
 
     Object.entries(propsAndChildren).forEach(([key, value]) => {
-      if (value instanceof Block || Array.isArray(value)) {
+      if (
+        value instanceof Block ||
+        (Array.isArray(value) && Object.values(value[0])[0] instanceof Block)
+      ) {
         children[key] = value;
       } else {
         props[key] = value;
@@ -196,8 +198,10 @@ abstract class Block {
   protected setTemplate(template: Function, props: Record<string, any>) {
     const propsAndStubs = { ...props };
 
+    // Create the stubs
     Object.entries(this.children).forEach(([key, child]) => {
-      if (Array.isArray(child)) {
+      if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) {
+        // If the array of properties
         child.forEach((innerChild: Record<string, Block>) => {
           Object.entries(innerChild).forEach(([innerChildKey, child]) => {
             if (!propsAndStubs[key]) {
@@ -219,8 +223,10 @@ abstract class Block {
     ) as HTMLTemplateElement;
     fragment.innerHTML = template(propsAndStubs);
 
+    // Replace the stubs with a Block
     Object.values(this.children).forEach((child) => {
-      if (Array.isArray(child)) {
+      if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) {
+        // If the array of properties
         child.forEach((innerChild: Record<string, Block>) => {
           Object.entries(innerChild).forEach(([[], child]) => {
             const stub = fragment.content.querySelector(
