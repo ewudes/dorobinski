@@ -6,10 +6,7 @@ const store = Handlebars.compile(
     <main class="container">
       <h1 class="page-title">Cредства для ухода</h1>
       {{{breadcrumbs}}}
-      <div class="catalog-columns">
-        {{{filters}}}
-        {{{catalog}}}
-      </div>
+      {{{double}}}
     </main>
     {{{footer}}}
   </div>`

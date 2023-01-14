@@ -1,6 +1,7 @@
 import Block from "../../../core/block";
 import Header from "../../blocks/header/header";
 import Breadcrumbs from "../../../components/breadcrumbs/breadcrumbs";
+import Double from "../../layouts/double/double";
 import Filters from "../../blocks/filters/filters";
 import Catalog from "../../blocks/catalog/catalog";
 import Footer from "../../blocks/footer/footer";
@@ -12,11 +13,14 @@ class Store extends Block {
   constructor(props: Record<string, any> = {}) {
     const header = new Header();
     const breadcrumbs = new Breadcrumbs();
-    const filters = new Filters();
-    const catalog = new Catalog();
     const footer = new Footer();
 
-    super("div", { header, breadcrumbs, filters, catalog, footer, ...props });
+    const double = new Double({
+      aside: new Filters(),
+      main: new Catalog(),
+    })
+
+    super("div", { header, breadcrumbs, double, footer, ...props });
   }
 
   render() {

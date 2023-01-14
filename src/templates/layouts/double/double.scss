@@ -1,0 +1,13 @@
+.double {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+
+  & > *:first-child {
+    width: 180px;
+  }
+
+  & > *:last-child {
+    width: 700px;
+  }
+}
