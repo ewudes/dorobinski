@@ -6,10 +6,7 @@ const news = Handlebars.compile(
       <main class="container">
         <h1 class="page-title">Новости</h1>
         {{{breadcrumbs}}}
-        <div class="catalog-columns">
-          {{{filters}}}
-          {{{catalog}}}
-        </div>
+        {{{double}}}
       </main>
     {{{footer}}}
   </div>`
