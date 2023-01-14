@@ -40,7 +40,7 @@
 
   &__input-checkbox:checked+label::before {
     position: absolute;
-    background-image: url("../../../../static/img/cross.svg");
+    background-image: url("../../../static/img/cross.svg");
   }
 
   &__input-radio+label::before {

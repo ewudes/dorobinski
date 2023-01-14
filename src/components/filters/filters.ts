@@ -1,4 +1,4 @@
-import Block from "../../../core/block";
+import Block from "../../core/block";
 
 import filters from "./filters.tml";
 import './filters.scss'
@@ -8,6 +8,8 @@ interface IFilters {
 
 class Filters extends Block {
   constructor(props?: IFilters) {
+
+    console.log(props)
     super("div", props);
   }
 
