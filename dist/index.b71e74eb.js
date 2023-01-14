@@ -12823,7 +12823,9 @@ var _header = require("../../blocks/header/header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
 var _breadcrumbs = require("../../../components/breadcrumbs/breadcrumbs");
 var _breadcrumbsDefault = parcelHelpers.interopDefault(_breadcrumbs);
-var _filters = require("../../blocks/filters/filters");
+var _double = require("../../layouts/double/double");
+var _doubleDefault = parcelHelpers.interopDefault(_double);
+var _filters = require("../../../components/filters/filters");
 var _filtersDefault = parcelHelpers.interopDefault(_filters);
 var _catalog = require("../../blocks/catalog/catalog");
 var _catalogDefault = parcelHelpers.interopDefault(_catalog);
@@ -12836,14 +12838,87 @@ class Store extends (0, _blockDefault.default) {
     constructor(props = {}){
         const header = new (0, _headerDefault.default)();
         const breadcrumbs = new (0, _breadcrumbsDefault.default)();
-        const filters = new (0, _filtersDefault.default)();
-        const catalog = new (0, _catalogDefault.default)();
         const footer = new (0, _footerDefault.default)();
+        const filters = [
+            {
+                type: "checkbox",
+                legend: "Производители:",
+                items: [
+                    {
+                        name: "baxter-of-california",
+                        id: "filter-baxter-of-california",
+                        label: "Baxter of California"
+                    },
+                    {
+                        name: "mr-natty",
+                        id: "filter-mr-natty",
+                        label: "Mr Natty"
+                    },
+                    {
+                        name: "suavecito",
+                        id: "filter-suavecito",
+                        label: "Suavecito"
+                    },
+                    {
+                        name: "malin-goetz",
+                        id: "filter-malin-goetz",
+                        label: "Malin+Goetz"
+                    },
+                    {
+                        name: "murrays",
+                        id: "filter-murrays",
+                        label: "Murray's"
+                    },
+                    {
+                        name: "american-crew",
+                        id: "filter-american-crew",
+                        label: "American Crew"
+                    }
+                ]
+            },
+            {
+                type: "radio",
+                legend: "Группы товаров:",
+                items: [
+                    {
+                        name: "groups-product",
+                        value: "all",
+                        id: "groups-all",
+                        label: "Все",
+                        checked: "checked"
+                    },
+                    {
+                        name: "groups-product",
+                        value: "shaving",
+                        id: "groups-shaving",
+                        label: "Бритвенные принадлежности",
+                        checked: ""
+                    },
+                    {
+                        name: "groups-product",
+                        value: "hair-care",
+                        id: "groups-care",
+                        label: "Средства для ухода",
+                        checked: ""
+                    },
+                    {
+                        name: "groups-product",
+                        value: "accessories",
+                        id: "groups-accessories",
+                        label: "Аксессуары",
+                        checked: ""
+                    }
+                ]
+            }
+        ];
+        const double = new (0, _doubleDefault.default)({
+            aside: new (0, _filtersDefault.default)(filters),
+            main: new (0, _catalogDefault.default)()
+        });
         super("div", {
             header,
             breadcrumbs,
-            filters,
-            catalog,
+            double,
             footer,
             ...props
         });
@@ -12854,88 +12929,7 @@ class Store extends (0, _blockDefault.default) {
 }
 exports.default = Store;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/filters/filters":"jkVsm","../../blocks/catalog/catalog":"lG7z2","../../blocks/footer/footer":"8y6VV","./store.tml":"lcrrw","./store.scss":"104RH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP"}],"jkVsm":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _filtersTml = require("./filters.tml");
-var _filtersTmlDefault = parcelHelpers.interopDefault(_filtersTml);
-var _filtersScss = require("./filters.scss");
-class Filters extends (0, _blockDefault.default) {
-    constructor(props){
-        super("div", props);
-    }
-    render() {
-        return this.setTemplate((0, _filtersTmlDefault.default), this.props);
-    }
-}
-exports.default = Filters;
-
-},{"../../../core/block":"axMnM","./filters.tml":"dFF26","./filters.scss":"dpdZK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dFF26":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const breadcrumbs = (0, _handlebarsDefault.default).compile(`<section class="filters">
-    <h2 class="visually-hidden">Фильтр товаров</h2>
-    <form class="filter" method="get" action="https://echo.htmlacademy.ru">
-      <fieldset class="filters__group">
-        <legend>Производители:</legend>
-        <ul class="filters__option-list">
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-checkbox" type="checkbox" name="baxter-of-california" id="filter-baxter-of-california" checked>
-            <label class="filters__input-label" for="filter-baxter-of-california">Baxter of California</label>
-          </li>
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-checkbox" type="checkbox" name="mr-natty" id="filter-mr-natty">
-            <label class="filters__input-label" for="filter-mr-natty">Mr Natty</label>
-          </li>
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-checkbox" type="checkbox" name="suavecito" id="filter-suavecito" checked>
-            <label class="filters__input-label" for="filter-suavecito">Suavecito</label>
-          </li>
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-checkbox" type="checkbox" name="malin-goetz" id="filter-malin-goetz">
-            <label class="filters__input-label" for="filter-malin-goetz">Malin+Goetz</label>
-          </li>
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-checkbox" type="checkbox" name="murrays" id="filter-murrays">
-            <label class="filters__input-label" for="filter-murrays">Murray’s</label>
-          </li>
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-checkbox" type="checkbox" name="american-crew" id="filter-american-crew" checked>
-            <label class="filters__input-label" for="filter-american-crew">American Crew</label>
-          </li>
-        </ul>
-      </fieldset>
-      <fieldset class="filters__group">
-        <legend>Группы товаров:</legend>
-        <ul class="filters__option-list">
-        <li class="filters__option">
-          <input class="visually-hidden filters__input filters__input-radio" type="radio" name="product-group" value="all" id="filter-all" checked>
-          <label class="filters__input-label" for="filter-all">Все</label>
-        </li>
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-radio" type="radio" name="product-group" value="shaving" id="filter-shave">
-            <label class="filters__input-label" for="filter-shave">Бритвенные принадлежности</label>
-          </li>
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-radio" type="radio" name="product-group" value="hair-care" id="filter-care">
-            <label class="filters__input-label" for="filter-care">Средства для ухода</label>
-          </li>
-          <li class="filters__option">
-            <input class="visually-hidden filters__input filters__input-radio" type="radio" name="product-group" value="accessories" id="filter-accessories">
-            <label class="filters__input-label" for="filter-accessories">Аксессуары</label>
-          </li>
-        </ul>
-      </fieldset>
-      <button type="submit" class="filter-button button">Показать</button>
-    </form>
-  </section>`);
-exports.default = breadcrumbs;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dpdZK":[function() {},{}],"lG7z2":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/catalog/catalog":"lG7z2","../../blocks/footer/footer":"8y6VV","./store.tml":"lcrrw","./store.scss":"104RH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../layouts/double/double":"9a1TE","../../../components/filters/filters":"5ozXA"}],"lG7z2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -13108,10 +13102,7 @@ const store = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
     <main class="container">
       <h1 class="page-title">Cредства для ухода</h1>
       {{{breadcrumbs}}}
-      <div class="catalog-columns">
-        {{{filters}}}
-        {{{catalog}}}
-      </div>
+      {{{double}}}
     </main>
     {{{footer}}}
   </div>`);
@@ -13181,7 +13172,126 @@ const breadcrumbs = (0, _handlebarsDefault.default).compile(`<ul class="breadcru
     </ul>`);
 exports.default = breadcrumbs;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"azySp":[function() {},{}],"d6ydp":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"azySp":[function() {},{}],"9a1TE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _doubleTml = require("./double.tml");
+var _doubleTmlDefault = parcelHelpers.interopDefault(_doubleTml);
+var _doubleScss = require("./double.scss");
+class Double extends (0, _blockDefault.default) {
+    constructor(props = {}){
+        super("div", {
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _doubleTmlDefault.default), this.props);
+    }
+}
+exports.default = Double;
+
+},{"../../../core/block":"axMnM","./double.tml":"ahh0l","./double.scss":"9aZ5T","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ahh0l":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const double = (0, _handlebarsDefault.default).compile(`<div class="double">
+    {{{aside}}}
+    {{{main}}}
+  </div>`);
+exports.default = double;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9aZ5T":[function() {},{}],"5ozXA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _filtersTml = require("./filters.tml");
+var _filtersTmlDefault = parcelHelpers.interopDefault(_filtersTml);
+var _filtersScss = require("./filters.scss");
+class Filters extends (0, _blockDefault.default) {
+    constructor(props){
+        console.log(props);
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _filtersTmlDefault.default), this.props);
+    }
+}
+exports.default = Filters;
+
+},{"../../core/block":"axMnM","./filters.tml":"6TuO2","./filters.scss":"1lDjn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6TuO2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+(0, _handlebarsDefault.default).registerHelper("contains", function(needle, haystack, options) {
+    needle = (0, _handlebarsDefault.default).escapeExpression(needle);
+    haystack = (0, _handlebarsDefault.default).escapeExpression(haystack);
+    // @ts-ignore
+    return haystack.indexOf(needle) > -1 ? options.fn(this) : options.inverse(this);
+});
+const breadcrumbs = (0, _handlebarsDefault.default).compile(`<section class="filters">
+    <h2 class="visually-hidden">Фильтр товаров</h2>
+    <form class="filter" method="get" action="https://echo.htmlacademy.ru">
+      {{#each this}}
+        {{#contains type "checkbox"}}
+          <fieldset class="filters__group">
+            <legend>{{legend}}</legend>
+            <ul class="filters__option-list">
+              {{#each this.items}}
+                <li class="filters__option">
+                  <input
+                    class="visually-hidden filters__input filters__input-checkbox"
+                    type="checkbox"
+                    name="{{name}}"
+                    id="{{id}}"
+                    checked>
+                  <label
+                    class="filters__input-label"
+                    for="{{id}}"
+                  >
+                    {{label}}
+                  </label>
+                </li>
+              {{/each}}
+            </ul>
+          </fieldset>
+        {{/contains}}
+        {{#contains type "radio"}}
+          <fieldset class="filters__group">
+            <legend>{{legend}}</legend>
+            <ul class="filters__option-list">
+              {{#each this.items}}
+                <li class="filters__option">
+                  <input
+                    class="visually-hidden filters__input filters__input-radio"
+                    type="radio"
+                    name="{{name}}"
+                    value="{{value}}"
+                    id="{{id}}"
+                    {{checked}}>
+                  <label
+                    class="filters__input-label"
+                    for="{{id}}"
+                  >
+                    {{label}}
+                  </label>
+                </li>
+              {{/each}}
+            </ul>
+          </fieldset>
+        {{/contains}}
+      {{/each}}
+
+      <button type="submit" class="filter-button button">Показать</button>
+    </form>
+  </section>`);
+exports.default = breadcrumbs;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1lDjn":[function() {},{}],"d6ydp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -13195,14 +13305,95 @@ var _footerDefault = parcelHelpers.interopDefault(_footer);
 var _newsTml = require("./news.tml");
 var _newsTmlDefault = parcelHelpers.interopDefault(_newsTml);
 var _newsScss = require("./news.scss");
+var _double = require("../../layouts/double/double");
+var _doubleDefault = parcelHelpers.interopDefault(_double);
+var _filters = require("../../../components/filters/filters");
+var _filtersDefault = parcelHelpers.interopDefault(_filters);
+var _feeds = require("../../blocks/feeds/feeds");
+var _feedsDefault = parcelHelpers.interopDefault(_feeds);
 class News extends (0, _blockDefault.default) {
     constructor(props = {}){
+        const filters = [
+            {
+                type: "radio",
+                legend: "Категории:",
+                items: [
+                    {
+                        name: "category",
+                        value: "all",
+                        id: "category-all",
+                        label: "Все",
+                        checked: "checked"
+                    },
+                    {
+                        name: "category",
+                        value: "promotions",
+                        id: "category-promotions",
+                        label: "Акции",
+                        checked: ""
+                    },
+                    {
+                        name: "category",
+                        value: "interesting",
+                        id: "category-interesting",
+                        label: "Вам будет интересно",
+                        checked: ""
+                    },
+                    {
+                        name: "category",
+                        value: "beard",
+                        id: "category-beard",
+                        label: "Уход за бородой",
+                        checked: ""
+                    }
+                ]
+            },
+            {
+                type: "radio",
+                legend: "Период:",
+                items: [
+                    {
+                        name: "period",
+                        value: "all",
+                        id: "period-all",
+                        label: "Все",
+                        checked: "checked"
+                    },
+                    {
+                        name: "period",
+                        value: "week",
+                        id: "period-week",
+                        label: "Прошлая неделя",
+                        checked: ""
+                    },
+                    {
+                        name: "period",
+                        value: "month",
+                        id: "period-month",
+                        label: "Прошлый месяц",
+                        checked: ""
+                    },
+                    {
+                        name: "period",
+                        value: "year",
+                        id: "period-year",
+                        label: "Прошлый год",
+                        checked: ""
+                    }
+                ]
+            }
+        ];
         const header = new (0, _headerDefault.default)();
         const breadcrumbs = new (0, _breadcrumbsDefault.default)();
         const footer = new (0, _footerDefault.default)();
+        const double = new (0, _doubleDefault.default)({
+            aside: new (0, _filtersDefault.default)(filters),
+            main: new (0, _feedsDefault.default)()
+        });
         super("div", {
             header,
             breadcrumbs,
+            double,
             footer,
             ...props
         });
@@ -13213,7 +13404,7 @@ class News extends (0, _blockDefault.default) {
 }
 exports.default = News;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./news.tml":"ijOPp","./news.scss":"1x0QE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP"}],"ijOPp":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./news.tml":"ijOPp","./news.scss":"1x0QE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../layouts/double/double":"9a1TE","../../../components/filters/filters":"5ozXA","../../blocks/feeds/feeds":"kT1ig"}],"ijOPp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13223,16 +13414,127 @@ const news = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
       <main class="container">
         <h1 class="page-title">Новости</h1>
         {{{breadcrumbs}}}
-        <div class="catalog-columns">
-          {{{filters}}}
-          {{{catalog}}}
-        </div>
+        {{{double}}}
       </main>
     {{{footer}}}
   </div>`);
 exports.default = news;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1x0QE":[function() {},{}],"7XDZh":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1x0QE":[function() {},{}],"kT1ig":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _item = require("./item/item");
+var _itemDefault = parcelHelpers.interopDefault(_item);
+var _pagination = require("../pagination/pagination");
+var _paginationDefault = parcelHelpers.interopDefault(_pagination);
+var _feedsTml = require("./feeds.tml");
+var _feedsTmlDefault = parcelHelpers.interopDefault(_feedsTml);
+var _feedsScss = require("./feeds.scss");
+class Feeds extends (0, _blockDefault.default) {
+    constructor(props){
+        const feeds = [
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-1.jpg",
+                    description: "Секреты мягкой и послушной бороды",
+                    price: 2990,
+                    category: "shaving"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-2.jpg",
+                    description: "Мы наконец завезли ягермейстер!",
+                    price: 1550,
+                    category: "shaving"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-3.jpg",
+                    description: "Секреты мягкой и послушной бороды",
+                    price: 490,
+                    category: "shaving"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-4.jpg",
+                    description: "Секреты мягкой и послушной бороды",
+                    price: 990,
+                    category: "shaving"
+                })
+            }
+        ];
+        const pagination = new (0, _paginationDefault.default)();
+        super("div", {
+            feeds,
+            pagination,
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _feedsTmlDefault.default), this.props);
+    }
+}
+exports.default = Feeds;
+
+},{"../../../core/block":"axMnM","./item/item":"kNkMc","../pagination/pagination":"88oLH","./feeds.tml":"lAtTA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./feeds.scss":"axOcV"}],"kNkMc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _itemTml = require("./item.tml");
+var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
+var _itemScss = require("./item.scss");
+class Item extends (0, _blockDefault.default) {
+    constructor(props){
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _itemTmlDefault.default), this.props);
+    }
+}
+exports.default = Item;
+
+},{"../../../../core/block":"axMnM","./item.tml":"1pA2Q","./item.scss":"au18O","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1pA2Q":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const item = (0, _handlebarsDefault.default).compile(`<li class="feeds-item">
+    <div class="feeds-item__wrapper">
+      <img src="{{img}}" width="188" height="160" alt="{{description}}">
+      <div class="feeds-item__description">
+        <h3 class="feeds-item__category">{{description}}</h3>
+        <p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так. Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.<p>
+      </div>
+    </div>
+    <p class="feeds-item__price">
+      <a class="feeds-item__buy" href="#">Подробнее</a>
+    </p>
+  </li>`);
+exports.default = item;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"au18O":[function() {},{}],"lAtTA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const feeds = (0, _handlebarsDefault.default).compile(`<section class="feeds">
+    <h2 class="visually-hidden">Список средств для ухода</h2>
+    <ul class="feeds__list">
+      {{#each feeds}}
+        {{{item}}}
+      {{/each}}
+    </ul>
+    {{{pagination}}}
+  </section>`);
+exports.default = feeds;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"axOcV":[function() {},{}],"7XDZh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
