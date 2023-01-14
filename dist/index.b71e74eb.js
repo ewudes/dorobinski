@@ -668,6 +668,12 @@ class Block {
     deleteElement() {
         this.eventBus.emit(this.EVENTS.FLOW_CWU);
     }
+    show() {
+        this.getElement().style.display = "block";
+    }
+    hide() {
+        this.getElement().style.display = "none";
+    }
     dispatchMountComponent() {
         this.eventBus.emit(this.EVENTS.FLOW_CDM);
     }
@@ -685,13 +691,10 @@ class Block {
             else child.dispatchMountComponent();
         });
     }
-    updateComponent(oldProps, newProps) {
-        const isUpdate = oldProps != newProps ? true : false;
-        if (isUpdate) {
-            this.removeEvents();
-            this.eventBus.emit(this.EVENTS.FLOW_RENDER);
-            this.componentDidUpdate();
-        }
+    updateComponent() {
+        this.removeEvents();
+        this.eventBus.emit(this.EVENTS.FLOW_RENDER);
+        this.componentDidUpdate();
     }
     unmountComponent() {
         this.componentWillUnmount();
@@ -758,7 +761,7 @@ class Block {
         const children = {};
         const props = {};
         Object.entries(propsAndChildren).forEach(([key, value])=>{
-            if (value instanceof Block || Array.isArray(value)) children[key] = value;
+            if (value instanceof Block || Array.isArray(value) && Object.values(value[0])[0] instanceof Block) children[key] = value;
             else props[key] = value;
         });
         return {
@@ -770,8 +773,10 @@ class Block {
         const propsAndStubs = {
             ...props
         };
+        // Create the stubs
         Object.entries(this.children).forEach(([key, child])=>{
-            if (Array.isArray(child)) child.forEach((innerChild)=>{
+            if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) // If the array of properties
+            child.forEach((innerChild)=>{
                 Object.entries(innerChild).forEach(([innerChildKey, child])=>{
                     if (!propsAndStubs[key]) propsAndStubs[key] = [];
                     propsAndStubs[key].push({
@@ -783,8 +788,10 @@ class Block {
         });
         const fragment = this.createDocumentElement("template");
         fragment.innerHTML = template(propsAndStubs);
+        // Replace the stubs with a Block
         Object.values(this.children).forEach((child)=>{
-            if (Array.isArray(child)) child.forEach((innerChild)=>{
+            if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) // If the array of properties
+            child.forEach((innerChild)=>{
                 Object.entries(innerChild).forEach(([[], child])=>{
                     const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
                     stub.replaceWith(child.getElement());
@@ -12814,7 +12821,7 @@ var _block = require("../../../core/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
 var _header = require("../../blocks/header/header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
-var _breadcrumbs = require("../../blocks/breadcrumbs/breadcrumbs");
+var _breadcrumbs = require("../../../components/breadcrumbs/breadcrumbs");
 var _breadcrumbsDefault = parcelHelpers.interopDefault(_breadcrumbs);
 var _filters = require("../../blocks/filters/filters");
 var _filtersDefault = parcelHelpers.interopDefault(_filters);
@@ -12847,44 +12854,7 @@ class Store extends (0, _blockDefault.default) {
 }
 exports.default = Store;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/breadcrumbs/breadcrumbs":"32Mez","../../blocks/filters/filters":"jkVsm","../../blocks/catalog/catalog":"lG7z2","../../blocks/footer/footer":"8y6VV","./store.tml":"lcrrw","./store.scss":"104RH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"32Mez":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _breadcrumbsTml = require("./breadcrumbs.tml");
-var _breadcrumbsTmlDefault = parcelHelpers.interopDefault(_breadcrumbsTml);
-var _breadcrumbsScss = require("./breadcrumbs.scss");
-class Breadcrumbs extends (0, _blockDefault.default) {
-    constructor(props){
-        console.log(document.location);
-        super("div", props);
-    }
-    render() {
-        return this.setTemplate((0, _breadcrumbsTmlDefault.default), this.props);
-    }
-}
-exports.default = Breadcrumbs;
-
-},{"../../../core/block":"axMnM","./breadcrumbs.tml":"9Mml2","./breadcrumbs.scss":"cP4c7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Mml2":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const breadcrumbs = (0, _handlebarsDefault.default).compile(`<ul class="breadcrumbs">
-    <li class="breadcrumbs__item">
-      <a href="index.html">Главная</a>
-    </li>
-    <li class="breadcrumbs__item">
-      <a href="catalog.html">Магазин</a>
-    </li>
-    <li class="breadcrumbs__item">
-      <a href="catalog.html">Средства для ухода</a>
-    </li>
-  </ul>`);
-exports.default = breadcrumbs;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cP4c7":[function() {},{}],"jkVsm":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/filters/filters":"jkVsm","../../blocks/catalog/catalog":"lG7z2","../../blocks/footer/footer":"8y6VV","./store.tml":"lcrrw","./store.scss":"104RH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP"}],"jkVsm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -13147,14 +13117,78 @@ const store = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = store;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"104RH":[function() {},{}],"d6ydp":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"104RH":[function() {},{}],"2TBnP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+// @ts-ignore
+var _constJs = require("../../utils/const.js");
+var _breadcrumbsTml = require("./breadcrumbs.tml");
+var _breadcrumbsTmlDefault = parcelHelpers.interopDefault(_breadcrumbsTml);
+var _breadcrumbsScss = require("./breadcrumbs.scss");
+class Breadcrumbs extends (0, _blockDefault.default) {
+    constructor(props){
+        const pathname = document.location.pathname.split("/");
+        let routes = pathname.splice(1, pathname.length);
+        for(let i = 0; i <= routes.length - 1; i++)routes[i] = (0, _constJs.AppRouteTranslation)[routes[i].toUpperCase()];
+        super("div", {
+            routes,
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _breadcrumbsTmlDefault.default), this.props);
+    }
+}
+exports.default = Breadcrumbs;
+
+},{"../../core/block":"axMnM","../../utils/const.js":"a1SWD","./breadcrumbs.tml":"5hIaK","./breadcrumbs.scss":"azySp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a1SWD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "AppRoute", ()=>AppRoute);
+parcelHelpers.export(exports, "AppRouteTranslation", ()=>AppRouteTranslation);
+const AppRoute = {
+    NEWS: "news",
+    STORE: "store",
+    PRICE: "prece",
+    CONTACTS: "contacts"
+};
+const AppRouteTranslation = {
+    NEWS: "новости",
+    STORE: "магазин",
+    PRICE: "прайс-лист",
+    CONTACTS: "контакты",
+    SHAVING: "бритвенные принадлежности",
+    HAIRCARE: "средства для ухода",
+    ACCESSORIES: "аксессуары"
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5hIaK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const breadcrumbs = (0, _handlebarsDefault.default).compile(`<ul class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a href="#">Главная</a>
+    </li>
+    {{#each routes}}
+      <li class="breadcrumbs__item">
+        <a href="#">{{this}}</a>
+      </li>
+    {{/each}}
+    </ul>`);
+exports.default = breadcrumbs;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"azySp":[function() {},{}],"d6ydp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
 var _header = require("../../blocks/header/header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
-var _breadcrumbs = require("../../blocks/breadcrumbs/breadcrumbs");
+var _breadcrumbs = require("../../../components/breadcrumbs/breadcrumbs");
 var _breadcrumbsDefault = parcelHelpers.interopDefault(_breadcrumbs);
 var _footer = require("../../blocks/footer/footer");
 var _footerDefault = parcelHelpers.interopDefault(_footer);
@@ -13179,7 +13213,7 @@ class News extends (0, _blockDefault.default) {
 }
 exports.default = News;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/breadcrumbs/breadcrumbs":"32Mez","../../blocks/footer/footer":"8y6VV","./news.tml":"ijOPp","./news.scss":"1x0QE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ijOPp":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./news.tml":"ijOPp","./news.scss":"1x0QE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP"}],"ijOPp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");

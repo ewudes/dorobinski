@@ -656,31 +656,6 @@ f .product-photo-preview {
   transform: translateX(390px);
 }
 
-.breadcrumbs {
-  display: flex;
-}
-
-.breadcrumbs__item {
-  margin-right: 40px;
-  position: relative;
-}
-
-.breadcrumbs__item:not(:last-child):after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  background-color: #000;
-  display: block;
-  position: absolute;
-  top: 9px;
-  right: -24px;
-  transform: rotate(-45deg);
-}
-
-.breadcrumbs__item:last-child {
-  opacity: .5;
-}
-
 .filters {
   color: #000;
 }
@@ -858,6 +833,31 @@ f .product-photo-preview {
 
 .catalog-columns {
   margin-bottom: 45px;
+}
+
+.breadcrumbs {
+  display: flex;
+}
+
+.breadcrumbs__item {
+  margin-right: 40px;
+  position: relative;
+}
+
+.breadcrumbs__item:not(:last-child):after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background-color: #000;
+  display: block;
+  position: absolute;
+  top: 9px;
+  right: -24px;
+  transform: rotate(-45deg);
+}
+
+.breadcrumbs__item:last-child {
+  opacity: .5;
 }
 
 .news {
