@@ -13541,6 +13541,8 @@ var _block = require("../../../core/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
 var _header = require("../../blocks/header/header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
+var _breadcrumbs = require("../../../components/breadcrumbs/breadcrumbs");
+var _breadcrumbsDefault = parcelHelpers.interopDefault(_breadcrumbs);
 var _footer = require("../../blocks/footer/footer");
 var _footerDefault = parcelHelpers.interopDefault(_footer);
 var _priceTml = require("./price.tml");
@@ -13549,9 +13551,11 @@ var _priceScss = require("./price.scss");
 class Price extends (0, _blockDefault.default) {
     constructor(props = {}){
         const header = new (0, _headerDefault.default)();
+        const breadcrumbs = new (0, _breadcrumbsDefault.default)();
         const footer = new (0, _footerDefault.default)();
         super("div", {
             header,
+            breadcrumbs,
             footer,
             ...props
         });
@@ -13562,15 +13566,62 @@ class Price extends (0, _blockDefault.default) {
 }
 exports.default = Price;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./price.tml":"9Fi4S","./price.scss":"8nkLb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Fi4S":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./price.tml":"9Fi4S","./price.scss":"8nkLb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP"}],"9Fi4S":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const price = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
     {{{header}}}
-      <main class="container">
-        <span class="price">Прайс-лист</span>
+      <main class="container price">
+        <h1 class="page-title">Прайс-лист</h1>
+        {{{breadcrumbs}}}
+        <h2 class="price__title">Истинно мужская классика</h2>
+        <section class="price__left">
+          <h3 class="price__subtitle">Мы используем только лучшие средства:</h3>
+          <ul class="price__products-list">
+            <li class="price__products-item">BAXTER OF CALIFORNIA</li>
+            <li class="price__products-item">MR NATTY</li>
+            <li class="price__products-item">SUAVECITO</li>
+            <li class="price__products-item">MALIN+GOETZ</li>
+          </ul>
+        </section>
+        <section class="price__right">
+          <h3 class="price__subtitle">Цены на услуги наших мастеров:</h3>
+          <table class="price__pricelist">
+            <tr class="price__pricerow">
+              <td class="price__pricecol">Мужская стрижка</td>
+              <td class="price__pricecol">2200р</td>
+            </tr>
+            <tr class="price__pricerow">
+              <td class="price__pricecol">Стрижка бороды/усов</td>
+              <td class="price__pricecol">1000р</td>
+            </tr>
+            <tr class="price__pricerow">
+              <td class="price__pricecol">Детская стрижка (от 5 до 12 лет)</td>
+              <td class="price__pricecol">1800р</td>
+            </tr>
+            <tr class="price__pricerow">
+              <td class="price__pricecol">Стрижка машинкой</td>
+              <td class="price__pricecol">1000</td>
+            </tr>
+            <tr class="price__pricerow">
+              <td class="price__pricecol">Опасное бритье</td>
+              <td class="price__pricecol">2000</td>
+            </tr>
+            <tr class="price__pricerow">
+              <td class="price__pricecol">Укладка</td>
+              <td class="price__pricecol">1000</td>
+            </tr>
+            <tr class="price__pricerow">
+              <td class="price__pricecol">Подарочный сертификат</td>
+              <td class="price__pricecol">от 2000р</td>
+            </tr>
+          </table>
+        </section>
+        <h3 class="price__subtitle">Несколько слов о нас:</h3>
+        <p class="price__about">Наша парикмахерская занимается исключительно мужскими стрижками. Стрижка каждого клиента для нас - это уникальная и продуманная до мелочей работа. Мы не работаем на количество, мы делаем качество.</p>
+        <p class="price__about">Мы располагаемся в центре города, поэтому сделать стильную стрижку можно в любое время, даже в обеденный перерыв. Здесь вы можете погрузиться в удобную для вас атмосферу, чувствовать себя комфортно и свободно.</p>
       </main>
     {{{footer}}}
   </div>`);
