@@ -1,0 +1,13 @@
+.staff {
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+
+    list-style: none;
+  }
+}

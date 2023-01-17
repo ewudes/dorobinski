@@ -32,7 +32,8 @@
     display: flex;
   }
 
-  &__item {
+  &__link {
+    display: block;
     min-width: 100px;
     padding: 30px 0;
     text-align: center;
