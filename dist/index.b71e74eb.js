@@ -13213,7 +13213,6 @@ var _filtersTmlDefault = parcelHelpers.interopDefault(_filtersTml);
 var _filtersScss = require("./filters.scss");
 class Filters extends (0, _blockDefault.default) {
     constructor(props){
-        console.log(props);
         super("div", props);
     }
     render() {
@@ -13634,6 +13633,10 @@ var _block = require("../../../core/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
 var _header = require("../../blocks/header/header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
+var _breadcrumbs = require("../../../components/breadcrumbs/breadcrumbs");
+var _breadcrumbsDefault = parcelHelpers.interopDefault(_breadcrumbs);
+var _staff = require("../../blocks/staff/staff");
+var _staffDefault = parcelHelpers.interopDefault(_staff);
 var _footer = require("../../blocks/footer/footer");
 var _footerDefault = parcelHelpers.interopDefault(_footer);
 var _contactsTml = require("./contacts.tml");
@@ -13642,9 +13645,13 @@ var _contactsScss = require("./contacts.scss");
 class Contacts extends (0, _blockDefault.default) {
     constructor(props = {}){
         const header = new (0, _headerDefault.default)();
+        const breadcrumbs = new (0, _breadcrumbsDefault.default)();
+        const staff = new (0, _staffDefault.default)();
         const footer = new (0, _footerDefault.default)();
         super("div", {
             header,
+            breadcrumbs,
+            staff,
             footer,
             ...props
         });
@@ -13655,7 +13662,7 @@ class Contacts extends (0, _blockDefault.default) {
 }
 exports.default = Contacts;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./contacts.tml":"2LOfS","./contacts.scss":"e8hgD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2LOfS":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./contacts.tml":"2LOfS","./contacts.scss":"e8hgD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../blocks/staff/staff":"dsnCW"}],"2LOfS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13663,12 +13670,135 @@ var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const contacts = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
     {{{header}}}
       <main class="container">
-        <span class="contacts">Контакты</span>
+        <h1 class="page-title">Контакты</h1>
+        {{{breadcrumbs}}}
+        <h2 class="contacts__title">Наши мастера</h2>
+        {{{staff}}}
+        <h2 class="contacts__title">Как нас найти</h2>
+        <div class="contacts__map">Карта</div>
       </main>
     {{{footer}}}
   </div>`);
 exports.default = contacts;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e8hgD":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e8hgD":[function() {},{}],"dsnCW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _item = require("./item/item");
+var _itemDefault = parcelHelpers.interopDefault(_item);
+var _staffTml = require("./staff.tml");
+var _staffTmlDefault = parcelHelpers.interopDefault(_staffTml);
+var _staffScss = require("./staff.scss");
+class Staff extends (0, _blockDefault.default) {
+    constructor(props){
+        const staff = [
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/avatar_pic.png",
+                    name: "Зафар",
+                    description: "Мастер сурового шика"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/avatar_pic.png",
+                    name: "Одил",
+                    description: "Мастер с тонким вкусом"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/avatar_pic.png",
+                    name: "Валерий",
+                    description: "Тату мастер высшего уровня"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/avatar_pic.png",
+                    name: "Денис",
+                    description: "Гид по мужскому стилю"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/avatar_pic.png",
+                    name: "Бахром",
+                    description: "Гид по мужскому стилю"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/avatar_pic.png",
+                    name: "Хусейн",
+                    description: "Гид по мужскому стилю"
+                })
+            }
+        ];
+        super("div", {
+            staff,
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _staffTmlDefault.default), this.props);
+    }
+}
+exports.default = Staff;
+
+},{"../../../core/block":"axMnM","./item/item":"gEV6n","./staff.tml":"ktZJx","./staff.scss":"9hWlS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gEV6n":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _itemTml = require("./item.tml");
+var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
+var _itemScss = require("./item.scss");
+class Item extends (0, _blockDefault.default) {
+    constructor(props){
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _itemTmlDefault.default), this.props);
+    }
+}
+exports.default = Item;
+
+},{"../../../../core/block":"axMnM","./item.tml":"aue9z","./item.scss":"aqG9l","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aue9z":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const item = (0, _handlebarsDefault.default).compile(`<li class="staff-item">
+    <a href="staff-item.html">
+      <p class="staff-item__image">
+        <img src="{{img}}" width="100" height="160" alt="{{description}}">
+      </p>
+      <h3>
+        <span class="staff-item__category">{{name}}</span>
+      </h3>
+      <span class="staff-item__category">{{description}}</span>
+    </a>
+  </li>`);
+exports.default = item;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aqG9l":[function() {},{}],"ktZJx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const staff = (0, _handlebarsDefault.default).compile(`<section class="staff">
+    <h2 class="visually-hidden">Список средств для ухода</h2>
+    <ul class="staff__list">
+      {{#each staff}}
+        {{{item}}}
+      {{/each}}
+    </ul>
+  </section>`);
+exports.default = staff;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hWlS":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
 
 //# sourceMappingURL=index.b71e74eb.js.map
