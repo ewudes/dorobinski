@@ -9,7 +9,6 @@ interface IFilters {
 class Filters extends Block {
   constructor(props?: IFilters) {
 
-    console.log(props)
     super("div", props);
   }
 

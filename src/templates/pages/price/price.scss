@@ -11,6 +11,7 @@
   &__title {
     position: relative;
     font-size: 40px;
+    margin-top: 0;
     width: 100%;
     text-align: center;
 
@@ -44,8 +45,13 @@
     line-height: 28px;
   }
 
+  &__pricerow:hover {
+    cursor: pointer;
+    background-color: #e3e3e3;
+  }
+
   &__pricecol {
-    border: 1px solid #000000;
+    border: 2px solid #000000;
     padding: 8px;
     width: 20%;
 
