@@ -41,8 +41,11 @@
 
   &__btns {
     width: 100px;
-    padding: 30px 0;
     text-align: center;
+
+    & > li {
+      height: 100%;
+    }
   }
 
   &__link,
@@ -62,6 +65,8 @@
   &__login {
     background-color: transparent;
     border: none;
+    height: 100%;
+    padding: 0 15px;
 
     &::before {
       content: "";

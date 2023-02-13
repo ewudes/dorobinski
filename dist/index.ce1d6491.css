@@ -384,7 +384,10 @@ f .product-photo-preview {
 .header__btns {
   width: 100px;
   text-align: center;
-  padding: 30px 0;
+}
+
+.header__btns > li {
+  height: 100%;
 }
 
 .header__link, .header__login {
@@ -398,8 +401,10 @@ f .product-photo-preview {
 }
 
 .header__login {
+  height: 100%;
   background-color: #0000;
   border: none;
+  padding: 0 15px;
 }
 
 .header__login:before {
