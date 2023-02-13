@@ -12718,7 +12718,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const contacts = (0, _handlebarsDefault.default).compile(`<section class="contacts">
-    <h2 class="contacts__title">Контактная информация</h2>
+    <h2 class="contacts__subtitle">Контактная информация</h2>
     <p>
       Барбершоп «Бородинский»<br>
       Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
@@ -13675,7 +13675,9 @@ const contacts = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
         <h2 class="contacts__title">Наши мастера</h2>
         {{{staff}}}
         <h2 class="contacts__title">Как нас найти</h2>
-        <div class="contacts__map">Карта</div>
+        <div class="contacts__map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6036253003183!2d30.320858716204274!3d59.938719169054046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2sBolshaya%20Konyushennaya%20St%2C%2019%2F8%2C%20Sankt-Peterburg%2C%20191186!5e0!3m2!1sen!2sru!4v1676292954408!5m2!1sen!2sru" width="100%" height="450"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </main>
     {{{footer}}}
   </div>`);
@@ -13776,10 +13778,8 @@ const item = (0, _handlebarsDefault.default).compile(`<li class="staff-item">
       <p class="staff-item__image">
         <img src="{{img}}" width="100" height="160" alt="{{description}}">
       </p>
-      <h3>
-        <span class="staff-item__category">{{name}}</span>
-      </h3>
-      <span class="staff-item__category">{{description}}</span>
+      <h3 class="staff-item__name">{{name}}</h3>
+      <span class="staff-item__description">{{description}}</span>
     </a>
   </li>`);
 exports.default = item;

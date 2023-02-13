@@ -581,7 +581,7 @@ f .product-photo-preview {
   width: 380px;
 }
 
-.contacts__title {
+.contacts__subtitle {
   margin: 0;
 }
 
@@ -1076,11 +1076,6 @@ f .product-photo-preview {
   margin-top: auto;
 }
 
-.staff-item h3 {
-  font-size: 14px;
-  line-height: 18px;
-}
-
 .staff-item__category {
   text-transform: none;
   color: #000;
@@ -1110,6 +1105,17 @@ f .product-photo-preview {
 
 .staff-item__buy:hover {
   background-color: #663d15;
+}
+
+.staff-item__name, .staff-item__description {
+  color: #000;
+  text-align: center;
+  display: block;
+}
+
+.staff-item__name {
+  margin-bottom: 5px;
+  font-size: 21px;
 }
 
 .staff-item__image {
