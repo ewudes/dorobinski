@@ -6,10 +6,8 @@ const item = Handlebars.compile(
       <p class="staff-item__image">
         <img src="{{img}}" width="100" height="160" alt="{{description}}">
       </p>
-      <h3>
-        <span class="staff-item__category">{{name}}</span>
-      </h3>
-      <span class="staff-item__category">{{description}}</span>
+      <h3 class="staff-item__name">{{name}}</h3>
+      <span class="staff-item__description">{{description}}</span>
     </a>
   </li>`
 );

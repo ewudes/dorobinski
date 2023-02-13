@@ -20,11 +20,6 @@
     margin-top: auto;
   }
 
-  & h3 {
-    font-size: 14px;
-    line-height: 18px;
-  }
-
   &__category {
     text-transform: none;
     color: #000000;
@@ -54,6 +49,18 @@
     &:hover {
       background-color: #663d15;
     }
+  }
+
+  &__name,
+  &__description {
+    display: block;
+    color: #000000;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 21px;
+    margin-bottom: 5px;
   }
 
   &__image {
