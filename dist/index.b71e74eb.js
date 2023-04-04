@@ -873,6 +873,8 @@ var _link = require("../../../components/link/link");
 var _linkDefault = parcelHelpers.interopDefault(_link);
 var _button = require("../../../components/button/button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _hamburger = require("../../../components/hamburger/hamburger");
+var _hamburgerDefault = parcelHelpers.interopDefault(_hamburger);
 var _popup = require("../popup/popup");
 var _popupDefault = parcelHelpers.interopDefault(_popup);
 var _headerTml = require("./header.tml");
@@ -882,6 +884,16 @@ var _router = require("../../../core/router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
 class Header extends (0, _blockDefault.default) {
     constructor(props){
+        function showMenu() {
+            const btnClose = document.querySelector(".hamburger");
+            btnClose.classList.toggle("not-active");
+            btnClose.classList.toggle("active");
+        }
+        const btnMenu = new (0, _hamburgerDefault.default)({
+            events: {
+                click: ()=>showMenu()
+            }
+        });
         const infoLink = new (0, _linkDefault.default)({
             name: "Информация",
             className: "header__link",
@@ -936,6 +948,7 @@ class Header extends (0, _blockDefault.default) {
             storeLink,
             login,
             contactsLink,
+            btnMenu,
             ...props
         });
     }
@@ -945,7 +958,7 @@ class Header extends (0, _blockDefault.default) {
 }
 exports.default = Header;
 
-},{"../../../core/block":"axMnM","../../../components/link/link":"9UCyh","../../../components/button/button":"9lSjy","../popup/popup":"74UTd","./header.tml":"16j5O","./header.scss":"fHZcC","../../../core/router":"f4hn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9UCyh":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../../components/link/link":"9UCyh","../../../components/button/button":"9lSjy","../popup/popup":"74UTd","./header.tml":"16j5O","./header.scss":"fHZcC","../../../core/router":"f4hn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/hamburger/hamburger":"81kkR"}],"9UCyh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../core/block");
@@ -12423,7 +12436,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const header = (0, _handlebarsDefault.default).compile(`<header class="header">
-    <nav class="header__nav">
+  <nav class="header__nav">
+      {{{btnMenu}}}
       <div class="header__nav-wrapper">
         <div class="container">
           <ul class="header__items">
@@ -12534,7 +12548,37 @@ function render(query, block) {
 }
 exports.default = render;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8y6VV":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"81kkR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _hamburgerTml = require("./hamburger.tml");
+var _hamburgerTmlDefault = parcelHelpers.interopDefault(_hamburgerTml);
+var _hamburgerScss = require("./hamburger.scss");
+class Hamburger extends (0, _blockDefault.default) {
+    constructor(props){
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _hamburgerTmlDefault.default), this.props);
+    }
+}
+exports.default = Hamburger;
+
+},{"../../core/block":"axMnM","./hamburger.tml":"3bzt2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./hamburger.scss":"j7qKa"}],"3bzt2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const link = (0, _handlebarsDefault.default).compile(`<div class="hamburger not-active">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>`);
+exports.default = link;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j7qKa":[function() {},{}],"8y6VV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
