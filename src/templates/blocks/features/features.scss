@@ -1,8 +1,11 @@
+@import "../../../variables.scss";
+
 .features {
   margin-bottom: 60px;
 
   &__list {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin: 0;
     padding: 0;
@@ -12,6 +15,7 @@
   &__item {
     width: 300px;
     text-align: center;
+    margin: 0 auto;
   }
 
   &__title {
@@ -29,4 +33,14 @@
       transform: rotate(45deg);
     }
   }
+}
+
+@media (min-width: $desktop-width) {
+  .features {
+
+    &__list {
+      flex-direction: row;
+    }
+  }
+
 }
