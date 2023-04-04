@@ -4,7 +4,7 @@
 
   &__nav {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
     font-size: 16px;
     line-height: 20px;
@@ -12,35 +12,41 @@
   }
 
   &__nav-wrapper {
+    position: relative;
     width: 100%;
+    height: 302px;
     background-color: $header-bg-color;
+    overflow: hidden;
+    transition: .7s;
 
     & .container {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      overflow: hidden;
     }
   }
 
   &__items,
   &__btns {
+    width: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
   &__items {
-    display: flex;
+    margin-top: 50px;
   }
 
   &__link {
     display: block;
     min-width: 100px;
-    padding: 30px 0;
+    padding: 11px 0;
     text-align: center;
+    font-size: 19px;
   }
 
   &__btns {
-    width: 100px;
     text-align: center;
 
     & > li {
@@ -66,7 +72,9 @@
     background-color: transparent;
     border: none;
     height: 100%;
-    padding: 0 15px;
+    padding: 11px 0;
+    font-size: 17px;
+    width: 100%;
 
     &::before {
       content: "";
@@ -82,3 +90,60 @@
     }
   }
 }
+
+.not-active + .header__nav-wrapper {
+  height: 50px;
+}
+
+@media (min-width: $tablet-width) {
+  .header {
+
+    &__nav-wrapper > .container {
+      margin: 0;
+    }
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .header {
+
+    &__nav > .hamburger {
+      display: none;
+    }
+
+    &__nav-wrapper {
+      height: inherit;
+
+      & > .container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 auto;
+      }
+    }
+
+    &__items {
+      display: flex;
+      margin-top: 0;
+    }
+
+    &__link {
+      padding: 25px 5px;
+    }
+
+    &__login {
+      width: inherit;
+      padding: 11px 5px;
+      margin-left: auto;
+    }
+
+    &__btns li {
+      display: flex;
+    }
+  }
+
+  .not-active + .header__nav-wrapper {
+    height: 70px;
+  }
+}
+

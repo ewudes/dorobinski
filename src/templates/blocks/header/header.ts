@@ -1,6 +1,7 @@
 import Block from "../../../core/block";
 import Link from "../../../components/link/link";
 import Button from "../../../components/button/button";
+import Hamburger from "../../../components/hamburger/hamburger";
 import Popup from "../popup/popup";
 
 import header from "./header.tml";
@@ -12,6 +13,18 @@ interface IHeader {
 
 class Header extends Block {
   constructor(props?: IHeader) {
+
+    function showMenu() {
+      const btnClose = document.querySelector(".hamburger") as HTMLDivElement;
+      btnClose.classList.toggle('not-active');
+      btnClose.classList.toggle('active');
+    }
+
+    const btnMenu = new Hamburger({
+      events: {
+        click: () => showMenu()
+      }
+    });
 
     const infoLink = new Link({
       name: "Информация",
@@ -74,6 +87,7 @@ class Header extends Block {
       storeLink,
       login,
       contactsLink,
+      btnMenu,
       ...props
     });
   }

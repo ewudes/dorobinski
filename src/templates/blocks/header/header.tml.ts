@@ -2,7 +2,8 @@ import Handlebars from "handlebars";
 
 const header = Handlebars.compile(
   `<header class="header">
-    <nav class="header__nav">
+  <nav class="header__nav">
+      {{{btnMenu}}}
       <div class="header__nav-wrapper">
         <div class="container">
           <ul class="header__items">
