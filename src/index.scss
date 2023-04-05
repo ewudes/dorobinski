@@ -130,10 +130,11 @@ a {
 
 .index-columns {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 50px 80px;
+  padding: 30px 10px;
+  margin: 0 10px;
   margin-bottom: 35px;
-
   color: #000000;
 
   background-color: #f8f5f2;
@@ -254,5 +255,10 @@ f
     width: 940px;
     margin: 0 auto;
     padding: 0 10px;
+  }
+
+  .index-columns {
+    flex-direction: row;
+    padding: 50px 80px;
   }
 }

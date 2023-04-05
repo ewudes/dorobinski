@@ -1,8 +1,15 @@
+@import "../../../variables.scss";
+
 .news {
-  width: 380px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 286px;
+  margin-bottom: 40px;
 
   &__title {
     margin: 0;
+    text-align: center;
   }
 
   &__list {
@@ -17,4 +24,25 @@
   &__time {
     text-transform: none;
   }
+
+  &__button {
+    display: block;
+    margin: 0 auto;
+    margin-top: auto;
+  }
 }
+
+@media (min-width: $desktop-width) {
+  .news {
+    width: 380px;
+
+    &__title {
+      text-align: left;
+    }
+
+    &__button {
+      margin: 0;
+    }
+  }
+}
+

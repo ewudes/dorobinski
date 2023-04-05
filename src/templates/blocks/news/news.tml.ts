@@ -13,7 +13,7 @@ const news = Handlebars.compile(
         <time datetime="2016-01-18" class="news__time">18 января</time>
       </li>
     </ul>
-    <a class="button" href="news.html">Все новости</a>
+    <a class="button news__button" href="news.html">Все новости</a>
   </section>`
 );
 
