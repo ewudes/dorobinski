@@ -122,9 +122,10 @@ a {
   background-color: #f8f5f2;
   background-position: 0 0;
   background-repeat: repeat;
+  flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 35px;
-  padding: 50px 80px;
+  margin: 0 10px 35px;
+  padding: 30px 10px;
   display: flex;
 }
 
@@ -230,6 +231,11 @@ f .product-photo-preview {
     width: 940px;
     margin: 0 auto;
     padding: 0 10px;
+  }
+
+  .index-columns {
+    flex-direction: row;
+    padding: 50px 80px;
   }
 }
 
@@ -720,6 +726,7 @@ span + span {
 }
 
 .features__list {
+  flex-direction: column;
   justify-content: space-between;
   margin: 0;
   padding: 0;
@@ -730,6 +737,7 @@ span + span {
 .features__item {
   width: 300px;
   text-align: center;
+  margin: 0 auto;
 }
 
 .features__title {
@@ -748,11 +756,22 @@ span + span {
   transform: rotate(45deg);
 }
 
+@media (min-width: 1300px) {
+  .features__list {
+    flex-direction: row;
+  }
+}
+
 .news {
-  width: 380px;
+  width: 100%;
+  min-height: 286px;
+  flex-direction: column;
+  margin-bottom: 40px;
+  display: flex;
 }
 
 .news__title {
+  text-align: center;
   margin: 0;
 }
 
@@ -769,11 +788,31 @@ span + span {
   text-transform: none;
 }
 
+.news__button {
+  margin: auto auto 0;
+  display: block;
+}
+
+@media (min-width: 1300px) {
+  .news {
+    width: 380px;
+  }
+
+  .news__title {
+    text-align: left;
+  }
+
+  .news__button {
+    margin: 0;
+  }
+}
+
 .gallery {
-  width: 300px;
+  width: 100%;
 }
 
 .gallery__title {
+  text-align: center;
   margin: 0;
 }
 
@@ -783,7 +822,26 @@ span + span {
   background-color: #ccc;
   background-image: url("studio.0ae7a32d.jpg");
   border: 7px solid #fff;
-  margin: 10px 0 25px;
+  margin: 10px auto 25px;
+}
+
+.gallery__buttons {
+  justify-content: center;
+  display: flex;
+}
+
+.gallery__buttons > .button {
+  margin: 0 5px;
+}
+
+@media (min-width: 1300px) {
+  .gallery {
+    width: inherit;
+  }
+
+  .gallery__title {
+    text-align: left;
+  }
 }
 
 .contacts {
@@ -854,7 +912,17 @@ span + span {
   background-image: url("separ.29dcfd2e.png");
   background-repeat: no-repeat;
   position: absolute;
-  transform: translateX(390px);
+  top: 200px;
+  left: 50%;
+  transform: rotate(270deg);
+}
+
+@media (min-width: 1300px) {
+  .index-columns:before {
+    top: 25%;
+    left: 50%;
+    transform: rotate(0deg);
+  }
 }
 
 .catalog-item {
