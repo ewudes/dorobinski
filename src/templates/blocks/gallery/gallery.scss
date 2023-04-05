@@ -1,16 +1,38 @@
+@import "../../../variables.scss";
+
 .gallery {
-  width: 300px;
+  width: 100%;
 
   &__title {
     margin: 0;
+    text-align: center;
   }
 
   &__content {
     width: 268px;
     height: 170px;
-    margin: 10px 0 25px;
+    margin: 10px auto 25px;
     background-image: url("../../../../static/img/studio.jpg");
     background-color: #cccccc;
     border: 7px solid #ffffff;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+
+    & > .button {
+      margin: 0 5px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .gallery {
+    width: inherit;
+
+    &__title {
+      text-align: left;
+    }
   }
 }

@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .home {
   &__logo {
     display: block;
@@ -18,10 +20,23 @@
   &::before {
     position: absolute;
     content: "";
+    left: 50%;
+    top: 200px;
     width: 8px;
     height: 278px;
     background-image: url("../../../../static/img/separ.png");
     background-repeat: no-repeat;
-    transform: translateX(390px);
+    transform: rotate(270deg);
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .index-columns {
+
+    &::before {
+      left: 50%;
+      top: 25%;
+      transform: rotate(0deg);
+    }
   }
 }
