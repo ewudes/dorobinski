@@ -26,6 +26,7 @@ body {
     background-image: url("../static/img/bg.jpg");
     background-position: top center;
     background-repeat: no-repeat;
+    background-color: $main-bg-color;
   }
 
   &--error {

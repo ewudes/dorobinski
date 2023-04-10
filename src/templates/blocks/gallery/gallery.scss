@@ -9,10 +9,12 @@
   }
 
   &__content {
-    width: 268px;
-    height: 170px;
+    max-width: 490px;
+    height: 280px;
     margin: 10px auto 25px;
     background-image: url("../../../../static/img/studio.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #cccccc;
     border: 7px solid #ffffff;
   }
@@ -33,6 +35,11 @@
 
     &__title {
       text-align: left;
+    }
+
+    &__content {
+      width: 268px;
+      height: 170px;
     }
   }
 }
