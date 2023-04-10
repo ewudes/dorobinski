@@ -1,12 +1,16 @@
+@import "../../../variables.scss";
+
 .appointment {
-  width: 300px;
 
   &__title {
     margin: 0;
+    text-align: center;
   }
 
   &__form {
+    width: 300px;
     display: flex;
+    margin: 0 auto;
     flex-wrap: wrap;
     justify-content: space-between;
   }
@@ -33,4 +37,14 @@
 
 .button-appointment {
   width: 100% !important;
+}
+
+@media (min-width: $desktop-width) {
+  .appointment {
+    width: 300px;
+
+    &__title {
+      text-align: left;
+    }
+  }
 }
