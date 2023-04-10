@@ -21,6 +21,7 @@ body {
 }
 
 .wrapper--home {
+  background-color: #000;
   background-image: url("bg.1843c2f4.jpg");
   background-position: top;
   background-repeat: no-repeat;
@@ -641,12 +642,13 @@ span + span {
 }
 
 .footer .container {
+  flex-direction: column;
   display: flex;
 }
 
 .footer__contacts {
-  width: 320px;
-  margin: 0 70px 0 0;
+  text-align: center;
+  margin: 0;
 }
 
 .footer__contacts a {
@@ -662,6 +664,7 @@ span + span {
   width: 145px;
   text-align: center;
   flex-direction: column;
+  margin: 20px auto;
   display: flex;
 }
 
@@ -701,8 +704,8 @@ span + span {
 
 .footer__copyright {
   width: 180px;
-  text-align: right;
-  margin: 0 0 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .footer__copyright strong:first-child {
@@ -719,6 +722,27 @@ span + span {
   background-color: #000;
   margin-left: 4px;
   padding: 2px 12px;
+}
+
+@media (min-width: 1300px) {
+  .footer .container {
+    flex-direction: row;
+  }
+
+  .footer__contacts {
+    width: 320px;
+    text-align: left;
+    margin-right: 70px;
+  }
+
+  .footer__social {
+    margin: 0;
+  }
+
+  .footer__copyright {
+    text-align: right;
+    margin: 0 0 0 auto;
+  }
 }
 
 .features {
@@ -764,9 +788,9 @@ span + span {
 
 .news {
   width: 100%;
-  min-height: 286px;
+  min-height: 300px;
   flex-direction: column;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   display: flex;
 }
 
@@ -817,10 +841,12 @@ span + span {
 }
 
 .gallery__content {
-  width: 268px;
-  height: 170px;
+  max-width: 490px;
+  height: 280px;
   background-color: #ccc;
   background-image: url("studio.0ae7a32d.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 7px solid #fff;
   margin: 10px auto 25px;
 }
@@ -842,27 +868,60 @@ span + span {
   .gallery__title {
     text-align: left;
   }
+
+  .gallery__content {
+    width: 268px;
+    height: 170px;
+  }
 }
 
 .contacts {
-  width: 380px;
+  margin-bottom: 60px;
+}
+
+.contacts > p {
+  margin-top: 20px;
+  margin-bottom: 25px;
 }
 
 .contacts__subtitle {
+  text-align: center;
   margin: 0;
 }
 
-.appointment {
-  width: 300px;
+.contacts__buttons {
+  justify-content: center;
+  display: flex;
+}
+
+.contacts__buttons > .button {
+  margin: 0 5px;
+}
+
+@media (min-width: 1300px) {
+  .contacts {
+    width: 380px;
+  }
+
+  .contacts__subtitle {
+    text-align: left;
+  }
+
+  .contacts__buttons {
+    justify-content: flex-start;
+  }
 }
 
 .appointment__title {
+  text-align: center;
   margin: 0;
 }
 
 .appointment__form {
+  width: 300px;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0 auto;
   display: flex;
 }
 
@@ -889,6 +948,16 @@ span + span {
   width: 100% !important;
 }
 
+@media (min-width: 1300px) {
+  .appointment {
+    width: 300px;
+  }
+
+  .appointment__title {
+    text-align: left;
+  }
+}
+
 .home__logo {
   width: 368px;
   height: 153px;
@@ -908,11 +977,12 @@ span + span {
 .index-columns:before {
   content: "";
   width: 8px;
-  height: 278px;
+  height: 310px;
+  box-sizing: border-box;
   background-image: url("separ.29dcfd2e.png");
   background-repeat: no-repeat;
   position: absolute;
-  top: 200px;
+  top: 210px;
   left: 50%;
   transform: rotate(270deg);
 }

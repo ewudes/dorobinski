@@ -12775,8 +12775,10 @@ const contacts = (0, _handlebarsDefault.default).compile(`<section class="contac
       пн—пт: с 10:00 до 22:00<br>
       сб—вс: с 10:00 до 19:00
     </p>
-    <a class="button" href="map.html">Как проехать</a>
-    <a class="button" href="contacts.html">Обратная связь</a>
+    <div class="contacts__buttons">
+      <a class="button" href="map.html">Как проехать</a>
+      <a class="button" href="contacts.html">Обратная связь</a>
+    </div>
   </section>`);
 exports.default = contacts;
 
