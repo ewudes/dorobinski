@@ -1,7 +1,38 @@
+@import "../../../variables.scss";
+
 .contacts {
-  width: 380px;
+  margin-bottom: 60px;
+
+  & > p {
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
 
   &__subtitle {
     margin: 0;
+    text-align: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+
+    & > .button {
+      margin: 0 5px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .contacts {
+    width: 380px;
+
+    &__subtitle {
+      text-align: left;
+    }
+
+    &__buttons {
+      justify-content: flex-start;
+    }
   }
 }
