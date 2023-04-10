@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .footer {
   margin-top: auto;
   padding: 40px 0;
@@ -11,12 +13,14 @@
 
   & .container {
     display: flex;
+    flex-direction: column;
   }
 
   &__contacts {
-    width: 320px;
+    // width: 320px;
     margin: 0;
-    margin-right: 70px;
+    text-align: center;
+    // margin-right: 70px;
 
     a {
       color: #ffffff;
@@ -34,6 +38,7 @@
     flex-direction: column;
     width: 145px;
     text-align: center;
+    margin: 20px auto;
 
     ul {
       list-style: none;
@@ -72,9 +77,9 @@
 
   &__copyright {
     width: 180px;
-    margin: 0;
-    margin-left: auto;
-    text-align: right;
+    margin: 0 auto;
+    // margin-left: auto;
+    text-align: center;
 
     & strong:first-child {
       color: #bd0808;
@@ -98,3 +103,28 @@
 // .inner-page .main-footer {
 //   margin-top: 45px;
 // }
+
+@media (min-width: $desktop-width) {
+  .footer {
+
+    & .container {
+      flex-direction: row;
+    }
+
+    &__contacts {
+      width: 320px;
+      text-align: left;
+      margin-right: 70px;
+    }
+
+    &__social {
+      margin: 0;
+    }
+
+    &__copyright {
+      margin: 0;
+      margin-left: auto;
+      text-align: right;
+    }
+  }
+}
