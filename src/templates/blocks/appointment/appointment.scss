@@ -8,16 +8,14 @@
   }
 
   &__form {
-    width: 300px;
     display: flex;
-    margin: 0 auto;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
   &__item {
     display: inline-block;
-    width: 140px;
+    width: 47%;
     margin-top: 0;
   }
 
@@ -42,6 +40,15 @@
 @media (min-width: $desktop-width) {
   .appointment {
     width: 300px;
+
+    &__form {
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    &__item {
+      width: 140px;
+    }
 
     &__title {
       text-align: left;

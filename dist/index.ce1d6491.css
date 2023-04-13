@@ -918,15 +918,13 @@ span + span {
 }
 
 .appointment__form {
-  width: 300px;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 auto;
   display: flex;
 }
 
 .appointment__item {
-  width: 140px;
+  width: 47%;
   margin-top: 0;
   display: inline-block;
 }
@@ -951,6 +949,15 @@ span + span {
 @media (min-width: 1300px) {
   .appointment {
     width: 300px;
+  }
+
+  .appointment__form {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .appointment__item {
+    width: 140px;
   }
 
   .appointment__title {
