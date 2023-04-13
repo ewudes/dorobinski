@@ -813,6 +813,7 @@ span + span {
 }
 
 .news__button {
+  width: 100%;
   margin: auto auto 0;
   display: block;
 }
@@ -827,6 +828,7 @@ span + span {
   }
 
   .news__button {
+    width: 140px;
     margin: 0;
   }
 }
@@ -857,6 +859,7 @@ span + span {
 }
 
 .gallery__buttons > .button {
+  width: 47%;
   margin: 0 5px;
 }
 
@@ -872,6 +875,10 @@ span + span {
   .gallery__content {
     width: 268px;
     height: 170px;
+  }
+
+  .gallery__buttons > .button {
+    width: 140px;
   }
 }
 
@@ -895,6 +902,7 @@ span + span {
 }
 
 .contacts__buttons > .button {
+  width: 47%;
   margin: 0 5px;
 }
 
@@ -909,6 +917,10 @@ span + span {
 
   .contacts__buttons {
     justify-content: flex-start;
+  }
+
+  .contacts__buttons > .button {
+    width: 140px;
   }
 }
 

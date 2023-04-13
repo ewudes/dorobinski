@@ -19,6 +19,7 @@
 
     & > .button {
       margin: 0 5px;
+      width: 47%;
     }
   }
 }
@@ -33,6 +34,10 @@
 
     &__buttons {
       justify-content: flex-start;
+
+      & > .button {
+        width: 140px;
+      }
     }
   }
 }
