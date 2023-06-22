@@ -66,7 +66,7 @@ a {
   width: 140px;
   background-color: #000;
   border: none;
-  padding: 12px 0;
+  padding: 8px 0;
   display: inline-block;
 }
 
@@ -854,13 +854,12 @@ span + span {
 }
 
 .gallery__buttons {
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
 }
 
 .gallery__buttons > .button {
-  width: 47%;
-  margin: 0 5px;
+  width: 48%;
 }
 
 @media (min-width: 1300px) {
@@ -897,13 +896,12 @@ span + span {
 }
 
 .contacts__buttons {
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
 }
 
 .contacts__buttons > .button {
-  width: 47%;
-  margin: 0 5px;
+  width: 48%;
 }
 
 @media (min-width: 1300px) {
@@ -936,7 +934,7 @@ span + span {
 }
 
 .appointment__item {
-  width: 47%;
+  width: 48%;
   margin-top: 0;
   display: inline-block;
 }
@@ -947,7 +945,7 @@ span + span {
   font: inherit;
   background-color: #0000;
   border: 2px solid #000;
-  padding: 3px 9px;
+  padding: 6px 9px;
 }
 
 .appointment__field:focus {
@@ -955,7 +953,8 @@ span + span {
 }
 
 .button-appointment {
-  width: 100% !important;
+  width: 100%;
+  margin-top: 20px;
 }
 
 @media (min-width: 1300px) {
@@ -1115,42 +1114,55 @@ span + span {
 
 
 .breadcrumbs {
-  display: flex;
+  display: none;
 }
 
-.breadcrumbs__item {
-  margin-right: 40px;
-  position: relative;
-}
+@media (min-width: 1300px) {
+  .breadcrumbs {
+    display: flex;
+  }
 
-.breadcrumbs__item:not(:last-child):after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  background-color: #000;
-  display: block;
-  position: absolute;
-  top: 9px;
-  right: -24px;
-  transform: rotate(-45deg);
-}
+  .breadcrumbs__item {
+    margin-right: 40px;
+    position: relative;
+  }
 
-.breadcrumbs__item:last-child {
-  opacity: .5;
+  .breadcrumbs__item:not(:last-child):after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: #000;
+    display: block;
+    position: absolute;
+    top: 9px;
+    right: -24px;
+    transform: rotate(-45deg);
+  }
+
+  .breadcrumbs__item:last-child {
+    opacity: .5;
+  }
 }
 
 .double {
+  flex-direction: column;
   justify-content: space-between;
   margin-bottom: 45px;
   display: flex;
 }
 
-.double > :first-child {
-  width: 180px;
-}
+@media (min-width: 1300px) {
+  .double {
+    flex-direction: row;
+  }
 
-.double > :last-child {
-  width: 700px;
+  .double > :first-child {
+    width: 180px;
+  }
+
+  .double > :last-child {
+    width: 700px;
+  }
 }
 
 .filters {
