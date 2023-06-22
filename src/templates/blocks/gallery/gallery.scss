@@ -21,11 +21,11 @@
 
   &__buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
     & > .button {
-      margin: 0 5px;
-      width: 47%;
+      // margin: 0 5px;
+      width: 48%;
     }
   }
 }

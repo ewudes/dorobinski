@@ -1,24 +1,32 @@
+@import "../../variables.scss";
+
 .breadcrumbs {
-  display: flex;
+  display: none;
+}
 
-  &__item {
-    position: relative;
-    margin-right: 40px;
+@media (min-width: $desktop-width) {
+  .breadcrumbs {
+    display: flex;
 
-    &:not(:last-child)::after {
-      position: absolute;
-      top: 9px;
-      right: -24px;
-      content: "";
-      display: block;
-      width: 7px;
-      height: 7px;
-      background-color: #000000;
-      transform: rotate(-45deg);
-    }
+    &__item {
+      position: relative;
+      margin-right: 40px;
 
-    &:last-child {
-      opacity: .5;
+      &:not(:last-child)::after {
+        position: absolute;
+        top: 9px;
+        right: -24px;
+        content: "";
+        display: block;
+        width: 7px;
+        height: 7px;
+        background-color: #000000;
+        transform: rotate(-45deg);
+      }
+
+      &:last-child {
+        opacity: .5;
+      }
     }
   }
 }

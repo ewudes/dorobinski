@@ -1,13 +1,22 @@
+@import "../../../variables.scss";
+
 .double {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-bottom: 45px;
+}
 
-  & > *:first-child {
-    width: 180px;
-  }
+@media (min-width: $desktop-width) {
+  .double {
+    flex-direction: row;
 
-  & > *:last-child {
-    width: 700px;
+    & > *:first-child {
+      width: 180px;
+    }
+
+    & > *:last-child {
+      width: 700px;
+    }
   }
 }
