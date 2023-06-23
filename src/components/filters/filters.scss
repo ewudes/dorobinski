@@ -83,12 +83,9 @@
     text-transform: uppercase;
     color: $main-font-color;
     border: 2px solid $main-link-color;
-    border-bottom-color: $main-font-color;
     background-color: $main-link-color;
     border-radius: 5px;
-    box-sizing: border-box;
     cursor: pointer;
-
   }
 }
 
@@ -97,16 +94,13 @@
   overflow: hidden;
   background-color: $main-bg-color;
   color: $main-font-color;
-  margin: 0 10px;
-  // padding: 10px;
-  border-radius: 0 0 5px 5px;
-  box-sizing: border-box;
+  margin: 2px 10px 0;
+  border-radius: 5px;
   padding: 0 10px;
   transition: height .7s;
 
   &__active {
     height: 510px;
-    // height: inherit;
   }
 }
 
