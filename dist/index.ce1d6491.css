@@ -1084,7 +1084,7 @@ span + span {
 }
 
 .pagination {
-  margin: 0;
+  margin: 0 10px;
   padding: 0;
   list-style: none;
   display: flex;
@@ -1249,11 +1249,9 @@ span + span {
 .filters__show-btn {
   text-transform: uppercase;
   color: #fff;
-  box-sizing: border-box;
   cursor: pointer;
   background-color: #000;
   border: 2px solid #000;
-  border-bottom-color: #fff;
   border-radius: 5px;
   margin: 0 10px;
   padding: 10px 0;
@@ -1264,10 +1262,9 @@ span + span {
 .filter {
   height: 0;
   color: #fff;
-  box-sizing: border-box;
   background-color: #000;
-  border-radius: 0 0 5px 5px;
-  margin: 0 10px;
+  border-radius: 5px;
+  margin: 2px 10px 0;
   padding: 0 10px;
   transition: height .7s;
   overflow: hidden;
@@ -1288,12 +1285,10 @@ span + span {
 }
 
 .feeds-item {
-  width: 100%;
   box-sizing: border-box;
   background-color: #f8f8f8;
   flex-direction: column;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin: 11px;
   padding: 16px;
   display: flex;
   box-shadow: 0 0 10px #0000001a;
@@ -1305,12 +1300,13 @@ span + span {
 
 .feeds-item__wrapper {
   color: #000;
+  flex-direction: column;
   margin-bottom: 20px;
   display: flex;
 }
 
-.feeds-item__description {
-  padding-left: 20px;
+.feeds-item__wrapper > img {
+  margin: 0 auto;
 }
 
 .feeds-item__price {
@@ -1337,7 +1333,7 @@ span + span {
 }
 
 .feeds-item__buy {
-  width: 240px;
+  width: 430px;
   color: #fff;
   text-align: center;
   background-color: #000;
