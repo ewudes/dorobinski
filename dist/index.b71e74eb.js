@@ -13256,12 +13256,28 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../core/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
+var _button = require("../button/button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _filtersTml = require("./filters.tml");
 var _filtersTmlDefault = parcelHelpers.interopDefault(_filtersTml);
 var _filtersScss = require("./filters.scss");
 class Filters extends (0, _blockDefault.default) {
     constructor(props){
-        super("div", props);
+        const showFilter = ()=>{
+            const filter = document.querySelector(".filter");
+            filter.classList.toggle("filter__active");
+        };
+        const btnFilter = new (0, _buttonDefault.default)({
+            className: "filters__show-btn",
+            text: "Фильтр",
+            events: {
+                click: ()=>showFilter()
+            }
+        });
+        super("div", {
+            btnFilter,
+            ...props
+        });
     }
     render() {
         return this.setTemplate((0, _filtersTmlDefault.default), this.props);
@@ -13269,7 +13285,7 @@ class Filters extends (0, _blockDefault.default) {
 }
 exports.default = Filters;
 
-},{"../../core/block":"axMnM","./filters.tml":"6TuO2","./filters.scss":"1lDjn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6TuO2":[function(require,module,exports) {
+},{"../../core/block":"axMnM","./filters.tml":"6TuO2","./filters.scss":"1lDjn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../button/button":"9lSjy"}],"6TuO2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13282,6 +13298,7 @@ var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 });
 const breadcrumbs = (0, _handlebarsDefault.default).compile(`<section class="filters">
     <h2 class="visually-hidden">Фильтр товаров</h2>
+    {{{btnFilter}}}
     <form class="filter" method="get" action="https://echo.htmlacademy.ru">
       {{#each this}}
         {{#contains type "checkbox"}}

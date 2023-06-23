@@ -137,9 +137,9 @@ a {
 
 .page-title {
   color: #000;
-  margin-top: 60px;
-  margin-bottom: 28px;
-  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  padding: 0 10px;
   font-size: 30px;
   line-height: 42px;
 }
@@ -181,7 +181,7 @@ a {
 }
 
 .filter-input:disabled + label {
-  color: #000;
+  color: #fff;
   opacity: .5;
 }
 
@@ -224,6 +224,12 @@ f .product-photo-preview {
 @media (min-width: 768px) {
   .container {
     margin: 0 30px;
+  }
+
+  .page-title {
+    margin-top: 60px;
+    margin-bottom: 28px;
+    padding: 0;
   }
 }
 
@@ -953,7 +959,7 @@ span + span {
 }
 
 .button-appointment {
-  width: 100%;
+  width: 100% o;
   margin-top: 20px;
 }
 
@@ -1167,10 +1173,12 @@ span + span {
 
 .filters {
   color: #000;
+  flex-direction: column;
+  display: flex;
 }
 
 .filters__group {
-  margin: 0;
+  margin: 10px 0;
   padding: 0;
 }
 
@@ -1196,7 +1204,7 @@ span + span {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  border: 2px solid #000;
+  border: 2px solid #fff;
   margin-right: 20px;
   display: inline-block;
   position: absolute;
@@ -1217,7 +1225,7 @@ span + span {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80%;
-  border: 2px solid #000;
+  border: 2px solid #fff;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
@@ -1230,12 +1238,49 @@ span + span {
   content: "";
   width: 10px;
   height: 10px;
-  background-color: #000;
+  background-color: #fff;
   border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 7px;
   transform: translateY(-50%);
+}
+
+.filters__show-btn {
+  text-transform: uppercase;
+  color: #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: #000;
+  border: 2px solid #000;
+  border-bottom-color: #fff;
+  border-radius: 5px;
+  margin: 0 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  display: block;
+}
+
+.filter {
+  height: 0;
+  color: #fff;
+  box-sizing: border-box;
+  background-color: #000;
+  border-radius: 0 0 5px 5px;
+  margin: 0 10px;
+  padding: 0 10px;
+  transition: height .7s;
+  overflow: hidden;
+}
+
+.filter__active {
+  height: 510px;
+}
+
+@media (min-width: 1300px) {
+  .filters__show-btn {
+    display: none;
+  }
 }
 
 .news {
