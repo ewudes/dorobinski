@@ -1310,6 +1310,7 @@ span + span {
 }
 
 .feeds-item__price {
+  width: 100%;
   margin: auto;
 }
 
@@ -1333,7 +1334,7 @@ span + span {
 }
 
 .feeds-item__buy {
-  width: 430px;
+  width: 100%;
   color: #fff;
   text-align: center;
   background-color: #000;
