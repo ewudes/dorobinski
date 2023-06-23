@@ -150,9 +150,9 @@ a {
 }
 
 .page-title {
-  margin-top: 60px;
-  margin-bottom: 28px;
-  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  padding: 0 10px;
   color: #000000;
   font-size: 30px;
   line-height: 42px;
@@ -199,7 +199,7 @@ a {
 }
 
 .filter-input:disabled + label {
-  color: #000000;
+  color: $main-font-color;
 
   opacity: 0.5;
 }
@@ -248,6 +248,12 @@ f
 @media (min-width: $tablet-width) {
   .container {
     margin: 0 30px;
+  }
+
+  .page-title {
+    margin-top: 60px;
+    margin-bottom: 28px;
+    padding: 0;
   }
 }
 

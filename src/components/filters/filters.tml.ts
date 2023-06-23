@@ -10,6 +10,7 @@ Handlebars.registerHelper('contains', function(needle, haystack, options) {
 const breadcrumbs = Handlebars.compile(
   `<section class="filters">
     <h2 class="visually-hidden">Фильтр товаров</h2>
+    {{{btnFilter}}}
     <form class="filter" method="get" action="https://echo.htmlacademy.ru">
       {{#each this}}
         {{#contains type "checkbox"}}
