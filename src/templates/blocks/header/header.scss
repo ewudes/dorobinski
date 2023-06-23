@@ -45,6 +45,22 @@
     font-size: 19px;
   }
 
+  &__logo-link-show {
+    font-size: 0;
+    width: 150px;
+    height: 40px;
+    margin: 10px 0 0 10px;
+    background-image: url("../../../../static/img/logo-small.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__logo-link-hide {
+    width: 0;
+    height: 0;
+    font-size: 0;
+  }
+
   &__btns {
     text-align: center;
 

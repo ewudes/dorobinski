@@ -408,6 +408,22 @@ f .product-photo-preview {
   display: block;
 }
 
+.header__logo-link-show {
+  width: 150px;
+  height: 40px;
+  background-image: url("logo-small.48fa97d6.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 10px 0 0 10px;
+  font-size: 0;
+}
+
+.header__logo-link-hide {
+  width: 0;
+  height: 0;
+  font-size: 0;
+}
+
 .header__btns {
   text-align: center;
 }

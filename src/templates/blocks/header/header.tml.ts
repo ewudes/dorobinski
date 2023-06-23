@@ -6,9 +6,9 @@ const header = Handlebars.compile(
       {{{btnMenu}}}
       <div class="header__nav-wrapper">
         <div class="container">
+          {{{logoLink}}}
           <ul class="header__items">
             <li class="header__item">
-              {{{count}}}
               {{{infoLink}}}
             </li>
             <li class="header__item">

@@ -26,6 +26,22 @@ class Header extends Block {
       }
     });
 
+    const isShowLogoLink = () => {
+      if (document.location.pathname !== "/") {
+        return "header__logo-link-show"
+      } else {
+        return "header__logo-link-hide"
+      }
+    }
+
+    const logoLink = new Link({
+      name: "На главную",
+      className: isShowLogoLink(),
+      events: {
+        click: () => router.go("/")
+      }
+    });
+
     const infoLink = new Link({
       name: "Информация",
       className: "header__link",
@@ -81,6 +97,7 @@ class Header extends Block {
     });
 
     super("div", {
+      logoLink,
       infoLink,
       newsLink,
       priceLink,

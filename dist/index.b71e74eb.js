@@ -894,6 +894,17 @@ class Header extends (0, _blockDefault.default) {
                 click: ()=>showMenu()
             }
         });
+        const isShowLogoLink = ()=>{
+            if (document.location.pathname !== "/") return "header__logo-link-show";
+            else return "header__logo-link-hide";
+        };
+        const logoLink = new (0, _linkDefault.default)({
+            name: "На главную",
+            className: isShowLogoLink(),
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/")
+            }
+        });
         const infoLink = new (0, _linkDefault.default)({
             name: "Информация",
             className: "header__link",
@@ -942,6 +953,7 @@ class Header extends (0, _blockDefault.default) {
             }
         });
         super("div", {
+            logoLink,
             infoLink,
             newsLink,
             priceLink,
@@ -12440,9 +12452,9 @@ const header = (0, _handlebarsDefault.default).compile(`<header class="header">
       {{{btnMenu}}}
       <div class="header__nav-wrapper">
         <div class="container">
+          {{{logoLink}}}
           <ul class="header__items">
             <li class="header__item">
-              {{{count}}}
               {{{infoLink}}}
             </li>
             <li class="header__item">
