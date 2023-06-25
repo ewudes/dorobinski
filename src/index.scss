@@ -21,6 +21,7 @@ body {
   flex-direction: column;
   background-color: #f4f1ee;
   min-height: 100vh;
+  overflow: hidden;
 
   &--home {
     background-image: url("../static/img/bg.jpg");

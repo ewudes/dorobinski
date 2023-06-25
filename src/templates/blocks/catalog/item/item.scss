@@ -1,9 +1,9 @@
 .catalog-item {
   display: flex;
   flex-direction: column;
-  width: 188px;
+  // width: 188px;
   margin-bottom: 20px;
-  margin-right: 20px;
+  // margin-right: 20px;
   padding: 16px;
   background-color: #f8f8f8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -57,7 +57,12 @@
   }
 
   &__image {
-    background-color: #d5d5d5a3;
+    // background-color: #d5d5d5a3;
     height: 160px;
+
+    & > img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 }
