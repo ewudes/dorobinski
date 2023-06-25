@@ -46,6 +46,9 @@
   }
 
   &__logo-link-show {
+    position: absolute;
+    top: 0;
+    left: 0;
     font-size: 0;
     width: 150px;
     height: 40px;
