@@ -18,6 +18,7 @@ body {
   background-color: #f4f1ee;
   flex-direction: column;
   display: flex;
+  overflow: hidden;
 }
 
 .wrapper--home {
@@ -1039,11 +1040,9 @@ span + span {
 }
 
 .catalog-item {
-  width: 188px;
   background-color: #f8f8f8;
   flex-direction: column;
   margin-bottom: 20px;
-  margin-right: 20px;
   padding: 16px;
   display: flex;
   box-shadow: 0 0 10px #0000001a;
@@ -1099,7 +1098,11 @@ span + span {
 
 .catalog-item__image {
   height: 160px;
-  background-color: #d5d5d5a3;
+}
+
+.catalog-item__image > img {
+  margin: 0 auto;
+  display: block;
 }
 
 .pagination {
@@ -1129,9 +1132,9 @@ span + span {
 }
 
 .catalog__list {
-  flex-wrap: wrap;
+  flex-direction: column;
   margin: 0 0 25px;
-  padding: 0;
+  padding: 10px;
   list-style: none;
   display: flex;
 }
@@ -1474,17 +1477,17 @@ span + span {
 
 .contacts__title {
   color: #000;
-  width: 100%;
+  max-width: 40%;
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
   font-size: 40px;
+  line-height: 1;
   position: relative;
 }
 
 .contacts__title:before, .contacts__title:after {
   content: "";
-  width: 330px;
+  width: 100%;
   height: 2px;
   background-color: #000;
   display: block;
@@ -1493,11 +1496,11 @@ span + span {
 }
 
 .contacts__title:after {
-  right: 0;
+  right: 100%;
 }
 
 .contacts__title:before {
-  left: 0;
+  left: 100%;
 }
 
 .contacts__map {
@@ -1563,6 +1566,7 @@ span + span {
 .staff-item__name, .staff-item__description {
   color: #000;
   text-align: center;
+  padding: 20px 0;
   display: block;
 }
 
@@ -1588,10 +1592,9 @@ span + span {
 }
 
 .staff__list {
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   margin: 0 0 25px;
-  padding: 0;
+  padding: 10px;
   list-style: none;
   display: flex;
 }
