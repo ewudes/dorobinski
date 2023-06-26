@@ -23,7 +23,7 @@ const breadcrumbs = Handlebars.compile(
                     type="checkbox"
                     name="{{name}}"
                     id="{{id}}"
-                    checked>
+                    {{checked}}>
                   <label
                     class="filters__input-label"
                     for="{{id}}"

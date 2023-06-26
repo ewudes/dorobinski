@@ -90,17 +90,17 @@
 }
 
 .filter {
-  height: 0;
+  max-height: 0;
   overflow: hidden;
   background-color: $main-bg-color;
   color: $main-font-color;
   margin: 2px 10px 0;
   border-radius: 5px;
   padding: 0 10px;
-  transition: height .7s;
+  transition: max-height .7s;
 
   &__active {
-    height: 490px;
+    max-height: 600px;
   }
 }
 
@@ -108,7 +108,7 @@
   display: block;
   background-color: $light-link-color;
   color: $dark-font-color;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 
 @media (min-width: $desktop-width) {
