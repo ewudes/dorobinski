@@ -12907,32 +12907,38 @@ class Store extends (0, _blockDefault.default) {
                     {
                         name: "baxter-of-california",
                         id: "filter-baxter-of-california",
-                        label: "Baxter of California"
+                        label: "Baxter of California",
+                        checked: "checked"
                     },
                     {
                         name: "mr-natty",
                         id: "filter-mr-natty",
-                        label: "Mr Natty"
+                        label: "Mr Natty",
+                        checked: ""
                     },
                     {
                         name: "suavecito",
                         id: "filter-suavecito",
-                        label: "Suavecito"
+                        label: "Suavecito",
+                        checked: "checked"
                     },
                     {
                         name: "malin-goetz",
                         id: "filter-malin-goetz",
-                        label: "Malin+Goetz"
+                        label: "Malin+Goetz",
+                        checked: ""
                     },
                     {
                         name: "murrays",
                         id: "filter-murrays",
-                        label: "Murray's"
+                        label: "Murray's",
+                        checked: ""
                     },
                     {
                         name: "american-crew",
                         id: "filter-american-crew",
-                        label: "American Crew"
+                        label: "American Crew",
+                        checked: ""
                     }
                 ]
             },
@@ -13303,10 +13309,11 @@ parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 (0, _handlebarsDefault.default).registerHelper("contains", function(needle, haystack, options) {
-    needle = (0, _handlebarsDefault.default).escapeExpression(needle);
-    haystack = (0, _handlebarsDefault.default).escapeExpression(haystack);
+    haystack = haystack instanceof Array ? haystack : [
+        haystack
+    ];
     // @ts-ignore
-    return haystack.indexOf(needle) > -1 ? options.fn(this) : options.inverse(this);
+    return haystack.indexOf(needle) > -1 ? options.fn(this) : "";
 });
 const breadcrumbs = (0, _handlebarsDefault.default).compile(`<section class="filters">
     <h2 class="visually-hidden">Фильтр товаров</h2>
@@ -13324,7 +13331,7 @@ const breadcrumbs = (0, _handlebarsDefault.default).compile(`<section class="fil
                     type="checkbox"
                     name="{{name}}"
                     id="{{id}}"
-                    checked>
+                    {{checked}}>
                   <label
                     class="filters__input-label"
                     for="{{id}}"
