@@ -100,8 +100,15 @@
   transition: height .7s;
 
   &__active {
-    height: 510px;
+    height: 490px;
   }
+}
+
+.filter-button {
+  display: block;
+  background-color: $light-link-color;
+  color: $dark-font-color;
+  margin: 0 auto;
 }
 
 @media (min-width: $desktop-width) {

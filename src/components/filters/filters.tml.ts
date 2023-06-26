@@ -1,10 +1,9 @@
 import Handlebars from "handlebars";
 
 Handlebars.registerHelper('contains', function(needle, haystack, options) {
-  needle = Handlebars.escapeExpression(needle);
-  haystack = Handlebars.escapeExpression(haystack);
+  haystack = (haystack instanceof Array) ? haystack : [haystack];
   // @ts-ignore
-  return (haystack.indexOf(needle) > -1) ? options.fn(this) : options.inverse(this);
+  return (haystack.indexOf(needle) > -1) ? options.fn(this) : "";
 });
 
 const breadcrumbs = Handlebars.compile(
