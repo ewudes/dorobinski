@@ -56,7 +56,10 @@
     display: block;
     color: #000000;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
+    box-shadow: none;
+    background-color: transparent;
+    height: auto;
   }
 
   &__name {

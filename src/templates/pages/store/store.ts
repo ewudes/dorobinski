@@ -23,32 +23,38 @@ class Store extends Block {
           {
             name: "baxter-of-california",
             id: "filter-baxter-of-california",
-            label: "Baxter of California"
+            label: "Baxter of California",
+            checked: "checked"
           },
           {
             name: "mr-natty",
             id: "filter-mr-natty",
-            label: "Mr Natty"
+            label: "Mr Natty",
+            checked: ""
           },
           {
             name: "suavecito",
             id: "filter-suavecito",
-            label: "Suavecito"
+            label: "Suavecito",
+            checked: "checked"
           },
           {
             name: "malin-goetz",
             id: "filter-malin-goetz",
-            label: "Malin+Goetz"
+            label: "Malin+Goetz",
+            checked: ""
           },
           {
             name: "murrays",
             id: "filter-murrays",
-            label: "Murray's"
+            label: "Murray's",
+            checked: ""
           },
           {
             name: "american-crew",
             id: "filter-american-crew",
-            label: "American Crew"
+            label: "American Crew",
+            checked: ""
           }
         ]
       },
