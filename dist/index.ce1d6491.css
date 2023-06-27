@@ -28,6 +28,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.wrapper--home .header__items {
+  margin-left: 10px;
+}
+
 .wrapper--error {
   height: 100vh;
   flex-direction: column;
@@ -49,6 +53,10 @@ a {
   padding: 0;
   position: absolute;
   overflow: hidden;
+}
+
+.container {
+  position: relative;
 }
 
 .container--error {
@@ -493,8 +501,13 @@ f .product-photo-preview {
     margin: 0 auto;
   }
 
+  .header__logo-link-show {
+    margin-top: 20px;
+  }
+
   .header__items {
     margin-top: 0;
+    margin-left: 170px;
     display: flex;
   }
 
@@ -506,6 +519,10 @@ f .product-photo-preview {
     width: inherit;
     margin-left: auto;
     padding: 11px 5px;
+  }
+
+  .header__btns {
+    margin-right: 10px;
   }
 
   .header__btns li {
@@ -758,6 +775,7 @@ span + span {
   .footer__contacts {
     width: 320px;
     text-align: left;
+    margin-left: 10px;
     margin-right: 70px;
   }
 
@@ -767,7 +785,7 @@ span + span {
 
   .footer__copyright {
     text-align: right;
-    margin: 0 0 0 auto;
+    margin: 0 10px 0 auto;
   }
 }
 
@@ -895,6 +913,7 @@ span + span {
 
   .gallery__title {
     text-align: left;
+    margin: 0;
   }
 
   .gallery__content {
@@ -976,6 +995,10 @@ span + span {
 
 .appointment__field:focus {
   border-color: #663d15;
+}
+
+.appointment__field::-webkit-datetime-edit {
+  opacity: .6;
 }
 
 .button-appointment {
@@ -1285,6 +1308,10 @@ span + span {
   display: block;
 }
 
+.filters__show-btn:hover {
+  background-color: #663d15;
+}
+
 .filter {
   max-height: 0;
   color: #fff;
@@ -1307,9 +1334,36 @@ span + span {
   display: block;
 }
 
+.filter-button:hover {
+  color: #fff;
+}
+
 @media (min-width: 1300px) {
   .filters__show-btn {
     display: none;
+  }
+
+  .filters__input-radio + label:before {
+    border-color: #000;
+  }
+
+  .filters__input-radio:checked + label:after {
+    background-color: #000;
+  }
+
+  .filter {
+    color: #000;
+    max-height: inherit;
+    background-color: #0000;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .filter-button {
+    color: #fff;
+    background-color: #000;
+    margin: 0;
   }
 }
 
@@ -1385,12 +1439,33 @@ span + span {
   background-color: #d5d5d5a3;
 }
 
+@media (min-width: 768px) {
+  .feeds-item {
+    max-width: 46%;
+    margin: 20px auto;
+  }
+
+  .feeds-item:nth-child(2n+1) {
+    margin-left: 10px;
+  }
+
+  .feeds-item:nth-child(2n) {
+    margin-right: 10px;
+  }
+}
+
 .feeds__list {
   flex-direction: column;
   margin: 0 0 25px;
   padding: 0;
   list-style: none;
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .feeds__list {
+    flex-flow: wrap;
+  }
 }
 
 .price {
@@ -1486,6 +1561,38 @@ span + span {
   margin-bottom: 30px;
 }
 
+@media (min-width: 1300px) {
+  .price {
+    flex-direction: row;
+  }
+
+  .price__title {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .price__left, .price__right {
+    flex-basis: 50%;
+    padding: 0;
+  }
+
+  .price__subtitle {
+    width: 70%;
+  }
+
+  .price__pricelist {
+    width: 100%;
+  }
+
+  .price__pricecol {
+    width: 40%;
+  }
+
+  .price__about {
+    flex-basis: 50%;
+  }
+}
+
 .contacts {
   color: #000;
 }
@@ -1526,6 +1633,12 @@ span + span {
 
 .contacts > p {
   margin: 30px 0;
+}
+
+@media (min-width: 1300px) {
+  .contacts__buttons > .button:first-child {
+    margin-right: 10px;
+  }
 }
 
 .staff-item {
