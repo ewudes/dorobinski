@@ -3,11 +3,8 @@
 .footer {
   margin-top: auto;
   padding: 40px 0;
-
   color: #ffffff;
-
   background-color: #212121;
-  // background-image: url("../static/img/pattern-dark.jpg");
   background-position: 0 0;
   background-repeat: repeat;
 
@@ -17,10 +14,8 @@
   }
 
   &__contacts {
-    // width: 320px;
     margin: 0;
     text-align: center;
-    // margin-right: 70px;
 
     a {
       color: #ffffff;
@@ -78,7 +73,6 @@
   &__copyright {
     width: 180px;
     margin: 0 auto;
-    // margin-left: auto;
     text-align: center;
 
     & strong:first-child {
@@ -100,10 +94,6 @@
    margin-left: 4px;
 }
 
-// .inner-page .main-footer {
-//   margin-top: 45px;
-// }
-
 @media (min-width: $desktop-width) {
   .footer {
 
@@ -115,6 +105,7 @@
       width: 320px;
       text-align: left;
       margin-right: 70px;
+      margin-left: 10px;
     }
 
     &__social {
@@ -124,6 +115,7 @@
     &__copyright {
       margin: 0;
       margin-left: auto;
+      margin-right: 10px;
       text-align: right;
     }
   }

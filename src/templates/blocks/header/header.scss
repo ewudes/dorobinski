@@ -143,6 +143,7 @@
     &__items {
       display: flex;
       margin-top: 0;
+      margin-left: 10px;
     }
 
     &__link {
@@ -155,8 +156,12 @@
       margin-left: auto;
     }
 
-    &__btns li {
-      display: flex;
+    &__btns {
+      margin-right: 10px;
+
+      li {
+        display: flex;
+      }
     }
   }
 
