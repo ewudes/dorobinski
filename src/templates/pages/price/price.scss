@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .price {
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +47,6 @@
   }
 
   &__subtitle {
-    // width: 60%;
     font-size: 24px;
     line-height: 28px;
     padding: 0 10px;
@@ -77,7 +78,6 @@
 
   &__left,
   &__right {
-    // flex-basis: 50%;
     padding: 0 10px;
 
     & > .price__subtitle {
@@ -86,7 +86,6 @@
   }
 
   &__about {
-    // flex-basis: 50%;
     width: 100%;
     box-sizing: border-box;
     text-align: justify;
@@ -95,6 +94,39 @@
 
     &:last-child {
       margin-bottom: 30px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .price {
+    flex-direction: row;
+
+    &__title {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    &__left,
+    &__right {
+      padding: 0;
+      flex-basis: 50%;
+    }
+
+    &__subtitle {
+      width: 70%;
+    }
+
+    &__pricelist {
+      width: 100%;
+    }
+
+    &__pricecol {
+      width: 40%;
+    }
+
+    &__about {
+      flex-basis: 50%;
     }
   }
 }
