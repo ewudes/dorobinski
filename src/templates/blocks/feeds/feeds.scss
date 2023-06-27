@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .feeds {
 
   &__list {
@@ -8,5 +10,15 @@
     margin-bottom: 25px;
 
     list-style: none;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .feeds {
+
+    &__list {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 }

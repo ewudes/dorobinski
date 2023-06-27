@@ -86,6 +86,10 @@
     background-color: $main-link-color;
     border-radius: 5px;
     cursor: pointer;
+
+    &:hover {
+      background-color: #663d15;
+    }
   }
 }
 
@@ -106,9 +110,13 @@
 
 .filter-button {
   display: block;
-  background-color: $light-link-color;
+  background-color: $light-bg-color;
   color: $dark-font-color;
   margin: 0 auto 10px;
+
+  &:hover {
+    color: #ffffff;
+  }
 }
 
 @media (min-width: $desktop-width) {
@@ -116,5 +124,28 @@
     &__show-btn {
       display: none;
     }
+
+    &__input-radio+label::before {
+      border-color: #000000;
+    }
+
+    &__input-radio:checked+label::after {
+      background-color: #000000;
+    }
+  }
+
+  .filter {
+    background-color: transparent;
+    color: $dark-font-color;
+    max-height: inherit;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .filter-button {
+    background-color: $main-bg-color;
+    color: $main-font-color;
+    margin: 0;
   }
 }

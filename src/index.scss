@@ -28,6 +28,10 @@ body {
     background-position: top center;
     background-repeat: no-repeat;
     background-color: $main-bg-color;
+
+    & .header__items {
+      margin-left: 10px;
+    }
   }
 
   &--error {
@@ -55,6 +59,7 @@ a {
 }
 
 .container {
+  position: relative;
 
   &--error {
     display: flex;

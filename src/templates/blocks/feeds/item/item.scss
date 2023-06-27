@@ -1,9 +1,9 @@
+@import "../../../../variables.scss";
+
 .feeds-item {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  // margin-bottom: 20px;
-  // margin-right: 20px;
   margin: 11px;
   padding: 16px;
   background-color: #f8f8f8;
@@ -23,10 +23,6 @@
       margin: 0 auto;
     }
   }
-
-  // &__description {
-  //   padding-left: 20px;
-  // }
 
   &__price {
     margin: auto;
@@ -69,5 +65,20 @@
   &__image {
     background-color: #d5d5d5a3;
     height: 160px;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .feeds-item {
+    max-width: 46%;
+    margin: 20px auto;
+
+    &:nth-child(2n+1) {
+      margin-left: 10px;
+    }
+
+    &:nth-child(2n) {
+      margin-right: 10px;
+    }
   }
 }
