@@ -360,7 +360,7 @@ f .product-photo-preview {
   height: 40px;
   cursor: pointer;
   background-color: #0000;
-  background-image: url("cross.efbb267c.svg");
+  background-image: url("cross-black.27e4e8d6.svg");
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -1132,6 +1132,18 @@ span + span {
   display: block;
 }
 
+@media (min-width: 768px) {
+  .catalog-item {
+    flex-basis: 45%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .catalog-item {
+    flex-basis: 188px;
+  }
+}
+
 .pagination {
   margin: 0 6px;
   padding: 0;
@@ -1164,6 +1176,13 @@ span + span {
   padding: 10px;
   list-style: none;
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .catalog__list {
+    flex-flow: wrap;
+    justify-content: space-between;
+  }
 }
 
 
@@ -1216,7 +1235,7 @@ span + span {
   }
 
   .double > :last-child {
-    width: 700px;
+    width: 720px;
   }
 }
 
@@ -1263,7 +1282,7 @@ span + span {
 }
 
 .filters__input-checkbox:checked + label:before {
-  background-image: url("cross.efbb267c.svg");
+  background-image: url("cross-white.5dafb532.svg");
   position: absolute;
 }
 
@@ -1343,12 +1362,16 @@ span + span {
     display: none;
   }
 
-  .filters__input-radio + label:before {
+  .filters__input-radio + label:before, .filters__input-checkbox + label:before {
     border-color: #000;
   }
 
   .filters__input-radio:checked + label:after {
     background-color: #000;
+  }
+
+  .filters__input-checkbox:checked + label:before {
+    background-image: url("cross-black.27e4e8d6.svg");
   }
 
   .filter {

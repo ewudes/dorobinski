@@ -44,7 +44,7 @@
 
   &__input-checkbox:checked+label::before {
     position: absolute;
-    background-image: url("../../../static/img/cross.svg");
+    background-image: url("../../../static/img/cross-white.svg");
   }
 
   &__input-radio+label::before {
@@ -125,12 +125,17 @@
       display: none;
     }
 
-    &__input-radio+label::before {
+    &__input-radio+label::before,
+    &__input-checkbox+label::before {
       border-color: #000000;
     }
 
     &__input-radio:checked+label::after {
       background-color: #000000;
+    }
+
+    &__input-checkbox:checked+label::before {
+      background-image: url("../../../static/img/cross-black.svg");
     }
   }
 

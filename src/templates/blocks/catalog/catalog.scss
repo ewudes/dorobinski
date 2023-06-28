@@ -1,12 +1,24 @@
+@import "../../../variables.scss";
+
 .catalog {
 
   &__list {
     display: flex;
-    // flex-wrap: wrap;
     flex-direction: column;
     padding: 10px;
     margin: 0;
 
     list-style: none;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .catalog {
+
+    &__list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
 }
