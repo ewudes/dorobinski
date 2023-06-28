@@ -1,3 +1,5 @@
+@import "../../../../variables.scss";
+
 .staff-item {
   display: flex;
   flex-direction: column;
@@ -81,5 +83,17 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .staff-item {
+    flex-basis: 49%;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .staff-item {
+    flex-basis: 31%;
   }
 }

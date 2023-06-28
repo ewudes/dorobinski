@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .staff {
 
   &__list {
@@ -10,5 +12,16 @@
     margin-bottom: 25px;
 
     list-style: none;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .staff {
+
+    &__list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
 }
