@@ -2,7 +2,7 @@ import Block from "../../core/block";
 import link from "./link.tml";
 
 interface ILink {
-  className: string;
+  className?: string;
   name: string;
   events?: { click: (e: Event) => void };
 }

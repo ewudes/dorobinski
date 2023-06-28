@@ -8,7 +8,10 @@ class Item extends Block {
   constructor(props: Record<string, any> = {}) {
     const header = new Header();
 
-    super("div", { header, ...props });
+    super("div", {
+      header,
+      ...props
+    });
   }
 
   render() {

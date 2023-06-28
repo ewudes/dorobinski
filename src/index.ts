@@ -4,6 +4,7 @@ import Store from "./templates/pages/store/store";
 import News from "./templates/pages/news/news";
 import Price from "./templates/pages/price/price";
 import Contacts from "./templates/pages/contacts/contacts";
+import Item from "./templates/pages/item/item";
 
 import router from "./core/router";
 
@@ -15,4 +16,5 @@ router
   .use("/store", Store)
   .use("/price", Price)
   .use("/contacts", Contacts)
+  .use("/item", Item)
   .start();
