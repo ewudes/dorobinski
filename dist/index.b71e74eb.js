@@ -544,12 +544,14 @@ var _price = require("./templates/pages/price/price");
 var _priceDefault = parcelHelpers.interopDefault(_price);
 var _contacts = require("./templates/pages/contacts/contacts");
 var _contactsDefault = parcelHelpers.interopDefault(_contacts);
+var _item = require("./templates/pages/item/item");
+var _itemDefault = parcelHelpers.interopDefault(_item);
 var _router = require("./core/router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
 var _indexScss = require("./index.scss");
-(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).start();
+(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use("/item", (0, _itemDefault.default)).start();
 
-},{"./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./core/router":"f4hn2"}],"lJZlQ":[function() {},{}],"gkKU3":[function(require,module,exports) {
+},{"./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./core/router":"f4hn2","./templates/pages/item/item":"jFTgW"}],"lJZlQ":[function() {},{}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -13077,12 +13079,32 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../../core/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
+var _link = require("../../../../components/link/link");
+var _linkDefault = parcelHelpers.interopDefault(_link);
 var _itemTml = require("./item.tml");
 var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
 var _itemScss = require("./item.scss");
+var _router = require("../../../../core/router");
+var _routerDefault = parcelHelpers.interopDefault(_router);
 class Item extends (0, _blockDefault.default) {
     constructor(props){
-        super("div", props);
+        const bodyItem = `<p class="catalog-item__image">
+        <img src=${props?.img} width="188" height="160" alt=${props?.description}>
+      </p>
+      <h3>
+        <span class="catalog-item__category">${props?.description}</span>
+      </h3>`;
+        const itemLink = new (0, _linkDefault.default)({
+            name: bodyItem,
+            className: "",
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/item")
+            }
+        });
+        super("div", {
+            itemLink,
+            ...props
+        });
     }
     render() {
         return this.setTemplate((0, _itemTmlDefault.default), this.props);
@@ -13090,20 +13112,13 @@ class Item extends (0, _blockDefault.default) {
 }
 exports.default = Item;
 
-},{"../../../../core/block":"axMnM","./item.tml":"fkKMZ","./item.scss":"iAKUh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fkKMZ":[function(require,module,exports) {
+},{"../../../../core/block":"axMnM","./item.tml":"fkKMZ","./item.scss":"iAKUh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../../components/link/link":"9UCyh","../../../../core/router":"f4hn2"}],"fkKMZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const item = (0, _handlebarsDefault.default).compile(`<li class="catalog-item">
-    <a href="catalog-item.html">
-      <p class="catalog-item__image">
-        <img src="{{img}}" width="188" height="160" alt="{{description}}">
-      </p>
-      <h3>
-        <span class="catalog-item__category">{{description}}</span>
-      </h3>
-    </a>
+    {{{itemLink}}}
     <p class="catalog-item__price">
       <b class="catalog-item__tag">{{price}} ₽</b>
       <a class="catalog-item__buy" href="#">Купить</a>
@@ -13494,11 +13509,11 @@ var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const news = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
     {{{header}}}
-      <main class="container">
-        <h1 class="page-title">Новости</h1>
-        {{{breadcrumbs}}}
-        {{{double}}}
-      </main>
+    <main class="container">
+      <h1 class="page-title">Новости</h1>
+      {{{breadcrumbs}}}
+      {{{double}}}
+    </main>
     {{{footer}}}
   </div>`);
 exports.default = news;
@@ -13883,6 +13898,87 @@ const staff = (0, _handlebarsDefault.default).compile(`<section class="staff">
   </section>`);
 exports.default = staff;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hWlS":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hWlS":[function() {},{}],"jFTgW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _header = require("../../blocks/header/header");
+var _headerDefault = parcelHelpers.interopDefault(_header);
+var _itemTml = require("./item.tml");
+var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
+var _itemScss = require("./item.scss");
+class Item extends (0, _blockDefault.default) {
+    constructor(props = {}){
+        const header = new (0, _headerDefault.default)();
+        super("div", {
+            header,
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _itemTmlDefault.default), this.props);
+    }
+}
+exports.default = Item;
+
+},{"../../../core/block":"axMnM","./item.tml":"5S6kR","./item.scss":"fQWYP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../blocks/header/header":"8Tu9P"}],"5S6kR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const item = (0, _handlebarsDefault.default).compile(`<div class="wrapper"
+    <main class="container">
+      {{{header}}}
+      <h1 class="page-title">Набор для путешествий «Baxter of California»</h1>
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="#">Магазин</a></li>
+        <li><a href="#">Средства для ухода</a></li>
+        <li class="breadcrumbs-current">Набор для путешествий «Baxter of California»</li>
+      </ul>
+      <div class="catalog-columns">
+        <section class="product-photos">
+          <h2 class="visually-hidden">Изображения товара</h2>
+          <p class="product-photo-full">
+            <img src="img/product-big.jpg" width="460" height="498" alt="Фото всего набора">
+          </p>
+          <ul class="product-photo-preview">
+            <li>
+              <img src="img/product-small-1.jpg" width="140" height="149" alt="Фото в анфас">
+            </li>
+            <li>
+              <img src="img/product-small-2.jpg" width="140" height="149" alt="Фото в профиль">
+            </li>
+            <li>
+              <img src="img/product-small-3.jpg" width="140" height="149" alt="Фото отдельной части">
+            </li>
+          </ul>
+        </section>
+        <section class="product-info">
+          <h2 class="visually-hidden">Описание товара</h2>
+          <div class="product-description">
+            <p class="product-availability">Есть в наличии</p>
+            <p class="product-article">Артикул: dexter-ae</p>
+          </div>
+          <p class="product-text">Travel Kit – необходимый аксессуар во время любого путешествия. В аккуратной кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха: средство для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным подарком.</p>
+          <p class="product-price">
+            <b>2 900 ₽</b>
+            <a class="button" href="#">Купить</a>
+          </p>
+          <h3>В набор входят:</h3>
+          <ul>
+            <li>Средство для умывания (50 мл)</li>
+            <li>Увлажняющий крем (50 мл)</li>
+            <li>Крем для бритья (50 мл)</li>
+            <li>Крем после бритья, шампунь (50 мл)</li>
+            <li>Удобная кожаная косметичка</li>
+          </ul>
+        </section>
+      </div>
+    </main>`);
+exports.default = item;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fQWYP":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
 
 //# sourceMappingURL=index.b71e74eb.js.map
