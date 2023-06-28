@@ -1749,12 +1749,31 @@ span + span {
   transform: translate(-50%, -50%);
 }
 
+@media (min-width: 768px) {
+  .staff-item {
+    flex-basis: 49%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .staff-item {
+    flex-basis: 31%;
+  }
+}
+
 .staff__list {
   flex-direction: column;
   margin: 0 0 25px;
   padding: 10px;
   list-style: none;
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .staff__list {
+    flex-flow: wrap;
+    justify-content: space-between;
+  }
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
