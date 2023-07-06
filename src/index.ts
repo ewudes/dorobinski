@@ -10,11 +10,13 @@ import router from "./core/router";
 
 import './index.scss';
 
+console.log(document.location)
+
 router
   .use("/", Home)
   .use("/news", News)
   .use("/store", Store)
   .use("/price", Price)
   .use("/contacts", Contacts)
-  .use("/item", Item)
+  .use(`/item`, Item)
   .start();

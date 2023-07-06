@@ -5,27 +5,22 @@ const item = Handlebars.compile(
     <main class="container">
       {{{header}}}
       <h1 class="page-title">Набор для путешествий «Baxter of California»</h1>
-      <ul class="breadcrumbs">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="#">Магазин</a></li>
-        <li><a href="#">Средства для ухода</a></li>
-        <li class="breadcrumbs-current">Набор для путешествий «Baxter of California»</li>
-      </ul>
+      {{{breadcrumbs}}}
       <div class="catalog-columns">
         <section class="product-photos">
           <h2 class="visually-hidden">Изображения товара</h2>
           <p class="product-photo-full">
-            <img src="img/product-big.jpg" width="460" height="498" alt="Фото всего набора">
+            <img src="./img/content/product-1.jpg" width="460" height="498" alt="Фото всего набора">
           </p>
           <ul class="product-photo-preview">
             <li>
-              <img src="img/product-small-1.jpg" width="140" height="149" alt="Фото в анфас">
+              <img src="./img/content/product-2.jpg" width="140" height="149" alt="Фото в анфас">
             </li>
             <li>
-              <img src="img/product-small-2.jpg" width="140" height="149" alt="Фото в профиль">
+              <img src="./img/content/product-3.jpg" width="140" height="149" alt="Фото в профиль">
             </li>
             <li>
-              <img src="img/product-small-3.jpg" width="140" height="149" alt="Фото отдельной части">
+              <img src="./img/content/product-4.jpg" width="140" height="149" alt="Фото отдельной части">
             </li>
           </ul>
         </section>
@@ -50,7 +45,9 @@ const item = Handlebars.compile(
           </ul>
         </section>
       </div>
-    </main>`
+    </main>
+    {{{footer}}}
+  </div>`
 );
 
 export default item;
