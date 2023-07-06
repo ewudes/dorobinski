@@ -549,7 +549,8 @@ var _itemDefault = parcelHelpers.interopDefault(_item);
 var _router = require("./core/router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
 var _indexScss = require("./index.scss");
-(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use("/item", (0, _itemDefault.default)).start();
+console.log(document.location);
+(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use(`/item`, (0, _itemDefault.default)).start();
 
 },{"./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./core/router":"f4hn2","./templates/pages/item/item":"jFTgW"}],"lJZlQ":[function() {},{}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -13905,14 +13906,22 @@ var _block = require("../../../core/block");
 var _blockDefault = parcelHelpers.interopDefault(_block);
 var _header = require("../../blocks/header/header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
+var _breadcrumbs = require("../../../components/breadcrumbs/breadcrumbs");
+var _breadcrumbsDefault = parcelHelpers.interopDefault(_breadcrumbs);
+var _footer = require("../../blocks/footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
 var _itemTml = require("./item.tml");
 var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
 var _itemScss = require("./item.scss");
 class Item extends (0, _blockDefault.default) {
     constructor(props = {}){
         const header = new (0, _headerDefault.default)();
+        const breadcrumbs = new (0, _breadcrumbsDefault.default)();
+        const footer = new (0, _footerDefault.default)();
         super("div", {
             header,
+            breadcrumbs,
+            footer,
             ...props
         });
     }
@@ -13922,7 +13931,7 @@ class Item extends (0, _blockDefault.default) {
 }
 exports.default = Item;
 
-},{"../../../core/block":"axMnM","./item.tml":"5S6kR","./item.scss":"fQWYP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../blocks/header/header":"8Tu9P"}],"5S6kR":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","./item.tml":"5S6kR","./item.scss":"fQWYP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../blocks/footer/footer":"8y6VV"}],"5S6kR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13931,27 +13940,22 @@ const item = (0, _handlebarsDefault.default).compile(`<div class="wrapper"
     <main class="container">
       {{{header}}}
       <h1 class="page-title">Набор для путешествий «Baxter of California»</h1>
-      <ul class="breadcrumbs">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="#">Магазин</a></li>
-        <li><a href="#">Средства для ухода</a></li>
-        <li class="breadcrumbs-current">Набор для путешествий «Baxter of California»</li>
-      </ul>
+      {{{breadcrumbs}}}
       <div class="catalog-columns">
         <section class="product-photos">
           <h2 class="visually-hidden">Изображения товара</h2>
           <p class="product-photo-full">
-            <img src="img/product-big.jpg" width="460" height="498" alt="Фото всего набора">
+            <img src="./img/content/product-1.jpg" width="460" height="498" alt="Фото всего набора">
           </p>
           <ul class="product-photo-preview">
             <li>
-              <img src="img/product-small-1.jpg" width="140" height="149" alt="Фото в анфас">
+              <img src="./img/content/product-2.jpg" width="140" height="149" alt="Фото в анфас">
             </li>
             <li>
-              <img src="img/product-small-2.jpg" width="140" height="149" alt="Фото в профиль">
+              <img src="./img/content/product-3.jpg" width="140" height="149" alt="Фото в профиль">
             </li>
             <li>
-              <img src="img/product-small-3.jpg" width="140" height="149" alt="Фото отдельной части">
+              <img src="./img/content/product-4.jpg" width="140" height="149" alt="Фото отдельной части">
             </li>
           </ul>
         </section>
@@ -13976,7 +13980,9 @@ const item = (0, _handlebarsDefault.default).compile(`<div class="wrapper"
           </ul>
         </section>
       </div>
-    </main>`);
+    </main>
+    {{{footer}}}
+  </div>`);
 exports.default = item;
 
 },{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fQWYP":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
