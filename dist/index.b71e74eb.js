@@ -552,37 +552,7 @@ var _indexScss = require("./index.scss");
 console.log(document.location);
 (0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use(`/item`, (0, _itemDefault.default)).start();
 
-},{"./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./core/router":"f4hn2","./templates/pages/item/item":"jFTgW"}],"lJZlQ":[function() {},{}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"emTDZ":[function(require,module,exports) {
+},{"./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./templates/pages/item/item":"jFTgW","./core/router":"f4hn2","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"emTDZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -810,7 +780,7 @@ class Block {
 }
 exports.default = Block;
 
-},{"nanoid":"2ifus","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./eventBus":"gLUid"}],"2ifus":[function(require,module,exports) {
+},{"nanoid":"2ifus","./eventBus":"gLUid","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ifus":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "urlAlphabet", ()=>(0, _indexJs.urlAlphabet));
@@ -845,7 +815,37 @@ let nanoid = (size = 21)=>crypto.getRandomValues(new Uint8Array(size)).reduce((i
         return id;
     }, "");
 
-},{"./url-alphabet/index.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gLUid":[function(require,module,exports) {
+},{"./url-alphabet/index.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"gLUid":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class EventBus {
@@ -973,7 +973,7 @@ class Header extends (0, _blockDefault.default) {
 }
 exports.default = Header;
 
-},{"../../../core/block":"axMnM","../../../components/link/link":"9UCyh","../../../components/button/button":"9lSjy","../popup/popup":"74UTd","./header.tml":"16j5O","./header.scss":"fHZcC","../../../core/router":"f4hn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/hamburger/hamburger":"81kkR"}],"9UCyh":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../../components/link/link":"9UCyh","../../../components/button/button":"9lSjy","../../../components/hamburger/hamburger":"81kkR","../popup/popup":"74UTd","./header.tml":"16j5O","./header.scss":"fHZcC","../../../core/router":"f4hn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9UCyh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../core/block");
@@ -12341,7 +12341,37 @@ var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const button = (0, _handlebarsDefault.default).compile(`<button class="{{className}}">{{text}}</button>`);
 exports.default = button;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"74UTd":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"81kkR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _hamburgerTml = require("./hamburger.tml");
+var _hamburgerTmlDefault = parcelHelpers.interopDefault(_hamburgerTml);
+var _hamburgerScss = require("./hamburger.scss");
+class Hamburger extends (0, _blockDefault.default) {
+    constructor(props){
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _hamburgerTmlDefault.default), this.props);
+    }
+}
+exports.default = Hamburger;
+
+},{"../../core/block":"axMnM","./hamburger.tml":"3bzt2","./hamburger.scss":"j7qKa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3bzt2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const link = (0, _handlebarsDefault.default).compile(`<div class="hamburger not-active">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>`);
+exports.default = link;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j7qKa":[function() {},{}],"74UTd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -12563,37 +12593,7 @@ function render(query, block) {
 }
 exports.default = render;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"81kkR":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _hamburgerTml = require("./hamburger.tml");
-var _hamburgerTmlDefault = parcelHelpers.interopDefault(_hamburgerTml);
-var _hamburgerScss = require("./hamburger.scss");
-class Hamburger extends (0, _blockDefault.default) {
-    constructor(props){
-        super("div", props);
-    }
-    render() {
-        return this.setTemplate((0, _hamburgerTmlDefault.default), this.props);
-    }
-}
-exports.default = Hamburger;
-
-},{"../../core/block":"axMnM","./hamburger.tml":"3bzt2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./hamburger.scss":"j7qKa"}],"3bzt2":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const link = (0, _handlebarsDefault.default).compile(`<div class="hamburger not-active">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>`);
-exports.default = link;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j7qKa":[function() {},{}],"8y6VV":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8y6VV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -12998,199 +12998,7 @@ class Store extends (0, _blockDefault.default) {
 }
 exports.default = Store;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/catalog/catalog":"lG7z2","../../blocks/footer/footer":"8y6VV","./store.tml":"lcrrw","./store.scss":"104RH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../layouts/double/double":"9a1TE","../../../components/filters/filters":"5ozXA"}],"lG7z2":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _item = require("./item/item");
-var _itemDefault = parcelHelpers.interopDefault(_item);
-var _pagination = require("../pagination/pagination");
-var _paginationDefault = parcelHelpers.interopDefault(_pagination);
-var _catalogTml = require("./catalog.tml");
-var _catalogTmlDefault = parcelHelpers.interopDefault(_catalogTml);
-var _catalogScss = require("./catalog.scss");
-class Catalog extends (0, _blockDefault.default) {
-    constructor(props){
-        const catalog = [
-            {
-                item: new (0, _itemDefault.default)({
-                    img: "./img/content/product-1.jpg",
-                    description: "Набор для путешествий  \xabBaxter of California\xbb",
-                    price: 2990,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    img: "./img/content/product-2.jpg",
-                    description: "Увлажняющий кондиционер  \xabBaxter of California\xbb",
-                    price: 1550,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    img: "./img/content/product-3.jpg",
-                    description: "Гель для волос \xabSUAVECITO\xbb",
-                    price: 490,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    img: "./img/content/product-4.jpg",
-                    description: "Глина для укладки волос  \xabAmerican crew\xbb",
-                    price: 990,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    img: "./img/content/product-5.jpg",
-                    description: "Гель для волос \xabAMERICAN CREW\xbb",
-                    price: 3790,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    img: "./img/content/product-6.jpg",
-                    description: "Набор для бритья \xabBaxter of California\xbb",
-                    price: 4830,
-                    category: "shaving"
-                })
-            }
-        ];
-        const pagination = new (0, _paginationDefault.default)();
-        super("div", {
-            catalog,
-            pagination,
-            ...props
-        });
-    }
-    render() {
-        return this.setTemplate((0, _catalogTmlDefault.default), this.props);
-    }
-}
-exports.default = Catalog;
-
-},{"../../../core/block":"axMnM","./item/item":"eJqIC","../pagination/pagination":"88oLH","./catalog.tml":"iedY2","./catalog.scss":"joHHX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eJqIC":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _link = require("../../../../components/link/link");
-var _linkDefault = parcelHelpers.interopDefault(_link);
-var _itemTml = require("./item.tml");
-var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
-var _itemScss = require("./item.scss");
-var _router = require("../../../../core/router");
-var _routerDefault = parcelHelpers.interopDefault(_router);
-class Item extends (0, _blockDefault.default) {
-    constructor(props){
-        const bodyItem = `<p class="catalog-item__image">
-        <img src=${props?.img} width="188" height="160" alt=${props?.description}>
-      </p>
-      <h3>
-        <span class="catalog-item__category">${props?.description}</span>
-      </h3>`;
-        const itemLink = new (0, _linkDefault.default)({
-            name: bodyItem,
-            className: "",
-            events: {
-                click: ()=>(0, _routerDefault.default).go("/item")
-            }
-        });
-        super("div", {
-            itemLink,
-            ...props
-        });
-    }
-    render() {
-        return this.setTemplate((0, _itemTmlDefault.default), this.props);
-    }
-}
-exports.default = Item;
-
-},{"../../../../core/block":"axMnM","./item.tml":"fkKMZ","./item.scss":"iAKUh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../../components/link/link":"9UCyh","../../../../core/router":"f4hn2"}],"fkKMZ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const item = (0, _handlebarsDefault.default).compile(`<li class="catalog-item">
-    {{{itemLink}}}
-    <p class="catalog-item__price">
-      <b class="catalog-item__tag">{{price}} ₽</b>
-      <a class="catalog-item__buy" href="#">Купить</a>
-    </p>
-  </li>`);
-exports.default = item;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iAKUh":[function() {},{}],"88oLH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _paginationTml = require("./pagination.tml");
-var _paginationTmlDefault = parcelHelpers.interopDefault(_paginationTml);
-var _paginationScss = require("./pagination.scss");
-class Pagination extends (0, _blockDefault.default) {
-    constructor(props){
-        super("div", props);
-    }
-    render() {
-        return this.setTemplate((0, _paginationTmlDefault.default), this.props);
-    }
-}
-exports.default = Pagination;
-
-},{"../../../core/block":"axMnM","./pagination.tml":"dIfE1","./pagination.scss":"3qCT5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIfE1":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const pagination = (0, _handlebarsDefault.default).compile(`<ul class="pagination">
-      <li class="pagination__item"><a href="#">1</a></li>
-      <li class="pagination__item pagination__item--current"><a>2</a></li>
-      <li class="pagination__item"><a href="#">3</a></li>
-      <li class="pagination__item"><a href="#">4</a></li>
-    </ul>`);
-exports.default = pagination;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3qCT5":[function() {},{}],"iedY2":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const catalog = (0, _handlebarsDefault.default).compile(`<section class="catalog">
-    <h2 class="visually-hidden">Список средств для ухода</h2>
-    <ul class="catalog__list">
-      {{#each catalog}}
-        {{{item}}}
-      {{/each}}
-    </ul>
-    {{{pagination}}}
-  </section>`);
-exports.default = catalog;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"joHHX":[function() {},{}],"lcrrw":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const store = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
-    {{{header}}}
-    <main class="container">
-      <h1 class="page-title">Cредства для ухода</h1>
-      {{{breadcrumbs}}}
-      {{{double}}}
-    </main>
-    {{{footer}}}
-  </div>`);
-exports.default = store;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"104RH":[function() {},{}],"2TBnP":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../layouts/double/double":"9a1TE","../../../components/filters/filters":"5ozXA","../../blocks/catalog/catalog":"lG7z2","../../blocks/footer/footer":"8y6VV","./store.tml":"lcrrw","./store.scss":"104RH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2TBnP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../core/block");
@@ -13319,7 +13127,7 @@ class Filters extends (0, _blockDefault.default) {
 }
 exports.default = Filters;
 
-},{"../../core/block":"axMnM","./filters.tml":"6TuO2","./filters.scss":"1lDjn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../button/button":"9lSjy"}],"6TuO2":[function(require,module,exports) {
+},{"../../core/block":"axMnM","../button/button":"9lSjy","./filters.tml":"6TuO2","./filters.scss":"1lDjn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6TuO2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13390,7 +13198,199 @@ const breadcrumbs = (0, _handlebarsDefault.default).compile(`<section class="fil
   </section>`);
 exports.default = breadcrumbs;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1lDjn":[function() {},{}],"d6ydp":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1lDjn":[function() {},{}],"lG7z2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _item = require("./item/item");
+var _itemDefault = parcelHelpers.interopDefault(_item);
+var _pagination = require("../pagination/pagination");
+var _paginationDefault = parcelHelpers.interopDefault(_pagination);
+var _catalogTml = require("./catalog.tml");
+var _catalogTmlDefault = parcelHelpers.interopDefault(_catalogTml);
+var _catalogScss = require("./catalog.scss");
+class Catalog extends (0, _blockDefault.default) {
+    constructor(props){
+        const catalog = [
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-1.jpg",
+                    description: "Набор для путешествий  \xabBaxter of California\xbb",
+                    price: 2990,
+                    category: "shaving"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-2.jpg",
+                    description: "Увлажняющий кондиционер  \xabBaxter of California\xbb",
+                    price: 1550,
+                    category: "shaving"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-3.jpg",
+                    description: "Гель для волос \xabSUAVECITO\xbb",
+                    price: 490,
+                    category: "shaving"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-4.jpg",
+                    description: "Глина для укладки волос  \xabAmerican crew\xbb",
+                    price: 990,
+                    category: "shaving"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-5.jpg",
+                    description: "Гель для волос \xabAMERICAN CREW\xbb",
+                    price: 3790,
+                    category: "shaving"
+                })
+            },
+            {
+                item: new (0, _itemDefault.default)({
+                    img: "./img/content/product-6.jpg",
+                    description: "Набор для бритья \xabBaxter of California\xbb",
+                    price: 4830,
+                    category: "shaving"
+                })
+            }
+        ];
+        const pagination = new (0, _paginationDefault.default)();
+        super("div", {
+            catalog,
+            pagination,
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _catalogTmlDefault.default), this.props);
+    }
+}
+exports.default = Catalog;
+
+},{"../../../core/block":"axMnM","./item/item":"eJqIC","../pagination/pagination":"88oLH","./catalog.tml":"iedY2","./catalog.scss":"joHHX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eJqIC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _link = require("../../../../components/link/link");
+var _linkDefault = parcelHelpers.interopDefault(_link);
+var _itemTml = require("./item.tml");
+var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
+var _itemScss = require("./item.scss");
+var _router = require("../../../../core/router");
+var _routerDefault = parcelHelpers.interopDefault(_router);
+class Item extends (0, _blockDefault.default) {
+    constructor(props){
+        const bodyItem = `<p class="catalog-item__image">
+        <img src=${props?.img} width="188" height="160" alt=${props?.description}>
+      </p>
+      <h3>
+        <span class="catalog-item__category">${props?.description}</span>
+      </h3>`;
+        const itemLink = new (0, _linkDefault.default)({
+            name: bodyItem,
+            className: "",
+            events: {
+                click: ()=>(0, _routerDefault.default).go("/item")
+            }
+        });
+        super("div", {
+            itemLink,
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _itemTmlDefault.default), this.props);
+    }
+}
+exports.default = Item;
+
+},{"../../../../core/block":"axMnM","../../../../components/link/link":"9UCyh","./item.tml":"fkKMZ","./item.scss":"iAKUh","../../../../core/router":"f4hn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fkKMZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const item = (0, _handlebarsDefault.default).compile(`<li class="catalog-item">
+    {{{itemLink}}}
+    <p class="catalog-item__price">
+      <b class="catalog-item__tag">{{price}} ₽</b>
+      <a class="catalog-item__buy" href="#">Купить</a>
+    </p>
+  </li>`);
+exports.default = item;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iAKUh":[function() {},{}],"88oLH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _paginationTml = require("./pagination.tml");
+var _paginationTmlDefault = parcelHelpers.interopDefault(_paginationTml);
+var _paginationScss = require("./pagination.scss");
+class Pagination extends (0, _blockDefault.default) {
+    constructor(props){
+        super("div", props);
+    }
+    render() {
+        return this.setTemplate((0, _paginationTmlDefault.default), this.props);
+    }
+}
+exports.default = Pagination;
+
+},{"../../../core/block":"axMnM","./pagination.tml":"dIfE1","./pagination.scss":"3qCT5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIfE1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const pagination = (0, _handlebarsDefault.default).compile(`<ul class="pagination">
+      <li class="pagination__item"><a href="#">1</a></li>
+      <li class="pagination__item pagination__item--current"><a>2</a></li>
+      <li class="pagination__item"><a href="#">3</a></li>
+      <li class="pagination__item"><a href="#">4</a></li>
+    </ul>`);
+exports.default = pagination;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3qCT5":[function() {},{}],"iedY2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const catalog = (0, _handlebarsDefault.default).compile(`<section class="catalog">
+    <h2 class="visually-hidden">Список средств для ухода</h2>
+    <ul class="catalog__list">
+      {{#each catalog}}
+        {{{item}}}
+      {{/each}}
+    </ul>
+    {{{pagination}}}
+  </section>`);
+exports.default = catalog;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"joHHX":[function() {},{}],"lcrrw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const store = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
+    {{{header}}}
+    <main class="container">
+      <h1 class="page-title">Cредства для ухода</h1>
+      {{{breadcrumbs}}}
+      {{{double}}}
+    </main>
+    {{{footer}}}
+  </div>`);
+exports.default = store;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"104RH":[function() {},{}],"d6ydp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -13503,7 +13503,7 @@ class News extends (0, _blockDefault.default) {
 }
 exports.default = News;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./news.tml":"ijOPp","./news.scss":"1x0QE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../layouts/double/double":"9a1TE","../../../components/filters/filters":"5ozXA","../../blocks/feeds/feeds":"kT1ig"}],"ijOPp":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../blocks/footer/footer":"8y6VV","./news.tml":"ijOPp","./news.scss":"1x0QE","../../layouts/double/double":"9a1TE","../../../components/filters/filters":"5ozXA","../../blocks/feeds/feeds":"kT1ig","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ijOPp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13580,7 +13580,7 @@ class Feeds extends (0, _blockDefault.default) {
 }
 exports.default = Feeds;
 
-},{"../../../core/block":"axMnM","./item/item":"kNkMc","../pagination/pagination":"88oLH","./feeds.tml":"lAtTA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./feeds.scss":"axOcV"}],"kNkMc":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","./item/item":"kNkMc","../pagination/pagination":"88oLH","./feeds.tml":"lAtTA","./feeds.scss":"axOcV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kNkMc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../../core/block");
@@ -13665,7 +13665,7 @@ class Price extends (0, _blockDefault.default) {
 }
 exports.default = Price;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./price.tml":"9Fi4S","./price.scss":"8nkLb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP"}],"9Fi4S":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../blocks/footer/footer":"8y6VV","./price.tml":"9Fi4S","./price.scss":"8nkLb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Fi4S":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13762,28 +13762,7 @@ class Contacts extends (0, _blockDefault.default) {
 }
 exports.default = Contacts;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../blocks/footer/footer":"8y6VV","./contacts.tml":"2LOfS","./contacts.scss":"e8hgD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../blocks/staff/staff":"dsnCW"}],"2LOfS":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const contacts = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
-    {{{header}}}
-      <main class="container">
-        <h1 class="page-title">Контакты</h1>
-        {{{breadcrumbs}}}
-        <h2 class="contacts__title">Наши мастера</h2>
-        {{{staff}}}
-        <h2 class="contacts__title">Как нас найти</h2>
-        <div class="contacts__map">
-          <iframe class="contacts__iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6036253003183!2d30.320858716204274!3d59.938719169054046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2sBolshaya%20Konyushennaya%20St%2C%2019%2F8%2C%20Sankt-Peterburg%2C%20191186!5e0!3m2!1sen!2sru!4v1676292954408!5m2!1sen!2sru" width="100%" height="450"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </main>
-    {{{footer}}}
-  </div>`);
-exports.default = contacts;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e8hgD":[function() {},{}],"dsnCW":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../blocks/staff/staff":"dsnCW","../../blocks/footer/footer":"8y6VV","./contacts.tml":"2LOfS","./contacts.scss":"e8hgD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dsnCW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -13899,7 +13878,28 @@ const staff = (0, _handlebarsDefault.default).compile(`<section class="staff">
   </section>`);
 exports.default = staff;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hWlS":[function() {},{}],"jFTgW":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hWlS":[function() {},{}],"2LOfS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const contacts = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
+    {{{header}}}
+      <main class="container">
+        <h1 class="page-title">Контакты</h1>
+        {{{breadcrumbs}}}
+        <h2 class="contacts__title">Наши мастера</h2>
+        {{{staff}}}
+        <h2 class="contacts__title">Как нас найти</h2>
+        <div class="contacts__map">
+          <iframe class="contacts__iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6036253003183!2d30.320858716204274!3d59.938719169054046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2sBolshaya%20Konyushennaya%20St%2C%2019%2F8%2C%20Sankt-Peterburg%2C%20191186!5e0!3m2!1sen!2sru!4v1676292954408!5m2!1sen!2sru" width="100%" height="450"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </main>
+    {{{footer}}}
+  </div>`);
+exports.default = contacts;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e8hgD":[function() {},{}],"jFTgW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -13931,7 +13931,7 @@ class Item extends (0, _blockDefault.default) {
 }
 exports.default = Item;
 
-},{"../../../core/block":"axMnM","./item.tml":"5S6kR","./item.scss":"fQWYP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../blocks/footer/footer":"8y6VV"}],"5S6kR":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../blocks/footer/footer":"8y6VV","./item.tml":"5S6kR","./item.scss":"fQWYP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5S6kR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13985,6 +13985,6 @@ const item = (0, _handlebarsDefault.default).compile(`<div class="wrapper"
   </div>`);
 exports.default = item;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fQWYP":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fQWYP":[function() {},{}],"lJZlQ":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
 
 //# sourceMappingURL=index.b71e74eb.js.map
