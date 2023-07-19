@@ -113,6 +113,7 @@
   background-color: $light-bg-color;
   color: $dark-font-color;
   margin: 0 auto 10px;
+  width: 100%;
 
   &:hover {
     color: #ffffff;
@@ -152,5 +153,6 @@
     background-color: $main-bg-color;
     color: $main-font-color;
     margin: 0;
+    width: 140px;
   }
 }
