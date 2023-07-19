@@ -746,7 +746,7 @@ span + span {
 
 .button-appointment {
   width: 100%;
-  margin-top: 20px;
+  margin: 20px auto 0;
 }
 
 @media (min-width: 1300px) {
@@ -765,6 +765,10 @@ span + span {
 
   .appointment__title {
     text-align: left;
+  }
+
+  .button-appointment {
+    margin: 20px 0 0;
   }
 }
 
@@ -966,6 +970,7 @@ span + span {
 
 .filter-button {
   color: #000;
+  width: 100%;
   background-color: #fff;
   margin: 0 auto 10px;
   display: block;
@@ -1003,6 +1008,7 @@ span + span {
 
   .filter-button {
     color: #fff;
+    width: 140px;
     background-color: #000;
     margin: 0;
   }
@@ -1595,11 +1601,9 @@ a {
   color: #fff;
   vertical-align: middle;
   text-transform: uppercase;
-  width: 140px;
   background-color: #000;
   border: none;
   padding: 8px 0;
-  display: inline-block;
 }
 
 .button:hover, .button:focus, .button:active {
