@@ -5,7 +5,7 @@ import Hamburger from "../../../components/hamburger/hamburger";
 import Popup from "../popup/popup";
 
 import header from "./header.tml";
-import './header.scss'
+import "./header.scss";
 import router from "../../../core/router";
 
 interface IHeader {

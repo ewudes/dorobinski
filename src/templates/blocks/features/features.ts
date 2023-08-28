@@ -1,7 +1,7 @@
 import Block from "../../../core/block";
 
 import features from "./features.tml";
-import './features.scss'
+import "./features.scss";
 
 interface IFeatures {
 }

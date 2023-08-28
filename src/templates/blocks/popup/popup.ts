@@ -2,7 +2,7 @@ import Block from "../../../core/block";
 import Button from "../../../components/button/button";
 
 import popup from "./popup.tml";
-import './popup.scss'
+import "./popup.scss";
 
 interface IPopup {
 }

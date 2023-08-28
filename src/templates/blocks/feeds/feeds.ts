@@ -3,7 +3,7 @@ import Item from "./item/item";
 import Pagination from "../pagination/pagination";
 
 import feeds from "./feeds.tml";
-import './feeds.scss'
+import "./feeds.scss";
 
 interface IFeeds {
 }

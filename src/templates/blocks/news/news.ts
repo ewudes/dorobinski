@@ -1,7 +1,7 @@
 import Block from "../../../core/block";
 
 import news from "./news.tml";
-import './news.scss'
+import "./news.scss";
 
 interface INews {
 }

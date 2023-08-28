@@ -1,7 +1,7 @@
 import Block from "../../../core/block";
 
 import pagination from "./pagination.tml";
-import './pagination.scss'
+import "./pagination.scss";
 
 interface IPagination {
 }

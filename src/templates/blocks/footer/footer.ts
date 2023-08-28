@@ -1,7 +1,7 @@
 import Block from "../../../core/block";
 
 import footer from "./footer.tml";
-import './footer.scss'
+import "./footer.scss";
 
 interface IFooter {
 }

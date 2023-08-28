@@ -2,7 +2,7 @@ import Block from "../../../core/block";
 import Item from "./item/item";
 
 import staff from "./staff.tml";
-import './staff.scss'
+import "./staff.scss";
 
 interface IStaff {
 }

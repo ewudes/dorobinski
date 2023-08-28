@@ -1,4 +1,4 @@
-import Home from './templates/pages/home/home';
+import Home from "./templates/pages/home/home";
 import Store from "./templates/pages/store/store";
 // import Error from "./pages/error/error";
 import News from "./templates/pages/news/news";
@@ -8,7 +8,7 @@ import Item from "./templates/pages/item/item";
 
 import router from "./core/router";
 
-import './index.scss';
+import "./index.scss";
 
 console.log(document.location)
 

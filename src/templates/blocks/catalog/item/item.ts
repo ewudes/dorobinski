@@ -2,7 +2,7 @@ import Block from "../../../../core/block";
 import Link from "../../../../components/link/link";
 
 import item from "./item.tml";
-import './item.scss'
+import "./item.scss";
 import router from "../../../../core/router";
 
 interface IItem {

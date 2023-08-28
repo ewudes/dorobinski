@@ -1,7 +1,7 @@
 import Block from "../../../../core/block";
 
 import item from "./item.tml";
-import './item.scss'
+import "./item.scss";
 
 interface IItem {
   img: string;

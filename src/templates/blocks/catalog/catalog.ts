@@ -3,7 +3,7 @@ import Item from "./item/item";
 import Pagination from "../pagination/pagination";
 
 import catalog from "./catalog.tml";
-import './catalog.scss'
+import "./catalog.scss";
 
 interface ICatalog {
 }

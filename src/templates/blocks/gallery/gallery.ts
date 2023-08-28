@@ -1,7 +1,7 @@
 import Block from "../../../core/block";
 
 import gallery from "./gallery.tml";
-import './gallery.scss'
+import "./gallery.scss";
 
 interface IGallery {
 }

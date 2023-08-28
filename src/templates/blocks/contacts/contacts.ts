@@ -1,7 +1,7 @@
 import Block from "../../../core/block";
 
 import contacts from "./contacts.tml";
-import './contacts.scss'
+import "./contacts.scss";
 
 interface IContacts {
 }
