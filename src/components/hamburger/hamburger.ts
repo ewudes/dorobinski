@@ -1,6 +1,6 @@
 import Block from "../../core/block";
 import hamburger from "./hamburger.tml";
-import './hamburger.scss'
+import "./hamburger.scss";
 
 interface IHamburger {
   events?: { click: (e: Event) => void };
