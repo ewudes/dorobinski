@@ -2,7 +2,7 @@ import Block from "../../core/block";
 import Button from "../button/button"
 
 import filters from "./filters.tml";
-import './filters.scss'
+import "./filters.scss";
 
 interface IFilters {
 }

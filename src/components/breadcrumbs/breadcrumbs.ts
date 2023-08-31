@@ -3,7 +3,7 @@ import Block from "../../core/block";
 import { AppRouteTranslation } from "../../utils/const.js";
 
 import breadcrumbs from "./breadcrumbs.tml";
-import './breadcrumbs.scss'
+import "./breadcrumbs.scss";
 
 interface IBreadcrumbs {
 }
