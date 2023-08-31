@@ -1,7 +1,7 @@
 import Block from "../../../core/block";
 
 import appointment from "./appointment.tml";
-import './appointment.scss'
+import "./appointment.scss";
 
 interface IAppointment {
 }
