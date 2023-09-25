@@ -10,8 +10,6 @@ import router from "./core/router";
 
 import "./index.scss";
 
-console.log(document.location)
-
 router
   .use("/", Home)
   .use("/news", News)
