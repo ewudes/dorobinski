@@ -1,0 +1,47 @@
+.item {
+
+  &__columns {
+    display: flex;
+  }
+
+  &__photos {
+    width: 50%;
+    background-color: green;
+  }
+
+  &__photo-full {
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  &__photo-preview {
+    list-style: none;
+
+    li {
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__info {
+    width: 50%;
+    background-color: red;
+
+    h3 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    ul {
+      list-style: none;
+    }
+  }
+
+  &__price {
+
+    b {
+      line-height: 20px;
+      text-align: center;
+
+      background-color: #e5e5e5;
+    }
+  }
+}

@@ -12,7 +12,6 @@ class Item extends Block {
     const breadcrumbs = new Breadcrumbs();
     const footer = new Footer();
 
-
     super("div", {
       header,
       breadcrumbs,
