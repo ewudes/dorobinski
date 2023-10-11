@@ -13,6 +13,7 @@ class Catalog extends Block {
     const catalog = [
       {
         item: new Item({
+          id: 1,
           img: "./img/content/product-1.jpg",
           description: "Набор для путешествий  «Baxter of California»",
           price: 2990,
@@ -21,6 +22,7 @@ class Catalog extends Block {
       },
       {
         item: new Item({
+          id: 2,
           img: "./img/content/product-2.jpg",
           description: "Увлажняющий кондиционер  «Baxter of California»",
           price: 1550,
@@ -29,6 +31,7 @@ class Catalog extends Block {
       },
       {
         item: new Item({
+          id: 3,
           img: "./img/content/product-3.jpg",
           description: "Гель для волос «SUAVECITO»",
           price: 490,
@@ -37,6 +40,7 @@ class Catalog extends Block {
       },
       {
         item: new Item({
+          id: 4,
           img: "./img/content/product-4.jpg",
           description: "Глина для укладки волос  «American crew»",
           price: 990,
@@ -45,6 +49,7 @@ class Catalog extends Block {
       },
       {
         item: new Item({
+          id: 5,
           img: "./img/content/product-5.jpg",
           description: "Гель для волос «AMERICAN CREW»",
           price: 3790,
@@ -53,6 +58,7 @@ class Catalog extends Block {
       },
       {
         item: new Item({
+          id: 6,
           img: "./img/content/product-6.jpg",
           description: "Набор для бритья «Baxter of California»",
           price: 4830,
