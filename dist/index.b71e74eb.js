@@ -549,7 +549,7 @@ var _itemDefault = parcelHelpers.interopDefault(_item);
 var _router = require("./core/router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
 var _indexScss = require("./index.scss");
-(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use(`/item`, (0, _itemDefault.default)).start();
+(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use(`/store/item`, (0, _itemDefault.default)).start();
 
 },{"./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./templates/pages/item/item":"jFTgW","./core/router":"f4hn2","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"emTDZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -13214,6 +13214,7 @@ class Catalog extends (0, _blockDefault.default) {
         const catalog = [
             {
                 item: new (0, _itemDefault.default)({
+                    id: 1,
                     img: "./img/content/product-1.jpg",
                     description: "Набор для путешествий  \xabBaxter of California\xbb",
                     price: 2990,
@@ -13222,6 +13223,7 @@ class Catalog extends (0, _blockDefault.default) {
             },
             {
                 item: new (0, _itemDefault.default)({
+                    id: 2,
                     img: "./img/content/product-2.jpg",
                     description: "Увлажняющий кондиционер  \xabBaxter of California\xbb",
                     price: 1550,
@@ -13230,6 +13232,7 @@ class Catalog extends (0, _blockDefault.default) {
             },
             {
                 item: new (0, _itemDefault.default)({
+                    id: 3,
                     img: "./img/content/product-3.jpg",
                     description: "Гель для волос \xabSUAVECITO\xbb",
                     price: 490,
@@ -13238,6 +13241,7 @@ class Catalog extends (0, _blockDefault.default) {
             },
             {
                 item: new (0, _itemDefault.default)({
+                    id: 4,
                     img: "./img/content/product-4.jpg",
                     description: "Глина для укладки волос  \xabAmerican crew\xbb",
                     price: 990,
@@ -13246,6 +13250,7 @@ class Catalog extends (0, _blockDefault.default) {
             },
             {
                 item: new (0, _itemDefault.default)({
+                    id: 5,
                     img: "./img/content/product-5.jpg",
                     description: "Гель для волос \xabAMERICAN CREW\xbb",
                     price: 3790,
@@ -13254,6 +13259,7 @@ class Catalog extends (0, _blockDefault.default) {
             },
             {
                 item: new (0, _itemDefault.default)({
+                    id: 6,
                     img: "./img/content/product-6.jpg",
                     description: "Набор для бритья \xabBaxter of California\xbb",
                     price: 4830,
@@ -13298,7 +13304,7 @@ class Item extends (0, _blockDefault.default) {
             name: bodyItem,
             className: "",
             events: {
-                click: ()=>(0, _routerDefault.default).go("/item")
+                click: ()=>(0, _routerDefault.default).go(`/store/item`)
             }
         });
         super("div", {
@@ -13935,18 +13941,18 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const item = (0, _handlebarsDefault.default).compile(`<div class="wrapper"
+const item = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
+    {{{header}}}
     <main class="container">
-      {{{header}}}
       <h1 class="page-title">Набор для путешествий «Baxter of California»</h1>
       {{{breadcrumbs}}}
-      <div class="catalog-columns">
-        <section class="product-photos">
+      <div class="item__columns">
+        <section class="item__photos">
           <h2 class="visually-hidden">Изображения товара</h2>
-          <p class="product-photo-full">
+          <p class="item__photo-full">
             <img src="./img/content/product-1.jpg" width="460" height="498" alt="Фото всего набора">
           </p>
-          <ul class="product-photo-preview">
+          <ul class="item__photo-preview">
             <li>
               <img src="./img/content/product-2.jpg" width="140" height="149" alt="Фото в анфас">
             </li>
@@ -13958,14 +13964,14 @@ const item = (0, _handlebarsDefault.default).compile(`<div class="wrapper"
             </li>
           </ul>
         </section>
-        <section class="product-info">
+        <section class="item__info">
           <h2 class="visually-hidden">Описание товара</h2>
           <div class="product-description">
             <p class="product-availability">Есть в наличии</p>
             <p class="product-article">Артикул: dexter-ae</p>
           </div>
           <p class="product-text">Travel Kit – необходимый аксессуар во время любого путешествия. В аккуратной кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха: средство для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным подарком.</p>
-          <p class="product-price">
+          <p class="item__price">
             <b>2 900 ₽</b>
             <a class="button" href="#">Купить</a>
           </p>
