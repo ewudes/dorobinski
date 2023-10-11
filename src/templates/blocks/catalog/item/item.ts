@@ -6,6 +6,7 @@ import "./item.scss";
 import router from "../../../../core/router";
 
 interface IItem {
+  id: number;
   img: string;
   description: string;
   price: number;
@@ -28,7 +29,7 @@ class Item extends Block {
       name: bodyItem,
       className: "",
       events: {
-        click: () => router.go("/item")
+        click: () => router.go(`/store/item`)
       }
     });
 
