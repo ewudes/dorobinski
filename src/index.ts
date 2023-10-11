@@ -16,5 +16,5 @@ router
   .use("/store", Store)
   .use("/price", Price)
   .use("/contacts", Contacts)
-  .use(`/item`, Item)
+  .use(`/store/item`, Item)
   .start();
