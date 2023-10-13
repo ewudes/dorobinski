@@ -1,8 +1,11 @@
+@import "../../../variables.scss";
+
 .error {
+
   &__title,
   &__description {
     font-size: 58px;
-    color: #000000;
+    color: $dark-font-color;
     line-height: 1.2;
     text-align: center;
   }

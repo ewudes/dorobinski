@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  color: #000000;
+  color: $dark-font-color;
   overflow: hidden;
 
   & > .page-title,
@@ -30,7 +30,7 @@
       display: block;
       width: 76%;
       height: 2px;
-      background-color: #000000;
+      background-color: $main-bg-color;
     }
 
     &::after {
@@ -54,11 +54,11 @@
 
   &__pricerow:hover {
     cursor: pointer;
-    background-color: #e3e3e3;
+    background-color: $article-bg-color;
   }
 
   &__pricecol {
-    border: 2px solid #000000;
+    border: 2px solid $main-bg-color;
     padding: 8px;
     width: 100%;
 
