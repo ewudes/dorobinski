@@ -26,11 +26,11 @@ const item = Handlebars.compile(
         </section>
         <section class="item__info">
           <h2 class="visually-hidden">Описание товара</h2>
-          <div class="product-description">
-            <p class="product-availability">Есть в наличии</p>
-            <p class="product-article">Артикул: dexter-ae</p>
+          <div class="item__description">
+            <p class="item__availability">Есть в наличии</p>
+            <p class="item__article">Артикул: dexter-ae</p>
           </div>
-          <p class="product-text">Travel Kit – необходимый аксессуар во время любого путешествия. В аккуратной кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха: средство для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным подарком.</p>
+          <p class="item__text">Travel Kit – необходимый аксессуар во время любого путешествия. В аккуратной кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха: средство для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным подарком.</p>
           <p class="item__price">
             <b>2 900 ₽</b>
             <a class="button" href="#">Купить</a>
