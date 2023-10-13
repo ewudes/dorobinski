@@ -25,10 +25,10 @@
     box-sizing: border-box;
     font: inherit;
     background-color: transparent;
-    border: 2px solid #000000;
+    border: 2px solid $main-border-color;
 
     &:focus {
-      border-color: #663d15;
+      border-color: $focus-border-color;
     }
 
     &::-webkit-datetime-edit {

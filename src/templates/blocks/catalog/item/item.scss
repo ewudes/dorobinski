@@ -5,7 +5,7 @@
   flex-direction: column;
   margin-bottom: 20px;
   padding: 16px;
-  background-color: #f8f8f8;
+  background-color: $item-bg-color;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   &:nth-child(3n) {
@@ -27,7 +27,7 @@
 
   &__category {
     text-transform: none;
-    color: #000000;
+    color: $dark-font-color;
     padding: 10px 0;
     box-shadow: none;
     background-color: transparent;
@@ -40,23 +40,23 @@
     line-height: 20px;
     text-align: center;
     padding: 10px 17px;
-    background-color: #e5e5e5;
+    background-color: $article-bg-color;
     width: 58%;
     box-sizing: border-box;
-    color: #000000;
+    color: $dark-font-color;
   }
 
   &__buy {
     display: inline-block;
     line-height: 20px;
-    background-color: #000000;
+    background-color: $main-bg-color;
     padding: 10px 0;
     width: 40%;
-    color: #ffffff;
+    color: $main-font-color;
     text-align: center;
 
     &:hover {
-      background-color: #663d15;
+      background-color: $hover-bg-color;
     }
   }
 
