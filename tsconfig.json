@@ -16,6 +16,7 @@
     "noUnusedParameters": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
+    "allowJs": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "strictNullChecks": true,
