@@ -4,7 +4,7 @@ const contacts = Handlebars.compile(
   `<section class="contacts">
     <h2 class="contacts__subtitle">Контактная информация</h2>
     <p>
-      Барбершоп «Бородинский»<br>
+      Барбершоп «Доробинский»<br>
       Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
       Телефон: +7 (812) 666-02-66
     </p>

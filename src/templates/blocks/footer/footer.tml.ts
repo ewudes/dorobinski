@@ -4,7 +4,7 @@ const footer = Handlebars.compile(
   `<footer class="footer">
     <div class="container">
       <p class="footer__contacts">
-        Барбершоп «Бородинский»<br>
+        Барбершоп «Доробинский»<br>
         Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
         <a href="map.html">Как нас найти?</a><br>
         Телефон: +7 (812) 666-02-66
