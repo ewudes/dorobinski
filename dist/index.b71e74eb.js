@@ -548,10 +548,15 @@ var _item = require("./templates/pages/item/item");
 var _itemDefault = parcelHelpers.interopDefault(_item);
 var _router = require("./core/router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
+var _filters = require("./mocks/filters");
+var _catalog = require("./mocks/catalog");
 var _indexScss = require("./index.scss");
-(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default)).use("/store", (0, _storeDefault.default)).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use(`/store/item`, (0, _itemDefault.default)).start();
+(0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default), (0, _filters.filterNews)).use("/store", (0, _storeDefault.default), [
+    (0, _filters.filterStore),
+    (0, _catalog.catalog)
+]).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use(`/store/item`, (0, _itemDefault.default)).start();
 
-},{"./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./templates/pages/item/item":"jFTgW","./core/router":"f4hn2","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"emTDZ":[function(require,module,exports) {
+},{"./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./templates/pages/item/item":"jFTgW","./core/router":"f4hn2","./mocks/filters":"lseYe","./mocks/catalog":"l6Akn","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"emTDZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -12618,7 +12623,7 @@ var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const footer = (0, _handlebarsDefault.default).compile(`<footer class="footer">
     <div class="container">
       <p class="footer__contacts">
-        Барбершоп «Бородинский»<br>
+        Барбершоп «Доробинский»<br>
         Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
         <a href="map.html">Как нас найти?</a><br>
         Телефон: +7 (812) 666-02-66
@@ -12780,7 +12785,7 @@ var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const contacts = (0, _handlebarsDefault.default).compile(`<section class="contacts">
     <h2 class="contacts__subtitle">Контактная информация</h2>
     <p>
-      Барбершоп «Бородинский»<br>
+      Барбершоп «Доробинский»<br>
       Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
       Телефон: +7 (812) 666-02-66
     </p>
@@ -12859,9 +12864,9 @@ var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const home = (0, _handlebarsDefault.default).compile(`<div class="wrapper wrapper--home">
     {{{header}}}
-    <a class="home__logo">Барбершоп «Бородинский»</a>
+    <a class="home__logo">Барбершоп «Доробинский»</a>
     <main class="container">
-      <h1 class="visually-hidden">Барбершоп «Бородинский»</h1>
+      <h1 class="visually-hidden">Барбершоп «Доробинский»</h1>
       {{{features}}}
       <div class="index-columns">
         {{{news}}}
@@ -12901,87 +12906,9 @@ class Store extends (0, _blockDefault.default) {
         const header = new (0, _headerDefault.default)();
         const breadcrumbs = new (0, _breadcrumbsDefault.default)();
         const footer = new (0, _footerDefault.default)();
-        const filters = [
-            {
-                type: "checkbox",
-                legend: "Производители:",
-                items: [
-                    {
-                        name: "baxter-of-california",
-                        id: "filter-baxter-of-california",
-                        label: "Baxter of California",
-                        checked: "checked"
-                    },
-                    {
-                        name: "mr-natty",
-                        id: "filter-mr-natty",
-                        label: "Mr Natty",
-                        checked: ""
-                    },
-                    {
-                        name: "suavecito",
-                        id: "filter-suavecito",
-                        label: "Suavecito",
-                        checked: "checked"
-                    },
-                    {
-                        name: "malin-goetz",
-                        id: "filter-malin-goetz",
-                        label: "Malin+Goetz",
-                        checked: ""
-                    },
-                    {
-                        name: "murrays",
-                        id: "filter-murrays",
-                        label: "Murray's",
-                        checked: ""
-                    },
-                    {
-                        name: "american-crew",
-                        id: "filter-american-crew",
-                        label: "American Crew",
-                        checked: ""
-                    }
-                ]
-            },
-            {
-                type: "radio",
-                legend: "Группы товаров:",
-                items: [
-                    {
-                        name: "groups-product",
-                        value: "all",
-                        id: "groups-all",
-                        label: "Все",
-                        checked: "checked"
-                    },
-                    {
-                        name: "groups-product",
-                        value: "shaving",
-                        id: "groups-shaving",
-                        label: "Бритвенные принадлежности",
-                        checked: ""
-                    },
-                    {
-                        name: "groups-product",
-                        value: "hair-care",
-                        id: "groups-care",
-                        label: "Средства для ухода",
-                        checked: ""
-                    },
-                    {
-                        name: "groups-product",
-                        value: "accessories",
-                        id: "groups-accessories",
-                        label: "Аксессуары",
-                        checked: ""
-                    }
-                ]
-            }
-        ];
         const double = new (0, _doubleDefault.default)({
-            aside: new (0, _filtersDefault.default)(filters),
-            main: new (0, _catalogDefault.default)()
+            aside: new (0, _filtersDefault.default)(props[0]),
+            main: new (0, _catalogDefault.default)(props[1])
         });
         super("div", {
             header,
@@ -13211,62 +13138,11 @@ var _catalogTmlDefault = parcelHelpers.interopDefault(_catalogTml);
 var _catalogScss = require("./catalog.scss");
 class Catalog extends (0, _blockDefault.default) {
     constructor(props){
-        const catalog = [
-            {
+        const catalog = props.map((x)=>({
                 item: new (0, _itemDefault.default)({
-                    id: 1,
-                    img: "./img/content/product-1.jpg",
-                    description: "Набор для путешествий  \xabBaxter of California\xbb",
-                    price: 2990,
-                    category: "shaving"
+                    ...x
                 })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    id: 2,
-                    img: "./img/content/product-2.jpg",
-                    description: "Увлажняющий кондиционер  \xabBaxter of California\xbb",
-                    price: 1550,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    id: 3,
-                    img: "./img/content/product-3.jpg",
-                    description: "Гель для волос \xabSUAVECITO\xbb",
-                    price: 490,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    id: 4,
-                    img: "./img/content/product-4.jpg",
-                    description: "Глина для укладки волос  \xabAmerican crew\xbb",
-                    price: 990,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    id: 5,
-                    img: "./img/content/product-5.jpg",
-                    description: "Гель для волос \xabAMERICAN CREW\xbb",
-                    price: 3790,
-                    category: "shaving"
-                })
-            },
-            {
-                item: new (0, _itemDefault.default)({
-                    id: 6,
-                    img: "./img/content/product-6.jpg",
-                    description: "Набор для бритья \xabBaxter of California\xbb",
-                    price: 4830,
-                    category: "shaving"
-                })
-            }
-        ];
+            }));
         const pagination = new (0, _paginationDefault.default)();
         super("div", {
             catalog,
@@ -13294,6 +13170,7 @@ var _router = require("../../../../core/router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
 class Item extends (0, _blockDefault.default) {
     constructor(props){
+        // console.log('props', props)
         const bodyItem = `<p class="catalog-item__image">
         <img src=${props?.img} width="188" height="160" alt=${props?.description}>
       </p>
@@ -13417,81 +13294,11 @@ var _feeds = require("../../blocks/feeds/feeds");
 var _feedsDefault = parcelHelpers.interopDefault(_feeds);
 class News extends (0, _blockDefault.default) {
     constructor(props = {}){
-        const filters = [
-            {
-                type: "radio",
-                legend: "Категории:",
-                items: [
-                    {
-                        name: "category",
-                        value: "all",
-                        id: "category-all",
-                        label: "Все",
-                        checked: "checked"
-                    },
-                    {
-                        name: "category",
-                        value: "promotions",
-                        id: "category-promotions",
-                        label: "Акции",
-                        checked: ""
-                    },
-                    {
-                        name: "category",
-                        value: "interesting",
-                        id: "category-interesting",
-                        label: "Вам будет интересно",
-                        checked: ""
-                    },
-                    {
-                        name: "category",
-                        value: "beard",
-                        id: "category-beard",
-                        label: "Уход за бородой",
-                        checked: ""
-                    }
-                ]
-            },
-            {
-                type: "radio",
-                legend: "Период:",
-                items: [
-                    {
-                        name: "period",
-                        value: "all",
-                        id: "period-all",
-                        label: "Все",
-                        checked: "checked"
-                    },
-                    {
-                        name: "period",
-                        value: "week",
-                        id: "period-week",
-                        label: "Прошлая неделя",
-                        checked: ""
-                    },
-                    {
-                        name: "period",
-                        value: "month",
-                        id: "period-month",
-                        label: "Прошлый месяц",
-                        checked: ""
-                    },
-                    {
-                        name: "period",
-                        value: "year",
-                        id: "period-year",
-                        label: "Прошлый год",
-                        checked: ""
-                    }
-                ]
-            }
-        ];
         const header = new (0, _headerDefault.default)();
         const breadcrumbs = new (0, _breadcrumbsDefault.default)();
         const footer = new (0, _footerDefault.default)();
         const double = new (0, _doubleDefault.default)({
-            aside: new (0, _filtersDefault.default)(filters),
+            aside: new (0, _filtersDefault.default)(props),
             main: new (0, _feedsDefault.default)()
         });
         super("div", {
@@ -13990,6 +13797,230 @@ const item = (0, _handlebarsDefault.default).compile(`<div class="wrapper">
   </div>`);
 exports.default = item;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fQWYP":[function() {},{}],"lJZlQ":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fQWYP":[function() {},{}],"lseYe":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "filterStore", ()=>filterStore);
+parcelHelpers.export(exports, "filterNews", ()=>filterNews);
+const filterStore = [
+    {
+        type: "checkbox",
+        legend: "Производители:",
+        items: [
+            {
+                name: "baxter-of-california",
+                id: "filter-baxter-of-california",
+                label: "Baxter of California",
+                checked: "checked"
+            },
+            {
+                name: "mr-natty",
+                id: "filter-mr-natty",
+                label: "Mr Natty",
+                checked: ""
+            },
+            {
+                name: "suavecito",
+                id: "filter-suavecito",
+                label: "Suavecito",
+                checked: "checked"
+            },
+            {
+                name: "malin-goetz",
+                id: "filter-malin-goetz",
+                label: "Malin+Goetz",
+                checked: ""
+            },
+            {
+                name: "murrays",
+                id: "filter-murrays",
+                label: "Murray's",
+                checked: ""
+            },
+            {
+                name: "american-crew",
+                id: "filter-american-crew",
+                label: "American Crew",
+                checked: ""
+            }
+        ]
+    },
+    {
+        type: "radio",
+        legend: "Группы товаров:",
+        items: [
+            {
+                name: "groups-product",
+                value: "all",
+                id: "groups-all",
+                label: "Все",
+                checked: "checked"
+            },
+            {
+                name: "groups-product",
+                value: "shaving",
+                id: "groups-shaving",
+                label: "Бритвенные принадлежности",
+                checked: ""
+            },
+            {
+                name: "groups-product",
+                value: "hair-care",
+                id: "groups-care",
+                label: "Средства для ухода",
+                checked: ""
+            },
+            {
+                name: "groups-product",
+                value: "accessories",
+                id: "groups-accessories",
+                label: "Аксессуары",
+                checked: ""
+            }
+        ]
+    }
+];
+const filterNews = [
+    {
+        type: "radio",
+        legend: "Категории:",
+        items: [
+            {
+                name: "category",
+                value: "all",
+                id: "category-all",
+                label: "Все",
+                checked: "checked"
+            },
+            {
+                name: "category",
+                value: "promotions",
+                id: "category-promotions",
+                label: "Акции",
+                checked: ""
+            },
+            {
+                name: "category",
+                value: "interesting",
+                id: "category-interesting",
+                label: "Вам будет интересно",
+                checked: ""
+            },
+            {
+                name: "category",
+                value: "beard",
+                id: "category-beard",
+                label: "Уход за бородой",
+                checked: ""
+            }
+        ]
+    },
+    {
+        type: "radio",
+        legend: "Период:",
+        items: [
+            {
+                name: "period",
+                value: "all",
+                id: "period-all",
+                label: "Все",
+                checked: "checked"
+            },
+            {
+                name: "period",
+                value: "week",
+                id: "period-week",
+                label: "Прошлая неделя",
+                checked: ""
+            },
+            {
+                name: "period",
+                value: "month",
+                id: "period-month",
+                label: "Прошлый месяц",
+                checked: ""
+            },
+            {
+                name: "period",
+                value: "year",
+                id: "period-year",
+                label: "Прошлый год",
+                checked: ""
+            }
+        ]
+    }
+];
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l6Akn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "catalog", ()=>catalog);
+const catalog = [
+    {
+        id: 1,
+        img: "./img/content/product-1.jpg",
+        description: "Набор для путешествий  \xabBaxter of California\xbb",
+        price: 2990,
+        category: "shaving"
+    },
+    {
+        id: 2,
+        img: "./img/content/product-2.jpg",
+        description: "Увлажняющий кондиционер  \xabBaxter of California\xbb",
+        price: 1550,
+        category: "shaving"
+    },
+    {
+        id: 3,
+        img: "./img/content/product-3.jpg",
+        description: "Гель для волос \xabSUAVECITO\xbb",
+        price: 490,
+        category: "shaving"
+    },
+    {
+        id: 4,
+        img: "./img/content/product-4.jpg",
+        description: "Глина для укладки волос  \xabAmerican crew\xbb",
+        price: 990,
+        category: "shaving"
+    },
+    {
+        id: 5,
+        img: "./img/content/product-5.jpg",
+        description: "Гель для волос \xabAMERICAN CREW\xbb",
+        price: 3790,
+        category: "shaving"
+    },
+    {
+        id: 5,
+        img: "./img/content/product-5.jpg",
+        description: "Гель для волос \xabAMERICAN CREW\xbb",
+        price: 3790,
+        category: "shaving"
+    },
+    {
+        id: 5,
+        img: "./img/content/product-5.jpg",
+        description: "Гель для волос \xabAMERICAN CREW\xbb",
+        price: 3790,
+        category: "shaving"
+    },
+    {
+        id: 5,
+        img: "./img/content/product-5.jpg",
+        description: "Гель для волос \xabAMERICAN CREW\xbb",
+        price: 3790,
+        category: "shaving"
+    },
+    {
+        id: 6,
+        img: "./img/content/product-6.jpg",
+        description: "Набор для бритья \xabBaxter of California\xbb",
+        price: 4830,
+        category: "shaving"
+    }
+];
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lJZlQ":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
 
 //# sourceMappingURL=index.b71e74eb.js.map
