@@ -18,7 +18,7 @@ class Catalog extends Block {
       })
     }));
 
-    const pagination = new Pagination();
+    const pagination = new Pagination(catalog);
 
     super("div", {
       catalog,
