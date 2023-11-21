@@ -61,5 +61,12 @@ export const catalog = [
     description: "Набор для бритья «Baxter of California»",
     price: 4830,
     category: "shaving"
+  },
+  {
+    id: 6,
+    img: "./img/content/product-6.jpg",
+    description: "Набор для бритья «Baxter of California»",
+    price: 4830,
+    category: "shaving"
   }
 ]
