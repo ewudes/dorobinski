@@ -13143,7 +13143,7 @@ class Catalog extends (0, _blockDefault.default) {
                     ...x
                 })
             }));
-        const pagination = new (0, _paginationDefault.default)();
+        const pagination = new (0, _paginationDefault.default)(catalog);
         super("div", {
             catalog,
             pagination,
@@ -13170,7 +13170,6 @@ var _router = require("../../../../core/router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
 class Item extends (0, _blockDefault.default) {
     constructor(props){
-        // console.log('props', props)
         const bodyItem = `<p class="catalog-item__image">
         <img src=${props?.img} width="188" height="160" alt=${props?.description}>
       </p>
@@ -13219,7 +13218,73 @@ var _paginationTmlDefault = parcelHelpers.interopDefault(_paginationTml);
 var _paginationScss = require("./pagination.scss");
 class Pagination extends (0, _blockDefault.default) {
     constructor(props){
-        super("div", props);
+        const getLastDigit = (t)=>{
+            return parseInt(t.toString().slice(-1));
+        };
+        const getFirstDigits = (t)=>{
+            return parseInt(t.toString().slice(0, -1));
+        };
+        const isMultipleOf5 = (t)=>{
+            return [
+                0,
+                5
+            ].reduce((res, curr)=>{
+                return res = res || curr === getLastDigit(t);
+            }, false);
+        };
+        const isBetween0and5 = (t)=>{
+            const _t = getLastDigit(t);
+            return _t < 5;
+        };
+        const isBetween5and9 = (t)=>{
+            const _t = getLastDigit(t);
+            return (_t)=>_t <= 9;
+        };
+        const appendDigit = (t, d)=>{
+            return parseInt(getFirstDigits(t).toString() + d.toString());
+        };
+        const getLeft = (t)=>{
+            if (t >= 10) {
+                if (isBetween0and5(t)) return appendDigit(t, 0);
+                else return appendDigit(t, 5);
+            } else {
+                if (t < 5) return 0;
+                else return 5;
+            }
+        };
+        const getSecondRightMostDigit = (t)=>{
+            return parseInt(t.toString().slice(-2, -1));
+        };
+        const incrementSecondDigit = (t)=>{
+            return t + 10;
+        };
+        const getRight = (t)=>{
+            if (t < 5) return 5;
+            else if (t < 10) return 10;
+            else if (isBetween0and5(t)) return appendDigit(t, 5);
+            else return appendDigit(incrementSecondDigit(t), 0);
+        };
+        function range(c, m) {
+            const current = c || 1, last = m, delta = 2, left = getLeft(c), right = getRight(c), range = [], rangeWithEllipsis = [];
+            let l, t;
+            const rightBoundary = right < 5 ? 5 : right;
+            for(var i = left; i < rightBoundary; ++i)if (i < m && i > 0) range.push(i);
+            range.push(m);
+            for (let i1 of range){
+                if (l) {
+                    if (i1 - l === 2) {
+                        t = l + 1;
+                        rangeWithEllipsis.push(t);
+                    } else if (i1 - l !== 1) rangeWithEllipsis.push("...");
+                }
+                rangeWithEllipsis.push(i1);
+                l = i1;
+            }
+            return rangeWithEllipsis;
+        }
+        super("div", {
+            ...props
+        });
     }
     render() {
         return this.setTemplate((0, _paginationTmlDefault.default), this.props);
@@ -13233,11 +13298,14 @@ parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const pagination = (0, _handlebarsDefault.default).compile(`<ul class="pagination">
-      <li class="pagination__item"><a href="#">1</a></li>
-      <li class="pagination__item pagination__item--current"><a>2</a></li>
-      <li class="pagination__item"><a href="#">3</a></li>
-      <li class="pagination__item"><a href="#">4</a></li>
-    </ul>`);
+    <li class="pagination-prev"><a href="#">&laquo;</a></li>
+
+    {{#each pages}}
+      <li class="pagination-page" data-page="{{this}}"><a href="#">{{this}}</a></li>
+    {{/each}}
+
+    <li class="pagination-next"><a href="#">&raquo;</a></li>
+  </ul>`);
 exports.default = pagination;
 
 },{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3qCT5":[function() {},{}],"iedY2":[function(require,module,exports) {
@@ -14010,6 +14078,13 @@ const catalog = [
         img: "./img/content/product-5.jpg",
         description: "Гель для волос \xabAMERICAN CREW\xbb",
         price: 3790,
+        category: "shaving"
+    },
+    {
+        id: 6,
+        img: "./img/content/product-6.jpg",
+        description: "Набор для бритья \xabBaxter of California\xbb",
+        price: 4830,
         category: "shaving"
     },
     {
