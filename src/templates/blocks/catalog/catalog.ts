@@ -12,16 +12,16 @@ interface ICatalog {
 class Catalog extends Block {
   constructor(props: ICatalog) {
 
-    const catalog = props.map((x: any) => ({
+    const products = props.map((x: any) => ({
       item: new Item({
         ...x
       })
     }));
 
-    const pagination = new Pagination(catalog);
+    const pagination = new Pagination(products);
 
     super("div", {
-      catalog,
+      products,
       pagination,
       ...props
     });

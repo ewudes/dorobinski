@@ -8,14 +8,14 @@ import Item from "./templates/pages/item/item";
 
 import router from "./core/router";
 import { filterStore, filterNews } from "./mocks/filters";
-import { catalog } from "./mocks/catalog";
+import { products } from "./mocks/products";
 
 import "./index.scss";
 
 router
   .use("/", Home)
   .use("/news", News, filterNews)
-  .use("/store", Store, [filterStore, catalog])
+  .use("/store", Store, [filterStore, products])
   .use("/price", Price)
   .use("/contacts", Contacts)
   .use(`/store/item`, Item)
