@@ -549,14 +549,14 @@ var _itemDefault = parcelHelpers.interopDefault(_item);
 var _router = require("./core/router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
 var _filters = require("./mocks/filters");
-var _catalog = require("./mocks/catalog");
+var _products = require("./mocks/products");
 var _indexScss = require("./index.scss");
 (0, _routerDefault.default).use("/", (0, _homeDefault.default)).use("/news", (0, _newsDefault.default), (0, _filters.filterNews)).use("/store", (0, _storeDefault.default), [
     (0, _filters.filterStore),
-    (0, _catalog.catalog)
+    (0, _products.products)
 ]).use("/price", (0, _priceDefault.default)).use("/contacts", (0, _contactsDefault.default)).use(`/store/item`, (0, _itemDefault.default)).start();
 
-},{"./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./templates/pages/item/item":"jFTgW","./core/router":"f4hn2","./mocks/filters":"lseYe","./mocks/catalog":"l6Akn","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"emTDZ":[function(require,module,exports) {
+},{"./templates/pages/home/home":"emTDZ","./templates/pages/store/store":"kIM9v","./templates/pages/news/news":"d6ydp","./templates/pages/price/price":"7XDZh","./templates/pages/contacts/contacts":"h5rAj","./templates/pages/item/item":"jFTgW","./core/router":"f4hn2","./mocks/filters":"lseYe","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./mocks/products":"cJTND"}],"emTDZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../../core/block");
@@ -13138,14 +13138,14 @@ var _catalogTmlDefault = parcelHelpers.interopDefault(_catalogTml);
 var _catalogScss = require("./catalog.scss");
 class Catalog extends (0, _blockDefault.default) {
     constructor(props){
-        const catalog = props.map((x)=>({
+        const products = props.map((x)=>({
                 item: new (0, _itemDefault.default)({
                     ...x
                 })
             }));
-        const pagination = new (0, _paginationDefault.default)(catalog);
+        const pagination = new (0, _paginationDefault.default)(products);
         super("div", {
-            catalog,
+            products,
             pagination,
             ...props
         });
@@ -13268,7 +13268,7 @@ class Pagination extends (0, _blockDefault.default) {
             const current = c || 1, last = m, delta = 2, left = getLeft(c), right = getRight(c), range = [], rangeWithEllipsis = [];
             let l, t;
             const rightBoundary = right < 5 ? 5 : right;
-            for(var i = left; i < rightBoundary; ++i)if (i < m && i > 0) range.push(i);
+            for(let i = left; i < rightBoundary; ++i)if (i < m && i > 0) range.push(i);
             range.push(m);
             for (let i1 of range){
                 if (l) {
@@ -13301,7 +13301,7 @@ const pagination = (0, _handlebarsDefault.default).compile(`<ul class="paginatio
     <li class="pagination-prev"><a href="#">&laquo;</a></li>
 
     {{#each pages}}
-      <li class="pagination-page" data-page="{{this}}"><a href="#">{{this}}</a></li>
+    <li class="pagination-page" data-page="{{this}}"><a href="#">{{this}}</a></li>
     {{/each}}
 
     <li class="pagination-next"><a href="#">&raquo;</a></li>
@@ -14019,11 +14019,11 @@ const filterNews = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l6Akn":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lJZlQ":[function() {},{}],"cJTND":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "catalog", ()=>catalog);
-const catalog = [
+parcelHelpers.export(exports, "products", ()=>products);
+const products = [
     {
         id: 1,
         img: "./img/content/product-1.jpg",
@@ -14096,6 +14096,6 @@ const catalog = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lJZlQ":[function() {},{}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequire0f7b")
 
 //# sourceMappingURL=index.b71e74eb.js.map
