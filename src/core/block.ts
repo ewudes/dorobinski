@@ -172,7 +172,7 @@ abstract class Block {
 
     if (events) {
       Object.keys(events).forEach((eventName) => {
-        this.element.addEventListener(eventName, events[eventName]);
+        this.element.removeEventListener(eventName, events[eventName]);
       });
     }
   }
@@ -198,10 +198,8 @@ abstract class Block {
   protected setTemplate(template: Function, props: Record<string, any>) {
     const propsAndStubs = { ...props };
 
-    // Create the stubs
     Object.entries(this.children).forEach(([key, child]) => {
       if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) {
-        // If the array of properties
         child.forEach((innerChild: Record<string, Block>) => {
           Object.entries(innerChild).forEach(([innerChildKey, child]) => {
             if (!propsAndStubs[key]) {
@@ -223,10 +221,8 @@ abstract class Block {
     ) as HTMLTemplateElement;
     fragment.innerHTML = template(propsAndStubs);
 
-    // Replace the stubs with a Block
     Object.values(this.children).forEach((child) => {
       if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) {
-        // If the array of properties
         child.forEach((innerChild: Record<string, Block>) => {
           Object.entries(innerChild).forEach(([[], child]) => {
             const stub = fragment.content.querySelector(
