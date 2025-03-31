@@ -18,7 +18,7 @@ class Store extends Block {
 
     const double = new Double({
       aside: new Filters(props[0]),
-      main: new Catalog(props[1]),
+      // main: new Catalog(props[1]),
     });
 
     super("div", { header, breadcrumbs, double, footer, ...props });
