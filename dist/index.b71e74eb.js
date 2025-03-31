@@ -731,7 +731,7 @@ class Block {
     removeEvents() {
         const { events  } = this.props;
         if (events) Object.keys(events).forEach((eventName)=>{
-            this.element.addEventListener(eventName, events[eventName]);
+            this.element.removeEventListener(eventName, events[eventName]);
         });
     }
     getChildren(propsAndChildren) {
@@ -750,10 +750,8 @@ class Block {
         const propsAndStubs = {
             ...props
         };
-        // Create the stubs
         Object.entries(this.children).forEach(([key, child])=>{
-            if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) // If the array of properties
-            child.forEach((innerChild)=>{
+            if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) child.forEach((innerChild)=>{
                 Object.entries(innerChild).forEach(([innerChildKey, child])=>{
                     if (!propsAndStubs[key]) propsAndStubs[key] = [];
                     propsAndStubs[key].push({
@@ -765,10 +763,8 @@ class Block {
         });
         const fragment = this.createDocumentElement("template");
         fragment.innerHTML = template(propsAndStubs);
-        // Replace the stubs with a Block
         Object.values(this.children).forEach((child)=>{
-            if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) // If the array of properties
-            child.forEach((innerChild)=>{
+            if (Array.isArray(child) && Object.values(child[0])[0] instanceof Block) child.forEach((innerChild)=>{
                 Object.entries(innerChild).forEach(([[], child])=>{
                     const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
                     stub.replaceWith(child.getElement());
@@ -12894,8 +12890,6 @@ var _double = require("../../layouts/double/double");
 var _doubleDefault = parcelHelpers.interopDefault(_double);
 var _filters = require("../../../components/filters/filters");
 var _filtersDefault = parcelHelpers.interopDefault(_filters);
-var _catalog = require("../../blocks/catalog/catalog");
-var _catalogDefault = parcelHelpers.interopDefault(_catalog);
 var _footer = require("../../blocks/footer/footer");
 var _footerDefault = parcelHelpers.interopDefault(_footer);
 var _storeTml = require("./store.tml");
@@ -12907,8 +12901,7 @@ class Store extends (0, _blockDefault.default) {
         const breadcrumbs = new (0, _breadcrumbsDefault.default)();
         const footer = new (0, _footerDefault.default)();
         const double = new (0, _doubleDefault.default)({
-            aside: new (0, _filtersDefault.default)(props[0]),
-            main: new (0, _catalogDefault.default)(props[1])
+            aside: new (0, _filtersDefault.default)(props[0])
         });
         super("div", {
             header,
@@ -12924,7 +12917,7 @@ class Store extends (0, _blockDefault.default) {
 }
 exports.default = Store;
 
-},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../layouts/double/double":"9a1TE","../../../components/filters/filters":"5ozXA","../../blocks/catalog/catalog":"lG7z2","../../blocks/footer/footer":"8y6VV","./store.tml":"lcrrw","./store.scss":"104RH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2TBnP":[function(require,module,exports) {
+},{"../../../core/block":"axMnM","../../blocks/header/header":"8Tu9P","../../../components/breadcrumbs/breadcrumbs":"2TBnP","../../layouts/double/double":"9a1TE","../../../components/filters/filters":"5ozXA","../../blocks/footer/footer":"8y6VV","./store.tml":"lcrrw","./store.scss":"104RH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2TBnP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _block = require("../../core/block");
@@ -13124,207 +13117,7 @@ const breadcrumbs = (0, _handlebarsDefault.default).compile(`<section class="fil
   </section>`);
 exports.default = breadcrumbs;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1lDjn":[function() {},{}],"lG7z2":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _item = require("./item/item");
-var _itemDefault = parcelHelpers.interopDefault(_item);
-var _pagination = require("../pagination/pagination");
-var _paginationDefault = parcelHelpers.interopDefault(_pagination);
-var _catalogTml = require("./catalog.tml");
-var _catalogTmlDefault = parcelHelpers.interopDefault(_catalogTml);
-var _catalogScss = require("./catalog.scss");
-class Catalog extends (0, _blockDefault.default) {
-    constructor(props){
-        const products = props.map((x)=>({
-                item: new (0, _itemDefault.default)({
-                    ...x
-                })
-            }));
-        const pagination = new (0, _paginationDefault.default)(products);
-        super("div", {
-            products,
-            pagination,
-            ...props
-        });
-    }
-    render() {
-        return this.setTemplate((0, _catalogTmlDefault.default), this.props);
-    }
-}
-exports.default = Catalog;
-
-},{"../../../core/block":"axMnM","./item/item":"eJqIC","../pagination/pagination":"88oLH","./catalog.tml":"iedY2","./catalog.scss":"joHHX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eJqIC":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _link = require("../../../../components/link/link");
-var _linkDefault = parcelHelpers.interopDefault(_link);
-var _itemTml = require("./item.tml");
-var _itemTmlDefault = parcelHelpers.interopDefault(_itemTml);
-var _itemScss = require("./item.scss");
-var _router = require("../../../../core/router");
-var _routerDefault = parcelHelpers.interopDefault(_router);
-class Item extends (0, _blockDefault.default) {
-    constructor(props){
-        const bodyItem = `<p class="catalog-item__image">
-        <img src=${props?.img} width="188" height="160" alt=${props?.description}>
-      </p>
-      <h3>
-        <span class="catalog-item__category">${props?.description}</span>
-      </h3>`;
-        const itemLink = new (0, _linkDefault.default)({
-            name: bodyItem,
-            className: "",
-            events: {
-                click: ()=>(0, _routerDefault.default).go(`/store/item`)
-            }
-        });
-        super("div", {
-            itemLink,
-            ...props
-        });
-    }
-    render() {
-        return this.setTemplate((0, _itemTmlDefault.default), this.props);
-    }
-}
-exports.default = Item;
-
-},{"../../../../core/block":"axMnM","../../../../components/link/link":"9UCyh","./item.tml":"fkKMZ","./item.scss":"iAKUh","../../../../core/router":"f4hn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fkKMZ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const item = (0, _handlebarsDefault.default).compile(`<li class="catalog-item">
-    {{{itemLink}}}
-    <p class="catalog-item__price">
-      <b class="catalog-item__tag">{{price}} ₽</b>
-      <a class="catalog-item__buy" href="#">Купить</a>
-    </p>
-  </li>`);
-exports.default = item;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iAKUh":[function() {},{}],"88oLH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _block = require("../../../core/block");
-var _blockDefault = parcelHelpers.interopDefault(_block);
-var _paginationTml = require("./pagination.tml");
-var _paginationTmlDefault = parcelHelpers.interopDefault(_paginationTml);
-var _paginationScss = require("./pagination.scss");
-class Pagination extends (0, _blockDefault.default) {
-    constructor(props){
-        const getLastDigit = (t)=>{
-            return parseInt(t.toString().slice(-1));
-        };
-        const getFirstDigits = (t)=>{
-            return parseInt(t.toString().slice(0, -1));
-        };
-        const isMultipleOf5 = (t)=>{
-            return [
-                0,
-                5
-            ].reduce((res, curr)=>{
-                return res = res || curr === getLastDigit(t);
-            }, false);
-        };
-        const isBetween0and5 = (t)=>{
-            const _t = getLastDigit(t);
-            return _t < 5;
-        };
-        const isBetween5and9 = (t)=>{
-            const _t = getLastDigit(t);
-            return (_t)=>_t <= 9;
-        };
-        const appendDigit = (t, d)=>{
-            return parseInt(getFirstDigits(t).toString() + d.toString());
-        };
-        const getLeft = (t)=>{
-            if (t >= 10) {
-                if (isBetween0and5(t)) return appendDigit(t, 0);
-                else return appendDigit(t, 5);
-            } else {
-                if (t < 5) return 0;
-                else return 5;
-            }
-        };
-        const getSecondRightMostDigit = (t)=>{
-            return parseInt(t.toString().slice(-2, -1));
-        };
-        const incrementSecondDigit = (t)=>{
-            return t + 10;
-        };
-        const getRight = (t)=>{
-            if (t < 5) return 5;
-            else if (t < 10) return 10;
-            else if (isBetween0and5(t)) return appendDigit(t, 5);
-            else return appendDigit(incrementSecondDigit(t), 0);
-        };
-        function range(c, m) {
-            const current = c || 1, last = m, delta = 2, left = getLeft(c), right = getRight(c), range = [], rangeWithEllipsis = [];
-            let l, t;
-            const rightBoundary = right < 5 ? 5 : right;
-            for(let i = left; i < rightBoundary; ++i)if (i < m && i > 0) range.push(i);
-            range.push(m);
-            for (let i1 of range){
-                if (l) {
-                    if (i1 - l === 2) {
-                        t = l + 1;
-                        rangeWithEllipsis.push(t);
-                    } else if (i1 - l !== 1) rangeWithEllipsis.push("...");
-                }
-                rangeWithEllipsis.push(i1);
-                l = i1;
-            }
-            return rangeWithEllipsis;
-        }
-        super("div", {
-            ...props
-        });
-    }
-    render() {
-        return this.setTemplate((0, _paginationTmlDefault.default), this.props);
-    }
-}
-exports.default = Pagination;
-
-},{"../../../core/block":"axMnM","./pagination.tml":"dIfE1","./pagination.scss":"3qCT5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIfE1":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const pagination = (0, _handlebarsDefault.default).compile(`<ul class="pagination">
-    <li class="pagination-prev"><a href="#">&laquo;</a></li>
-
-    {{#each pages}}
-    <li class="pagination-page" data-page="{{this}}"><a href="#">{{this}}</a></li>
-    {{/each}}
-
-    <li class="pagination-next"><a href="#">&raquo;</a></li>
-  </ul>`);
-exports.default = pagination;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3qCT5":[function() {},{}],"iedY2":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _handlebars = require("handlebars");
-var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-const catalog = (0, _handlebarsDefault.default).compile(`<section class="catalog">
-    <h2 class="visually-hidden">Список средств для ухода</h2>
-    <ul class="catalog__list">
-      {{#each catalog}}
-        {{{item}}}
-      {{/each}}
-    </ul>
-    {{{pagination}}}
-  </section>`);
-exports.default = catalog;
-
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"joHHX":[function() {},{}],"lcrrw":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1lDjn":[function() {},{}],"lcrrw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
@@ -13497,7 +13290,107 @@ const item = (0, _handlebarsDefault.default).compile(`<li class="feeds-item">
   </li>`);
 exports.default = item;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"au18O":[function() {},{}],"lAtTA":[function(require,module,exports) {
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"au18O":[function() {},{}],"88oLH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _block = require("../../../core/block");
+var _blockDefault = parcelHelpers.interopDefault(_block);
+var _paginationTml = require("./pagination.tml");
+var _paginationTmlDefault = parcelHelpers.interopDefault(_paginationTml);
+var _paginationScss = require("./pagination.scss");
+class Pagination extends (0, _blockDefault.default) {
+    constructor(props){
+        const getLastDigit = (t)=>{
+            return parseInt(t.toString().slice(-1));
+        };
+        const getFirstDigits = (t)=>{
+            return parseInt(t.toString().slice(0, -1));
+        };
+        const isMultipleOf5 = (t)=>{
+            return [
+                0,
+                5
+            ].reduce((res, curr)=>{
+                return res = res || curr === getLastDigit(t);
+            }, false);
+        };
+        const isBetween0and5 = (t)=>{
+            const _t = getLastDigit(t);
+            return _t < 5;
+        };
+        const isBetween5and9 = (t)=>{
+            const _t = getLastDigit(t);
+            return (_t)=>_t <= 9;
+        };
+        const appendDigit = (t, d)=>{
+            return parseInt(getFirstDigits(t).toString() + d.toString());
+        };
+        const getLeft = (t)=>{
+            if (t >= 10) {
+                if (isBetween0and5(t)) return appendDigit(t, 0);
+                else return appendDigit(t, 5);
+            } else {
+                if (t < 5) return 0;
+                else return 5;
+            }
+        };
+        const getSecondRightMostDigit = (t)=>{
+            return parseInt(t.toString().slice(-2, -1));
+        };
+        const incrementSecondDigit = (t)=>{
+            return t + 10;
+        };
+        const getRight = (t)=>{
+            if (t < 5) return 5;
+            else if (t < 10) return 10;
+            else if (isBetween0and5(t)) return appendDigit(t, 5);
+            else return appendDigit(incrementSecondDigit(t), 0);
+        };
+        function range(c, m) {
+            const current = c || 1, last = m, delta = 2, left = getLeft(c), right = getRight(c), range = [], rangeWithEllipsis = [];
+            let l, t;
+            const rightBoundary = right < 5 ? 5 : right;
+            for(let i = left; i < rightBoundary; ++i)if (i < m && i > 0) range.push(i);
+            range.push(m);
+            for (let i1 of range){
+                if (l) {
+                    if (i1 - l === 2) {
+                        t = l + 1;
+                        rangeWithEllipsis.push(t);
+                    } else if (i1 - l !== 1) rangeWithEllipsis.push("...");
+                }
+                rangeWithEllipsis.push(i1);
+                l = i1;
+            }
+            return rangeWithEllipsis;
+        }
+        super("div", {
+            ...props
+        });
+    }
+    render() {
+        return this.setTemplate((0, _paginationTmlDefault.default), this.props);
+    }
+}
+exports.default = Pagination;
+
+},{"../../../core/block":"axMnM","./pagination.tml":"dIfE1","./pagination.scss":"3qCT5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIfE1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _handlebars = require("handlebars");
+var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
+const pagination = (0, _handlebarsDefault.default).compile(`<ul class="pagination">
+    <li class="pagination-prev"><a href="#">&laquo;</a></li>
+
+    {{#each pages}}
+    <li class="pagination-page" data-page="{{this}}"><a href="#">{{this}}</a></li>
+    {{/each}}
+
+    <li class="pagination-next"><a href="#">&raquo;</a></li>
+  </ul>`);
+exports.default = pagination;
+
+},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3qCT5":[function() {},{}],"lAtTA":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
