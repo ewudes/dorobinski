@@ -21,7 +21,7 @@
     "nanoid": "4.0.0"
   },
   "devDependencies": {
-    "@anikin/parcel-transformer-handlebars": "1.0.9",
+    "@anikin/parcel-transformer-handlebars": "^1.0.9",
     "@parcel/transformer-sass": "2.7.0",
     "@trivago/prettier-plugin-sort-imports": "4.2.1",
     "@tsconfig/recommended": "1.0.1",
@@ -33,7 +33,7 @@
     "eslint-config-prettier": "8.5.0",
     "express": "4.18.1",
     "parcel": "2.7.0",
-    "parcel-transformer-hbs": "1.0.4",
+    "parcel-transformer-hbs": "^1.0.4",
     "prettier": "2.7.1",
     "sass": "1.54.8",
     "stylelint": "14.11.0",
