@@ -18,7 +18,7 @@
   "homepage": "https://github.com/ewudes/dorobinski#readme",
   "dependencies": {
     "handlebars": "4.7.7",
-    "nanoid": "4.0.0"
+    "nanoid": "5.0.9"
   },
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "^1.0.9",
